@@ -1,0 +1,16 @@
+
+Facebook : #3b5998
+
+Google : #db3236
+
+Email SignIn : #EFEAEA
+
+Header/Footer : #FFF200
+
+BoderColor : #FF0027 red; #00FF6A green; #FFF200 yellow; #FF6C00 orange;
+
+BoderBox : #0062FF
+
+icon: #545454
+		
+
