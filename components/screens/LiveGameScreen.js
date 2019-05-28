@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View, ImageBackground, TouchableOpacity, Image} from 'react-native';
-import {Thumbnail, Header} from 'native-base';
+import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image} from 'react-native';
+import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
 
 class LiveGameScreen extends React.Component { 
@@ -10,21 +10,21 @@ class LiveGameScreen extends React.Component {
         style={{flex:1,width:"100%"}}
     >
     <View
-            style={{backgroundColor: '#545454',flex:0.03,width:"100%"}}
+            style={styles.header}
         >
         </View>
     <ImageBackground 
         source={require("../../assets/backgrounds/Field_Bg.png")}
-        style={{flex:1 ,alignItems:"center", width:"100%"}}
+        style={styles.ibg}
         >
        
         <View
-            style={{backgroundColor: 'red',justifyContent:"space-around",alignItems:"center", flex: 0.1, flexDirection:"row",width:"100%"}}
+            style={styles.pub}
         >
         <Text>PUB</Text>
         </View>
         <View
-             style={{backgroundColor: '#FFF200',justifyContent:"space-around",alignItems:"center", flex: 0.15, flexDirection:"row", width:"100%"}}
+             style={styles.score}
         >
                  <TouchableOpacity 
                     // onPress={this._onPressButton}
@@ -39,7 +39,7 @@ class LiveGameScreen extends React.Component {
                  <Text style={{fontSize:40}}>5 - 0</Text>
                  <Text style={{fontSize:15}}>45:00</Text>
                  </View>
-                 <Thumbnail source={require("../../assets/logos/logoPsg.jpg")} />
+                 <Thumbnail source={require("../../assets/logos/logoMarseille.png")} />
                  <TouchableOpacity
                     //  onPress={this._onPressButton}
                      >
@@ -50,92 +50,92 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
         </View>
         <View
-            style={{justifyContent:"space-around",alignItems:"center", flex: 0.13,flexDirection:"row"}}
+            style={styles.goalLine}
         >
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity> 
         </View>
         <View
-            style={{width:"90%", justifyContent:"space-around",alignItems:"center", flex: 0.13,flexDirection:"row"}}
+            style={styles.defLine}
         >
              <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
         </View>
         <View
-            style={{width:"85%",justifyContent:"space-around",alignItems:"center", flex: 0.13,flexDirection:"row"}}
+            style={styles.midLine}
         >
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
         </View>
         <View
-            style={{width:"85%",justifyContent:"space-around",alignItems:"center", flex: 0.13,flexDirection:"row"}}
+            style={styles.attLine}
         >
              <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
         </View>
         <View
-            style={{width:"95%",justifyContent:"space-around",alignItems:"center", flex: 0.14,flexDirection:"row"}}
+            style={styles.staffLine}
         >
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
             <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}            
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
              <TouchableOpacity>
             <Thumbnail 
-            style={{borderWidth: 2, borderColor:'#FF0027'}}
+            style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
         </View>
@@ -152,5 +152,73 @@ class LiveGameScreen extends React.Component {
   )
  }
 }
+
+
+const styles = StyleSheet.create({
+    avatarPlayer: {
+        borderWidth: 2, 
+        borderColor:'#FF0027',
+    },
+    staffLine: {
+        width:"100%",
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.14,
+        flexDirection:"row"
+    },
+    attLine: {
+        width:"90%",
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.13,
+        flexDirection:"row"
+    },
+    midLine: {
+        width:"70%",
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.13,
+        flexDirection:"row"
+    },
+    defLine: {
+        width:"92%",
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.13,
+        flexDirection:"row"
+    },
+    goalLine: {
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.13,
+        flexDirection:"row"
+    },
+    header: {
+        backgroundColor: '#545454',
+        flex:0.03,
+        width:"100%"
+    },
+    pub: {
+        backgroundColor: 'red',
+        justifyContent:"space-around",
+        alignItems:"center", 
+        flex: 0.1, 
+        flexDirection:"row",
+        width:"100%"
+    },
+    ibg: {
+        flex:1,
+        alignItems:"center",
+        width:"100%"
+    },
+    score: {
+        backgroundColor: '#FFF200',
+        justifyContent:"space-around",
+        alignItems:"center", flex: 0.15, 
+        flexDirection:"row", 
+        width:"100%"
+    },
+  });
+  
 
 export default LiveGameScreen;
