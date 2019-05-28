@@ -20,8 +20,8 @@ onBoardClick = () => {
 
     console.log(this.state.blackboardVisible)
 
-    if(!this.state.blackboardVisible) {
-      return <View style={styles.root}>
+    if(this.state.blackboardVisible) {
+      return <View>
       <View style={styles.footer} />
       <TouchableOpacity 
         style={styles.menu}
@@ -87,7 +87,7 @@ onBoardClick = () => {
         
       </View>
     } else {
-      return <View style={styles.root}>
+      return <View>
       <View style={styles.footer} />
       <TouchableOpacity 
         style={styles.menu}
@@ -115,15 +115,11 @@ onBoardClick = () => {
 }
 
 const styles = StyleSheet.create({
-  root: {
-    backgroundColor: "white",
-    flex: 1
-  },
   blackboard: {
-    height: "30%",
-    width: "50%",
+    height: 280,
+    width: 230,
     position: "absolute",
-    bottom: "11%",
+    bottom: 80,
     left: "2%",
     backgroundColor: '#565656',
     shadowColor: "rgba(0,0,0,1)",
@@ -135,13 +131,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 1
   },
   footer: {
-    height: '10%',
+    height: 70,
     width: '100%',
     bottom: 0,
     left: 0,
     position: "absolute",
     backgroundColor: "#FFF200",
-    opacity: 1
+    opacity: 1,
   },
   icon: {
     height: 40,
@@ -157,19 +153,19 @@ const styles = StyleSheet.create({
   menu: {
     height: 42,
     width: 42,
-    bottom: '3%',
+    bottom: 11,
     left: '7%',
     position: "absolute"
   },
   coach: {
     height: 39,
     width: 38,
-    bottom: '3%',
+    bottom: 11,
     position: "absolute",
     right: "7%"
   },
   text: {
-    bottom: '4%',
+    bottom: 30,
     position: "absolute",
     fontSize: 18
   }
