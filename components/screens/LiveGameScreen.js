@@ -2,19 +2,29 @@ import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image} from 'react-native';
 import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
+import { Font } from 'expo';
 
 class LiveGameScreen extends React.Component { 
-    constructor(){
-        super();
-        // this.state = {
-        //     colorStatus:'',
-        // };
-    }
+    // constructor(){
+    //     super();
+
+    //     this.state = {
+    //         fontLoaded: false
+    //     };
+    // }
+    // async componentDidMount() {
+    //     await Font.loadAsync({
+    //         'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
+    //         'Orbitron-Bold': require('../../assets/fonts/Orbitron-Bold.ttf')
+    //     });
+    
+    //     this.setState({ fontLoaded: true });
+    // }
 
   render() {
 
    randomNumber = () => { 
-       return  Math.floor(Math.random() * 10000)
+       return  Math.floor(Math.random() * 100)
 };
     
 
@@ -158,9 +168,9 @@ class LiveGameScreen extends React.Component {
                     attStatus='#EFEAEA'
             } else if (att.clap > att.slap) {
                     attStatus='#00FF6A'
-            } else if (att.clap*2 < att.slap) {
+            } else if (att.clap< att.slap && att.slap < att.clap*3) {
                     attStatus='#FFF200'
-            } else if (att.clap*4 < att.slap) {
+            } else if (att.clap*3 < att.slap && att.slap< att.clap*6) {
                     attStatus='#FF6C00'
             } else {
                     attStatus='#FF0027'
@@ -189,9 +199,9 @@ class LiveGameScreen extends React.Component {
                 midStatus='#EFEAEA'
             } else if (mid.clap > mid.slap) {
                 midStatus='#00FF6A'
-            } else if (mid.clap*2 < mid.slap) {
+            } else if (mid.clap< mid.slap && mid.slap < mid.clap*3) {
                 midStatus='#FFF200'
-            } else if (mid.clap*4 < mid.slap) {
+            } else if (mid.clap*3 < mid.slap && mid.slap< mid.clap*6) {
                 midStatus='#FF6C00'
             } else {
                 midStatus='#FF0027'
@@ -219,9 +229,9 @@ class LiveGameScreen extends React.Component {
                 defStatus='#EFEAEA'
             } else if (def.clap > def.slap) {
                 defStatus='#00FF6A'
-            } else if (def.clap*2 < def.slap) {
+            } else if (def.clap< def.slap && def.slap < def.clap*3) {
                 defStatus='#FFF200'
-            } else if (def.clap*4 < def.slap) {
+            } else if (def.clap*3 < def.slap && def.slap< def.clap*6) {
                 defStatus='#FF6C00'
             } else {
                 defStatus='#FF0027'
@@ -249,9 +259,9 @@ class LiveGameScreen extends React.Component {
                 gbStatus='#EFEAEA'
             } else if (gb.clap > gb.slap) {
                 gbStatus='#00FF6A'
-            } else if (gb.clap*2 < gb.slap) {
+            } else if (gb.clap< gb.slap && gb.slap < gb.clap*3) {
                 gbStatus='#FFF200'
-            } else if (gb.clap*4 < gb.slap) {
+            } else if (gb.clap*3 < gb.slap && gb.slap< gb.clap*6) {
                 gbStatus='#FF6C00'
             } else {
                 gbStatus='#FF0027'
@@ -279,9 +289,9 @@ class LiveGameScreen extends React.Component {
                staffStatus='#EFEAEA'
             } else if (staff.clap > staff.slap) {
                 staffStatus='#00FF6A'
-            } else if (staff.clap*2 < staff.slap) {
+            } else if (staff.clap< staff.slap && staff.slap < staff.clap*3) {
                 staffStatus='#FFF200'
-            } else if (staff.clap*4 < staff.slap) {
+            } else if (staff.clap*3 < staff.slap && staff.slap< staff.clap*6) {
                 staffStatus='#FF6C00'
             } else {
                 staffStatus='#FF0027'
@@ -333,8 +343,9 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
                  <Thumbnail source={require("../../assets/logos/logoPsg.jpg")} />
                  <View style={{alignItems:"center"}}>
-                 <Text style={{fontSize:40}}>5 - 0</Text>
+                 <Text style={{fontSize:40}}>5 - 0</Text> 
                  <Text style={{fontSize:15}}>45:00</Text>
+
                  </View>
                  <Thumbnail source={require("../../assets/logos/logoMarseille.png")} />
                  <TouchableOpacity
