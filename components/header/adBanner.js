@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   divide: {
-      height: '15%',
+      height: 20,
       backgroundColor: '#00B1FF',
       width:"100%"
   },

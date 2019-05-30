@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image} from 'react-native';
 import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
+import AdBanner from '../header/adBanner';
 
 class LiveGameScreen extends React.Component { 
   render() {
@@ -9,20 +10,13 @@ class LiveGameScreen extends React.Component {
     <View
         style={{flex:1,width:"100%"}}
     >
-    <View
-            style={styles.header}
-        >
-        </View>
+
+    <AdBanner/>
+
     <ImageBackground 
         source={require("../../assets/backgrounds/Field_Bg.png")}
         style={styles.ibg}
         >
-       
-        <View
-            style={styles.pub}
-        >
-        <Text>PUB</Text>
-        </View>
         <View
              style={styles.score}
         >
@@ -138,14 +132,7 @@ class LiveGameScreen extends React.Component {
             style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity>
-        </View>
-        {/* <View
-            style={{backgroundColor: '#FFF200',justifyContent:"space-around",alignItems:"center", flex: 0.1,flexDirection:"row",width:"100%"}}
-        >
-        </View> */}
-        
-
-        
+        </View>    
     </ImageBackground>
     <Footer/>
     </View>
@@ -193,19 +180,6 @@ const styles = StyleSheet.create({
         flex: 0.13,
         flexDirection:"row"
     },
-    header: {
-        backgroundColor: '#545454',
-        flex:0.03,
-        width:"100%"
-    },
-    pub: {
-        backgroundColor: 'red',
-        justifyContent:"space-around",
-        alignItems:"center", 
-        flex: 0.1, 
-        flexDirection:"row",
-        width:"100%"
-    },
     ibg: {
         flex:1,
         alignItems:"center",
@@ -220,5 +194,4 @@ const styles = StyleSheet.create({
     },
   });
   
-
 export default LiveGameScreen;
