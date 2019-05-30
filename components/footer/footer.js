@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
   };
 
 onBoardClick = () => {
-  console.log('click')
+  // console.log('click')
   this.setState({
     blackboardVisible: !this.state.blackboardVisible
   })
@@ -18,7 +18,7 @@ onBoardClick = () => {
 
   render() {
 
-    console.log(this.state.blackboardVisible)
+    // console.log(this.state.blackboardVisible)
 
     if(this.state.blackboardVisible) {
       return <View>
@@ -110,7 +110,6 @@ onBoardClick = () => {
       </Center>   
       </View>
     }
-
   }
 }
 
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1
   },
   footer: {
-    height: 70,
+    height: 60,
     width: '100%',
     bottom: 0,
     left: 0,
@@ -153,19 +152,19 @@ const styles = StyleSheet.create({
   menu: {
     height: 42,
     width: 42,
-    bottom: 11,
+    bottom: 7,
     left: '7%',
     position: "absolute"
   },
   coach: {
-    height: 39,
-    width: 38,
-    bottom: 11,
+    height: 27,
+    width: 26,
+    bottom: 9,
     position: "absolute",
     right: "7%"
   },
   text: {
-    bottom: 30,
+    bottom: 20,
     position: "absolute",
     fontSize: 18
   }
