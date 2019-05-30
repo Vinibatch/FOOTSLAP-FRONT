@@ -8,8 +8,11 @@ import AdBanner from './components/header/adBanner';
 
 export default class App extends React.Component {
 	render() {
-		return <View style={styles.container} />;
-	}
+		return ( 
+		<View style={styles.container} >
+			<LiveGameScreen/>
+	    </View>
+		)}
 }
 
 const styles = StyleSheet.create({

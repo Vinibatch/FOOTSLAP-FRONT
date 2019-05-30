@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     width: '100%',
     bottom: 0,
     left: 0,
-    position: "absolute",
+    // position: "absolute",
     backgroundColor: "#FFF200",
     opacity: 1,
   },

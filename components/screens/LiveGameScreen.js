@@ -6,21 +6,21 @@ import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
 
 class LiveGameScreen extends React.Component { 
-    // constructor(){
-    //     super();
+    constructor(){
+        super();
 
-    //     this.state = {
-    //         fontLoaded: false
-    //     };
-    // }
-    // async componentDidMount() {
-    //     await Font.loadAsync({
-    //         'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
-    //         'Orbitron-Bold': require('../../assets/fonts/Orbitron-Bold.ttf')
-    //     });
+        this.state = {
+            fontLoaded: false
+        };
+    }
+    async componentDidMount() {
+        await Font.loadAsync({
+            'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
+            'Orbitron-Bold': require('../../assets/fonts/Orbitron-Bold.ttf')
+        });
     
-    //     this.setState({ fontLoaded: true });
-    // }
+        this.setState({ fontLoaded: true });
+    }
 
   render() {
 
@@ -315,16 +315,13 @@ class LiveGameScreen extends React.Component {
 
   return (
     <View
-        style={{flex:1,width:"100%"}}
+        style={{flex:1, flexDirection:"column",width:"100%"}}
     >
 
-    <AdBanner/>
+             <AdBanner/>
+    
 
-    <ImageBackground 
-        source={require("../../assets/backgrounds/Field_Bg.png")}
-        style={styles.ibg}
-        >
-        <View
+    <View
              style={styles.score}
         >
                  <TouchableOpacity 
@@ -337,8 +334,14 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
                  <Thumbnail source={require("../../assets/logos/logoPsg.jpg")} />
                  <View style={{alignItems:"center"}}>
-                 <Text style={{fontSize:40}}>5 - 0</Text> 
-                 <Text style={{fontSize:15}}>45:00</Text>
+
+                 {this.state.fontLoaded ? (   
+                 <Text style={{fontSize:33, fontFamily:'Orbitron-Bold', color:'#545454'}}>5 - 0</Text> 
+                 ) : null }
+                 
+                 {this.state.fontLoaded ? (  
+                 <Text style={{fontSize:12, fontFamily:'Orbitron-Regular', color:'#545445'}}>45:00</Text>
+                 ): null }
 
                  </View>
                  <Thumbnail source={require("../../assets/logos/logoMarseille.png")} />
@@ -351,36 +354,49 @@ class LiveGameScreen extends React.Component {
                     />
                  </TouchableOpacity>
         </View>
-        <View
-            style={styles.goalLine}
-        >
-        {gbListCopy}        
-        </View>
-        <View
-            style={styles.defLine}
-        >
-        {defListCopy}        
-        </View>
-        <View
-            style={styles.midLine}
-        >
-        {midListCopy}        
-        </View>
-        <View
-            style={styles.attLine}
-        >
-        {attListCopy}       
-        </View>
-        <View
-            style={styles.staffLine}
-        >
-            {staffListCopy}
-        </View>
-        
 
-        
-    </ImageBackground>
-    <Footer/>
+        {/* <View
+             style={{flex:1,justifyContent:"center", width:"100%"}}
+        >          */}
+            <ImageBackground 
+                source={require("../../assets/backgrounds/Field_Bg.png")}
+                style={styles.ibg}
+                >
+                <View
+                    style={styles.goalLine}
+                >
+                {gbListCopy}        
+                </View>
+                <View
+                    style={styles.defLine}
+                >
+                {defListCopy}        
+                </View>
+                <View
+                    style={styles.midLine}
+                >
+                {midListCopy}        
+                </View>
+                <View
+                    style={styles.attLine}
+                >
+                {attListCopy}       
+                </View>
+                <View
+                    style={styles.staffLine}
+                >
+                    {staffListCopy}
+                </View>
+
+            </ImageBackground>
+        {/* </View> */}
+
+        <View
+         style= {{width:"100%", justifyContent:"flex-start"}}
+        >
+              <Footer/>
+        </View>
+
     </View>
   )
  }
@@ -388,42 +404,38 @@ class LiveGameScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
-    // avatarPlayer: {
-        // borderWidth: 2, 
-        // borderColor: this.state.colorStatus,
-    // },
     staffLine: {
         width:"100%",
         justifyContent:"space-around",
         alignItems:"center", 
-        flex: 0.14,
+        flex: 0.2,
         flexDirection:"row"
     },
     attLine: {
         width:"90%",
         justifyContent:"space-around",
         alignItems:"center", 
-        flex: 0.13,
+        flex: 0.2,
         flexDirection:"row"
     },
     midLine: {
         width:"70%",
         justifyContent:"space-around",
         alignItems:"center", 
-        flex: 0.13,
+        flex: 0.2,
         flexDirection:"row"
     },
     defLine: {
         width:"92%",
         justifyContent:"space-around",
         alignItems:"center", 
-        flex: 0.13,
+        flex: 0.2,
         flexDirection:"row"
     },
     goalLine: {
         justifyContent:"space-around",
         alignItems:"center", 
-        flex: 0.13,
+        flex: 0.2,
         flexDirection:"row"
     },
     ibg: {
@@ -434,9 +446,10 @@ const styles = StyleSheet.create({
     score: {
         backgroundColor: '#FFF200',
         justifyContent:"space-around",
-        alignItems:"center", flex: 0.15, 
+        alignItems:"center", 
         flexDirection:"row", 
-        width:"100%"
+        width:"100%",
+        height:90
     },
   });
   
