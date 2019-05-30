@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image} from '
 import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
 import { Font } from 'expo';
+import AdBanner from '../header/adBanner';
 
 class LiveGameScreen extends React.Component { 
     // constructor(){
@@ -316,20 +317,13 @@ class LiveGameScreen extends React.Component {
     <View
         style={{flex:1,width:"100%"}}
     >
-    <View
-            style={styles.header}
-        >
-        </View>
+
+    <AdBanner/>
+
     <ImageBackground 
         source={require("../../assets/backgrounds/Field_Bg.png")}
         style={styles.ibg}
         >
-       
-        <View
-            style={styles.pub}
-        >
-        <Text>PUB</Text>
-        </View>
         <View
              style={styles.score}
         >
@@ -432,19 +426,6 @@ const styles = StyleSheet.create({
         flex: 0.13,
         flexDirection:"row"
     },
-    header: {
-        backgroundColor: '#545454',
-        flex:0.03,
-        width:"100%"
-    },
-    pub: {
-        backgroundColor: 'red',
-        justifyContent:"space-around",
-        alignItems:"center", 
-        flex: 0.1, 
-        flexDirection:"row",
-        width:"100%"
-    },
     ibg: {
         flex:1,
         alignItems:"center",
@@ -459,5 +440,4 @@ const styles = StyleSheet.create({
     },
   });
   
-
 export default LiveGameScreen;
