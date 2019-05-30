@@ -7,18 +7,13 @@ import Footer from './components/footer/footer';
 import AdBanner from './components/header/adBanner';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-      </View>
-    );
-  }
+	render() {
+		return <View style={styles.container} />;
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    
-  },
-
+	container: {
+		flex: 1
+	}
 });
