@@ -5,6 +5,7 @@ import SlapometerScreen from './components/screens/SlapometerScreen';
 import LiveGameScreen from './components/screens/LiveGameScreen';
 
 import Footer from './components/footer/footer';
+import AdBanner from './components/header/adBanner';
 
 export default class App extends React.Component {
   render() {
@@ -20,7 +21,5 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-  },
-
-});
+  }
+})
