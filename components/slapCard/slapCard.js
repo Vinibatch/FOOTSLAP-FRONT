@@ -26,7 +26,6 @@ export default class SlapCard extends Component {
         this.slapSound.loadAsync(require('../../assets/sounds/slap_sound.mp3'), initialStatus = {}, downloadFirst = true)
 
         this.clapSound.loadAsync(require('../../assets/sounds/wow_sound.mp3'), initialStatus = {}, downloadFirst = true)
-
     }
     
     onSlap = () => {
@@ -49,9 +48,9 @@ export default class SlapCard extends Component {
     
   render() {
 
-
-    return ( <View style={styles.root}>   
-        <View style={styles.opacity}/>     
+    return ( 
+        <View style={styles.root}>
+        <View style={styles.opacity}/>
         <View style={styles.slapShadow}>
         <Image
           style={styles.slapBg}
@@ -93,15 +92,20 @@ export default class SlapCard extends Component {
             ) : (
                 <Text style={styles.withoutFontSlap}>200K</Text>
             )}
+            
         </View>
-        </View>);
-  }
+        </View>
+        
+    )}
 }
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1
-  },
+    zIndex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+},
   slap: {
     height: 180,
     width: 180,
@@ -125,8 +129,7 @@ const styles = StyleSheet.create({
     top: "7%"
   },
   slapShadow: {
-    top: "27%",
-    left: "4.8%",
+    top: 200,
     width: 339,
     height: 339,
     position: "absolute",
@@ -135,8 +138,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 0
     },
-    shadowRadius: 5,
-    shadowOpacity: 0.5
+    shadowRadius: 7,
+    shadowOpacity: 0.7
   },
   slapBg: {
     width: 339,
@@ -192,12 +195,10 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
   },
   opacity: {
-    top: 0,
-    left: 0,
-    width: 377,
-    height: 811,
+    width: 1080,
+    height: 1920,
     position: "absolute",
-    backgroundColor: "rgba(255,255,255,1)",
-    opacity: 0.6
+    backgroundColor: "rgba(255,255,255,0.7)",
+    // opacity: 0.6,
   },
 });

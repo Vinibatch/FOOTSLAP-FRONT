@@ -29,16 +29,22 @@ class LiveGameScreen extends React.Component {
 
   render() {
 
+    var slapCard;
     if(this.state.openSlapCard) {
         console.log('toto')
-        return <SlapCard slapped={this.slapped} live={this.live}/>
+        slapCard = <SlapCard slapped={this.slapped} live={this.live} />
     }
-
         console.log('salut')
+    //     var opacity;
+    // slapCard
+    //     ?opacity = 0.6
+    //     :opacity = 1
+
   return (
     <View
         style={{flex:1,width:"100%"}}
     >
+            {slapCard}
 
     <AdBanner/>
 
@@ -46,6 +52,7 @@ class LiveGameScreen extends React.Component {
         source={require("../../assets/backgrounds/Field_Bg.png")}
         style={styles.ibg}
         >
+                  
         <View
              style={styles.score}
         >
@@ -213,7 +220,7 @@ const styles = StyleSheet.create({
     ibg: {
         flex:1,
         alignItems:"center",
-        width:"100%"
+        width:"100%",
     },
     score: {
         backgroundColor: '#FFF200',
