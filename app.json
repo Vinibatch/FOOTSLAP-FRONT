@@ -9,7 +9,7 @@
 		"orientation": "portrait",
 		"icon": "./assets/icons/Vs_icon.png",
 		"splash": {
-			"image": "./assets/backgrounds/loading_Bg.jpg",
+			"image": "./assets/backgrounds/loading_Bg.png",
 			"resizeMode": "contain",
 			"backgroundColor": "#0062FF"
 		},

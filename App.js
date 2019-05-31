@@ -10,11 +10,10 @@ import SlapCard from './components/slapCard/slapCard';
 
 export default class App extends React.Component {
 	render() {
-		return (
-			
-			<View style={styles.container}>
-				<LiveGameScreen/>
-			</View>
+		return ( 
+		<View style={styles.container} >
+			<LiveGameScreen/>
+	    </View>
 		)}
 }
 
