@@ -2,15 +2,27 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { Center } from "@builderx/utils";
+import { Font } from 'expo';
+
 
 export default class Footer extends React.Component {
 
   state = {
+    fontLoaded: false,
     blackboardVisible: false 
   };
 
+  // Insertion des nouvelles polices (fonts-family)
+	async componentDidMount() {
+
+    await Font.loadAsync({
+			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
+    });
+    
+    this.setState({ fontLoaded: true });
+}
+
 onBoardClick = () => {
-  // console.log('click')
   this.setState({
     blackboardVisible: !this.state.blackboardVisible
   })
@@ -18,32 +30,9 @@ onBoardClick = () => {
 
   render() {
 
-    // console.log(this.state.blackboardVisible)
-
+    var popUpMenu;
     if(this.state.blackboardVisible) {
-      return <View>
-      <View style={styles.footer} />
-      <TouchableOpacity 
-        style={styles.menu}
-        onPress={this.onBoardClick}>
-        <Image
-          source={require("../../assets/icons/menu_icon.png")}
-          style={styles.menu}
-        />
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.coach}>
-        <Image
-          source={require("../../assets/icons/coach_icon.png")}
-          style={styles.coach}
-        />
-      </TouchableOpacity>
-      
-      <Center horizontal>
-        <Text style={styles.text}>Footer</Text>
-      </Center>
-
-      <View style={styles.blackboard}>
+      popUpMenu = <View style={styles.blackboard}>       
         <List>
           <ListItem>
             <View style={styles.menuList}>
@@ -51,50 +40,72 @@ onBoardClick = () => {
               style={styles.icon}
               source={require("../../assets/icons/liveGame_icon.png")}
             />
-            <Text style={{color: 'white'}}>Match</Text>
+
+            {this.state.fontLoaded ? (
+              <Text style={styles.font}>Match</Text>
+            ) : (
+              <Text>Match</Text>
+            )}
+
           </View>
           </ListItem>
           <ListItem>
-            <TouchableOpacity style={styles.menuList}>
+            <View style={styles.menuList}>
               <Image
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
               />
-              <Text style={{color: 'white'}}>Team</Text>
-            </TouchableOpacity>
+              
+              {this.state.fontLoaded ? (
+                <Text style={styles.font}>Team</Text>
+              ) : (
+                <Text>Team</Text>
+              )}
+
+            </View>
           </ListItem>
           <ListItem>
-          <TouchableOpacity style={styles.menuList}>
+          <View style={styles.menuList}>
           <Image
             style={styles.icon}
             source={require("../../assets/icons/world-cup_icon.png")}
           />
-          <Text style={{color: 'white'}}>Slapometer</Text>
-        </TouchableOpacity>
+
+            {this.state.fontLoaded ? (
+              <Text style={styles.font}>Slapometer</Text>
+            ) : (
+              <Text>Slapometer</Text>
+            )}    
+
+        </View>
           </ListItem>
           <ListItem>
-          <TouchableOpacity style={styles.menuList}>
+          <View style={styles.menuList}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
             />
-            <Text style={{color: 'white'}}>Events</Text>
-          </TouchableOpacity>
+
+            {this.state.fontLoaded ? (
+              <Text style={styles.font}>Events</Text>
+            ) : (
+              <Text>Events</Text>
+            )}
+
+          </View>
           </ListItem>
       </List>
-
-        </View>
-        
       </View>
-    } else {
-      return <View>
+      }   
+      return (
+      <View>
       <View style={styles.footer} />
       <TouchableOpacity 
-        style={styles.menu}
+        style={styles.menuIcon}
         onPress={this.onBoardClick}>
         <Image
           source={require("../../assets/icons/menu_icon.png")}
-          style={styles.menu}
+          style={styles.menuIcon}
         />
       </TouchableOpacity>
       
@@ -106,10 +117,17 @@ onBoardClick = () => {
       </TouchableOpacity>
       
       <Center horizontal>
-        <Text style={styles.text}>Footer</Text>
-      </Center>   
+
+        {this.state.fontLoaded ? (
+          <Text style={styles.text}>Footer</Text>
+        ) : (
+          <Text>Footer</Text>
+        )}
+
+      </Center> 
+      {popUpMenu}  
       </View>
-    }
+    )
   }
 }
 
@@ -120,7 +138,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 80,
     left: "2%",
-    backgroundColor: '#565656',
+    backgroundColor: '#474747',
     shadowColor: "rgba(0,0,0,1)",
     shadowOffset: {
       width: 0,
@@ -129,12 +147,15 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 1
   },
+  boardBg: {
+    width: 280,
+    height: 230,
+  },
   footer: {
     height: 60,
     width: '100%',
     bottom: 0,
     left: 0,
-    position: "absolute",
     backgroundColor: "#FFF200",
     opacity: 1,
   },
@@ -142,14 +163,14 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     marginLeft: 10,
-    marginRight: 50
+    marginRight: 30
   },
   menuList: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
   },
-  menu: {
+  menuIcon: {
     height: 42,
     width: 42,
     bottom: 7,
@@ -164,8 +185,15 @@ const styles = StyleSheet.create({
     right: "7%"
   },
   text: {
-    bottom: 20,
+    bottom: 18,
     position: "absolute",
-    fontSize: 18
-  }
-});
+    color: "#545454",
+    fontSize: 20,
+    fontFamily: 'McLaren-Regular',  },
+  font: {
+    color: "white",
+    fontSize: 20,
+    fontFamily: 'McLaren-Regular',
+  },
+}
+);

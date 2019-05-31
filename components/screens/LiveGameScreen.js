@@ -3,9 +3,38 @@ import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, Image} from '
 import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
 import AdBanner from '../header/adBanner';
+import SlapCard from '../slapCard/slapCard';
 
 class LiveGameScreen extends React.Component { 
+
+    state = {
+        openSlapCard: false,
+        live: false
+    }
+
+    slapPlayer = () => {
+        console.log('slap')
+        this.setState({
+            openSlapCard: true
+        })
+    }
+
+    slapped = (openSlapCard, live) =>{
+      
+        this.setState({
+            openSlapCard,
+            live
+        })
+    }
+
   render() {
+
+    if(this.state.openSlapCard) {
+        console.log('toto')
+        return <SlapCard slapped={this.slapped} live={this.live}/>
+    }
+
+        console.log('salut')
   return (
     <View
         style={{flex:1,width:"100%"}}
@@ -46,12 +75,13 @@ class LiveGameScreen extends React.Component {
         <View
             style={styles.goalLine}
         >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.slapPlayer}>
             <Thumbnail 
             style={styles.avatarPlayer}
             source={require("../../assets/players/messi.jpg")} />    
             </TouchableOpacity> 
         </View>
+        
         <View
             style={styles.defLine}
         >
