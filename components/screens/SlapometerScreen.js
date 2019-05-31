@@ -269,6 +269,53 @@
                                                   // CARD CLUB !!!!!!
                                                 }
 
+                      <Card  style={{width: "100%", height: 330, backgroundColor: 'white', opacity: 0.9}}>
+
+                        <View style = { {position: 'absolute', top: '2%', left: '10%'}}>
+                        <Image style={{ width: 30, height: 30 }}
+                            source={require('../../assets/icons/left-chevron.png')}
+                            />
+                            </View>
+                            <View style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: 'pink', textColor : "white", height: 20, width: 200, left : "24%"}}>
+                            <Text>
+                            Club</Text>
+                            </View>
+                            <View style = { {position: 'absolute', top: '2%', right: '10%'}}>
+                            <Image style={{width: 30,height: 30, flexDirection : 'row'}}
+                                  source={require('../../assets/icons/right-chevron.png')}
+                              />
+                              </View>
+
+                                             <View>
+                                             <Thumbnail   style={{  borderColor: '#FF0027',borderWidth: 2, left :"60%", top: '205%'}}
+                                                   source= {require("../../assets/players/alves.png")}
+                                             />
+                                             </View>
+                                             <View>
+                                             <Thumbnail style={{borderColor: '#FF0027',borderWidth: 2, left : "28%", top : "105%" }}
+                                                   source= {require("../../assets/players/rabiot.png")}
+                                                   />
+                                                   </View>
+                                                 <View>
+
+                                             <Thumbnail style={{ borderColor: '#FF0027',borderWidth: 2, left : "44%", bottom : "20%"}}
+                                                   source= {require("../../assets/players/neymar.png")}
+                                                   />
+                                             </View>
+                            <View style = {{position: 'absolute',top : "35%", left : "25%"}}>
+                            <Image style={{width : 200, height :200 }}
+                                  source={require('../../assets/icons/podium.png')}
+                              />
+                            </View>
+                            <View>
+                                               <Image  style={{width: 30,height: 30, left : "48%", top :'400%'}}
+                                                      source={require('../../assets/icons/bottom-chevron.png')}
+                                                      />
+                            </View>
+
+
+                            </Card>
+
 
 
 

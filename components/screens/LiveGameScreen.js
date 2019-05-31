@@ -4,15 +4,61 @@ import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
 import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
+import SlapCard from '../slapCard/slapCard';
 
 class LiveGameScreen extends React.Component { 
+
     constructor(){
         super();
-
+        this.setMinus = this.setMinus.bind(this);
+		this.setPlus = this.setPlus.bind(this);
         this.state = {
-            fontLoaded: false
+            fontLoaded: false,
+            openSlapCard: false,
+            liveSlap: false,
+            live : 0,
+            matchLive : [
+                {
+                    homeTeam:require("../../assets/logos/logoPsg.jpg"),
+                    visitorTeam:require("../../assets/logos/logoMarseille.png"),
+                    scoreHomeTeam:5,
+                    scoreVisitorTeam:0,
+                    timer : '45:00'
+                },
+                {
+                    homeTeam:require("../../assets/logos/logoPsg.jpg"),
+                    visitorTeam:require("../../assets/logos/logoRealMadrid.png"),
+                    scoreHomeTeam:3,
+                    scoreVisitorTeam:1,
+                    timer : '75:00' 
+                },
+            ],
         };
     }
+
+    setMinus(){
+        console.log("CLICK M", this.state.live);
+
+          if (this.state.live < 0) {
+            this.setState({ live: 0 });
+        } else if ( this.state.like > 0) {
+            this.setState({live: this.state.live-1});
+        }
+    };
+
+    setPlus(){
+        console.log("CLICK P",this.state.live);
+
+          if (this.state.live >= this.state.matchLive.length-1) {
+            this.setState({ live: 0 });
+        } else if (this.state.live < 0) {
+            this.setState({ live: 0 });
+        } else {
+            this.setState({live: this.state.live+1});
+        }
+       
+    };
+
     async componentDidMount() {
         await Font.loadAsync({
             'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
@@ -22,15 +68,38 @@ class LiveGameScreen extends React.Component {
         this.setState({ fontLoaded: true });
     }
 
+    slapPlayer = () => {
+        console.log('slap')
+        this.setState({
+            openSlapCard: true
+        })
+    }
+
+    slapped = (openSlapCard, liveSlap) =>{
+      
+        this.setState({
+            openSlapCard,
+            liveSlap
+        })
+    }
+
   render() {
+
+    var slapCard;
+    if(this.state.openSlapCard) {
+        console.log('toto')
+        slapCard = <SlapCard slapped={this.slapped} live={this.live} />
+    }
+        console.log('salut')
+
+    for (var i=0; i < this.state.matchLive.length; i++) {
+        console.log("LIVE===>",this.state.matchLive.length)
+    };
 
    randomNumber = () => { 
        return  Math.floor(Math.random() * 100)
 };
     
-
-     
-
     var attList = [
         {
         firstname: 'Kylian',
@@ -156,8 +225,6 @@ class LiveGameScreen extends React.Component {
             },
     ];
 
-
-    
     var attListCopy = attList.map((att, i) =>{
         console.log("ATTAQUANTS====>",att.img, att.lastname);
         console.log("SLAP====>",att.slap, att.lastname);
@@ -181,6 +248,7 @@ class LiveGameScreen extends React.Component {
 
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: attStatus}}
@@ -213,6 +281,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: midStatus}}
@@ -238,11 +307,11 @@ class LiveGameScreen extends React.Component {
                 defStatus='#FF0027'
             }
 
-
         return (
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: defStatus}}
@@ -273,6 +342,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: gbStatus}}
@@ -303,6 +373,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: staffStatus}}
@@ -312,11 +383,14 @@ class LiveGameScreen extends React.Component {
         )
     });
 
+    
+    
 
   return (
     <View
         style={{flex:1, flexDirection:"column",width:"100%"}}
     >
+            {slapCard}
 
              <AdBanner/>
     
@@ -325,29 +399,36 @@ class LiveGameScreen extends React.Component {
              style={styles.score}
         >
                  <TouchableOpacity 
-                    // onPress={this._onPressButton}
-                    >
+                   onPress={
+                    this.setMinus
+                  }>
                     <Image
                         style={{width: 20, height: 20}}
                         source={require('../../assets/icons/left-chevron.png')}
                     />
                  </TouchableOpacity>
-                 <Thumbnail source={require("../../assets/logos/logoPsg.jpg")} />
-                 <View style={{alignItems:"center"}}>
-
-                 {this.state.fontLoaded ? (   
-                 <Text style={{fontSize:33, fontFamily:'Orbitron-Bold', color:'#545454'}}>5 - 0</Text> 
-                 ) : null }
                  
-                 {this.state.fontLoaded ? (  
-                 <Text style={{fontSize:12, fontFamily:'Orbitron-Regular', color:'#545445'}}>45:00</Text>
-                 ): null }
+                    <Thumbnail  source={this.state.matchLive[this.state.live].homeTeam} />
 
-                 </View>
-                 <Thumbnail source={require("../../assets/logos/logoMarseille.png")} />
+                        <View style={{alignItems:"center"}}>
+
+                        {this.state.fontLoaded ? (   
+                        <Text style={{fontSize:33, fontFamily:'Orbitron-Bold', color:'#545454'}}>{this.state.matchLive[this.state.live].scoreHomeTeam} - {this.state.matchLive[this.state.live].scoreVisitorTeam}</Text> 
+                        ) : null }
+                        
+                        {this.state.fontLoaded ? (  
+                        <Text  style={{fontSize:12, fontFamily:'Orbitron-Regular', color:'#545445'}}> {this.state.matchLive[this.state.live].timer} </Text>
+                        ): null }
+
+                        </View>
+
+                    <Thumbnail  source= {this.state.matchLive[this.state.live].visitorTeam} />
+                    
+
                  <TouchableOpacity
-                    //  onPress={this._onPressButton}
-                     >
+                      onPress={
+                        this.setPlus
+                      }>
                     <Image
                         style={{width: 20., height: 20}}
                         source={require('../../assets/icons/right-chevron.png')}
@@ -355,9 +436,6 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
         </View>
 
-        {/* <View
-             style={{flex:1,justifyContent:"center", width:"100%"}}
-        >          */}
             <ImageBackground 
                 source={require("../../assets/backgrounds/Field_Bg.png")}
                 style={styles.ibg}
@@ -389,7 +467,6 @@ class LiveGameScreen extends React.Component {
                 </View>
 
             </ImageBackground>
-        {/* </View> */}
 
         <View
          style= {{width:"100%", justifyContent:"flex-start"}}
@@ -441,7 +518,7 @@ const styles = StyleSheet.create({
     ibg: {
         flex:1,
         alignItems:"center",
-        width:"100%"
+        width:"100%",
     },
     score: {
         backgroundColor: '#FFF200',
