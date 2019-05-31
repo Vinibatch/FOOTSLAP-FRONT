@@ -59,8 +59,6 @@ class LiveGameScreen extends React.Component {
        
     };
 
-        
-
     async componentDidMount() {
         await Font.loadAsync({
             'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
@@ -102,9 +100,6 @@ class LiveGameScreen extends React.Component {
        return  Math.floor(Math.random() * 100)
 };
     
-
-     
-
     var attList = [
         {
         firstname: 'Kylian',
@@ -230,8 +225,6 @@ class LiveGameScreen extends React.Component {
             },
     ];
 
-
-    
     var attListCopy = attList.map((att, i) =>{
         console.log("ATTAQUANTS====>",att.img, att.lastname);
         console.log("SLAP====>",att.slap, att.lastname);
@@ -255,6 +248,7 @@ class LiveGameScreen extends React.Component {
 
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: attStatus}}
@@ -287,6 +281,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: midStatus}}
@@ -316,6 +311,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: defStatus}}
@@ -346,6 +342,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: gbStatus}}
@@ -376,6 +373,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: staffStatus}}
