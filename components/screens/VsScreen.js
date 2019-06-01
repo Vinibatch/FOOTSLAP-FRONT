@@ -6,7 +6,7 @@ import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default class App extends React.Component {
+export default class VsScreen extends React.Component {
 	constructor() {
 		super();
 		this.setCountSlapPlayer1 = this.setCountSlapPlayer1.bind(this);

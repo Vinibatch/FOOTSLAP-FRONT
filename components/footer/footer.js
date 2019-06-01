@@ -5,7 +5,7 @@ import { Center } from "@builderx/utils";
 import { Font } from 'expo';
 
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
 
   state = {
     fontLoaded: false,
@@ -35,7 +35,10 @@ onBoardClick = () => {
       popUpMenu = <View style={styles.blackboard}>       
         <List>
           <ListItem>
-            <View style={styles.menuList}>
+            <TouchableOpacity 
+            style={styles.menuList}
+            onPress={ () => this.props.navigation.navigate('Live')}
+            >
             <Image
               style={styles.icon}
               source={require("../../assets/icons/liveGame_icon.png")}
@@ -47,10 +50,13 @@ onBoardClick = () => {
               <Text>Match</Text>
             )}
 
-          </View>
+          </TouchableOpacity>
           </ListItem>
           <ListItem>
-            <View style={styles.menuList}>
+            <TouchableOpacity 
+            style={styles.menuList}
+            onPress={ () => this.props.navigation.navigate('Team')}
+            >
               <Image
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
@@ -62,13 +68,17 @@ onBoardClick = () => {
                 <Text>Team</Text>
               )}
 
-            </View>
+            </TouchableOpacity>
           </ListItem>
           <ListItem>
-          <View style={styles.menuList}>
+          <TouchableOpacity 
+          style={styles.menuList}
+          onPress={ () => this.props.navigation.navigate('Slapo')}
+          >
           <Image
             style={styles.icon}
             source={require("../../assets/icons/world-cup_icon.png")}
+           
           />
 
             {this.state.fontLoaded ? (
@@ -77,13 +87,16 @@ onBoardClick = () => {
               <Text>Slapometer</Text>
             )}    
 
-        </View>
+        </TouchableOpacity>
           </ListItem>
           <ListItem>
-          <View style={styles.menuList}>
+          <TouchableOpacity 
+              style={styles.menuList}
+              onPress={ () => this.props.navigation.navigate('Events')}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
+             
             />
 
             {this.state.fontLoaded ? (
@@ -92,7 +105,7 @@ onBoardClick = () => {
               <Text>Events</Text>
             )}
 
-          </View>
+          </TouchableOpacity>
           </ListItem>
       </List>
       </View>
@@ -109,7 +122,10 @@ onBoardClick = () => {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.coach}>
+      <TouchableOpacity 
+        style={styles.coach}
+        onPress={ () => this.props.navigation.navigate('Account')}
+        >
         <Image
           source={require("../../assets/icons/coach_icon.png")}
           style={styles.coach}
@@ -197,3 +213,5 @@ const styles = StyleSheet.create({
   },
 }
 );
+
+export default Footer

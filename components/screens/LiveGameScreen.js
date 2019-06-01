@@ -6,6 +6,8 @@ import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
 import SlapCard from '../slapCard/slapCard';
 
+
+
 class LiveGameScreen extends React.Component { 
 
     constructor(){
@@ -572,9 +574,8 @@ class LiveGameScreen extends React.Component {
                     />
                  </TouchableOpacity>
         </View>
-
-            <ImageBackground 
-                source={require("../../assets/backgrounds/Field_Bg.png")}
+            <ImageBackground
+                source={require("../../assets/backgrounds/FieldBackground3.png")}
                 style={styles.ibg}
                 >
                 <View
@@ -604,7 +605,6 @@ class LiveGameScreen extends React.Component {
                 </View>
 
             </ImageBackground>
-
         <View
          style= {{width:"100%", justifyContent:"flex-start"}}
         >
@@ -655,7 +655,8 @@ const styles = StyleSheet.create({
     ibg: {
         flex:1,
         alignItems:"center",
-        width:"100%",
+        // width:"100%",
+        // resizeMode:'center',
     },
     score: {
         backgroundColor: '#FFF200',

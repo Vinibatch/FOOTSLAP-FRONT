@@ -4,6 +4,7 @@ import { ImageBackground, ScrollView, View, Image, TouchableOpacity } from 'reac
 import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
 import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
+
 export default class TeamScreen extends Component {
 	constructor() {
 		super();
