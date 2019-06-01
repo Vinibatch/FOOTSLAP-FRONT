@@ -4,14 +4,18 @@ import {Thumbnail} from 'native-base';
 import Footer from '../footer/footer';
 import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
+import SlapCard from '../slapCard/slapCard';
 
 class LiveGameScreen extends React.Component { 
+
     constructor(){
         super();
         this.setMinus = this.setMinus.bind(this);
 		this.setPlus = this.setPlus.bind(this);
         this.state = {
             fontLoaded: false,
+            openSlapCard: false,
+            liveSlap: false,
             live : 0,
             matchLive : [
                 {
@@ -308,8 +312,6 @@ class LiveGameScreen extends React.Component {
        
     };
 
-        
-
     async componentDidMount() {
         await Font.loadAsync({
             'Orbitron-Regular': require('../../assets/fonts/Orbitron-Regular.ttf'),
@@ -319,11 +321,29 @@ class LiveGameScreen extends React.Component {
         this.setState({ fontLoaded: true });
     }
 
-   
-    
-    
+    slapPlayer = () => {
+        console.log('slap')
+        this.setState({
+            openSlapCard: true
+        })
+    }
+
+    slapped = (openSlapCard, liveSlap) =>{
+      
+        this.setState({
+            openSlapCard,
+            liveSlap
+        })
+    }
 
   render() {
+
+    var slapCard;
+    if(this.state.openSlapCard) {
+        console.log('toto')
+        slapCard = <SlapCard slapped={this.slapped} live={this.live} />
+    }
+        console.log('salut')
 
     for (var i=0; i < this.state.matchLive.length; i++) {
         console.log("LIVE===>",this.state.matchLive.length)
@@ -398,6 +418,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: midStatus}}
@@ -423,11 +444,11 @@ class LiveGameScreen extends React.Component {
                 defStatus='#FF0027'
             }
 
-
         return (
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: defStatus}}
@@ -458,6 +479,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: gbStatus}}
@@ -488,6 +510,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
+            onPress={this.slapPlayer}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: staffStatus}}
@@ -504,6 +527,7 @@ class LiveGameScreen extends React.Component {
     <View
         style={{flex:1, flexDirection:"column",width:"100%"}}
     >
+            {slapCard}
 
              <AdBanner/>
     
@@ -631,7 +655,7 @@ const styles = StyleSheet.create({
     ibg: {
         flex:1,
         alignItems:"center",
-        width:"100%"
+        width:"100%",
     },
     score: {
         backgroundColor: '#FFF200',
