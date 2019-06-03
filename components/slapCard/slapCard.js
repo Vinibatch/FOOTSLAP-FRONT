@@ -11,15 +11,15 @@ export default class SlapCard extends Component {
         clapped: false
     }
 
-    // Insertion des nouvelles polices (fonts-family)
 	async componentDidMount() {
 
+        // Insertion des nouvelles polices (fonts-family)
         await Font.loadAsync({
 			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
         });
-        
         this.setState({ fontLoaded: true });
-                
+        
+        // Load sounds for slap and clap buttons
         this.slapSound = new Audio.Sound();
         this.clapSound = new Audio.Sound();
 
@@ -28,25 +28,45 @@ export default class SlapCard extends Component {
         this.clapSound.loadAsync(require('../../assets/sounds/wow_sound.mp3'), initialStatus = {}, downloadFirst = true)
     }
     
+    // Slap function
     onSlap = () => {
+        // Turns slap state to true
         this.setState({
             slapped: !this.state.slapped
           })
+        // Calls slap sound
         this.slapSound.playAsync()
+        // Changes the openSlapCard state of the parent component
         this.props.slapped(false);
-        console.log('SLAP')
     }
 
+    // Clap function
     onClap = async () => {
+        // Turns clap state to true
         this.setState({
             clapped: !this.state.clapped
           })
+        // Calls clap sound
         this.clapSound.playAsync();
+        // Changes the openSlapCard state of the parent component
         this.props.slapped(false);
-        console.log('CLAP')
     }
     
   render() {
+
+    var playerStatus;
+
+        if (this.props.playerClap === this.props.playerSlap){
+          playerStatus='#EFEAEA'
+            } else if (this.props.playerClap > this.props.playerSlap) {
+              playerStatus='#00FF6A'
+            } else if (this.props.playerClap < this.props.playerSlap && this.props.playerSlap < this.props.playerClap*3) {
+              playerStatus='#FFF200'
+            } else if (this.props.playerClap *3 < this.props.playerSlap && this.props.playerSlap < this.props.playerClap*6) {
+              playerStatus='#FF6C00'
+            } else {
+              playerStatus='#FF0027'
+            }
 
     return ( 
         <View style={styles.root}>
@@ -59,7 +79,15 @@ export default class SlapCard extends Component {
         
         <Center horizontal>
           <Image
-            style={styles.player}
+            style={{
+              width: 243,
+              height: 243,
+              position: "absolute",
+              borderWidth: 6,
+              borderColor: playerStatus,
+              borderRadius: 120,
+              top: "7%"
+            }}
             source={this.props.playerImg}
           />
         </Center>
@@ -82,15 +110,15 @@ export default class SlapCard extends Component {
         </TouchableOpacity>
        
             {this.state.fontLoaded ? (
-                <Text style={styles.withFontClap}>10k</Text>
+                <Text style={styles.withFontClap}>{this.props.playerClap}</Text>
             ) : (
-                <Text style={styles.withoutFontClap}>10k</Text>
+                <Text style={styles.withoutFontClap}>{this.props.playerClap}</Text>
             )}
 
             {this.state.fontLoaded ? (
-                <Text style={styles.withFontSlap}>200K</Text>
+                <Text style={styles.withFontSlap}>{this.props.playerSlap}</Text>
             ) : (
-                <Text style={styles.withoutFontSlap}>200K</Text>
+                <Text style={styles.withoutFontSlap}>{this.props.playerSlap}</Text>
             )}
             
         </View>
@@ -119,15 +147,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "35%",
   },
-  player: {
-    width: 243,
-    height: 243,
-    position: "absolute",
-    borderWidth: 6,
-    borderColor: "rgba(255,0,39,1)",
-    borderRadius: 120,
-    top: "7%"
-  },
+  // player: {
+  //   width: 243,
+  //   height: 243,
+  //   position: "absolute",
+  //   borderWidth: 6,
+  //   borderColor: playerStatus,
+  //   borderRadius: 120,
+  //   top: "7%"
+  // },
   slapShadow: {
     top: 200,
     width: 339,
@@ -199,6 +227,5 @@ const styles = StyleSheet.create({
     height: 1920,
     position: "absolute",
     backgroundColor: "rgba(255,255,255,0.7)",
-    // opacity: 0.6,
   },
 });
