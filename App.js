@@ -1,22 +1,21 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Navigation from './components/navigation/navigation'
-
+import Navigation from './components/navigation/navigation';
 
 export default class App extends React.Component {
-	constructor (props) {
-		super(props)
+	constructor(props) {
+		super(props);
 	}
-	
+
 	render() {
 		return (
 			<View style={styles.container}>
-				<Navigation/>
+				<Navigation />
 			</View>
-		)
+		);
 	}
-};
+}
 
 const styles = StyleSheet.create({
 	container: {
