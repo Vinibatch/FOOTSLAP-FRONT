@@ -6,9 +6,9 @@ import { Font } from 'expo';
 import { withNavigation } from 'react-navigation';
 
 class Footer extends React.Component {
+
   constructor (props) {
     super(props)
-    
 }
 
   state = {
@@ -32,12 +32,9 @@ onBoardClick = () => {
   })
 }
 
-
-
-
   render() {
 
-    
+    console.log('state', this.state.blackboardVisible)
     
     var popUpMenu;
     if(this.state.blackboardVisible) {
@@ -46,7 +43,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Live')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Live')}}
             >
             <Image
               style={styles.icon}
@@ -64,7 +61,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Team')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Team')}}
             >
               <Image
                 style={styles.icon}
@@ -82,7 +79,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
           style={styles.menuList}
-          onPress={ () => this.props.navigation.navigate('Slapo')}
+          onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Slapo')}}
           >
           <Image
             style={styles.icon}
@@ -101,7 +98,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
               style={styles.menuList}
-              onPress={ () => this.props.navigation.navigate('Events')}>
+              onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Events')}}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
