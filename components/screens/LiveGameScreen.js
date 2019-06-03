@@ -15,7 +15,6 @@ class LiveGameScreen extends React.Component {
         this.state = {
             fontLoaded: false,
             openSlapCard: false,
-            liveSlap: false,
             live : 0,
             matchLive : [
                 {
@@ -68,28 +67,16 @@ class LiveGameScreen extends React.Component {
         this.setState({ fontLoaded: true });
     }
 
-    slapPlayer = () => {
+    slapPlayer = (openSlapCard) => {
         console.log('slap')
         this.setState({
-            openSlapCard: true
-        })
-    }
-
-    slapped = (openSlapCard, liveSlap) =>{
-      
-        this.setState({
-            openSlapCard,
-            liveSlap
+            openSlapCard
         })
     }
 
   render() {
 
-    var slapCard;
-    if(this.state.openSlapCard) {
-        console.log('toto')
-        slapCard = <SlapCard slapped={this.slapped} live={this.live} />
-    }
+    
         console.log('salut')
 
     for (var i=0; i < this.state.matchLive.length; i++) {
@@ -125,8 +112,15 @@ class LiveGameScreen extends React.Component {
         post: 'A',
         img: require("../../assets/players/cavani.png"),
          },
-        
     ];
+
+    var slapCard;
+    if(this.state.openSlapCard) {
+        console.log('toto')
+        slapCard = <SlapCard slapped={this.slapPlayer} playerImg={attList[0].img}/>
+    }
+    console.log('att', attList)
+
     var midList = [
         {
             firstname: 'Marco',

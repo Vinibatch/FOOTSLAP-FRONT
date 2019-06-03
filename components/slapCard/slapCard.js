@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Center } from "@builderx/utils";
-import { View, StyleSheet, Image, Text, TouchableOpacity, ImageBackground } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Audio, Font } from 'expo';
 
 export default class SlapCard extends Component {
@@ -60,7 +60,7 @@ export default class SlapCard extends Component {
         <Center horizontal>
           <Image
             style={styles.player}
-            source={require("../../assets/players/antero.png")}
+            source={this.props.playerImg}
           />
         </Center>
         <TouchableOpacity 
