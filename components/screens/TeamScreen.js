@@ -4,6 +4,7 @@ import { ImageBackground, ScrollView, View, Image, TouchableOpacity } from 'reac
 import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
 import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
+import SlapCard from '../slapCard/slapCard';
 
 export default class TeamScreen extends Component {
 	constructor(props) {
@@ -12,6 +13,7 @@ export default class TeamScreen extends Component {
 		this.setTeamIisible = this.setTeamIisible.bind(this);
 		this.state = {
 			fontLoaded: false,
+			openSlapCard: false,
 			team: 0
 		};
 	}
@@ -32,8 +34,28 @@ export default class TeamScreen extends Component {
 	setTeamIisible() {
 		this.setState({ team: this.state.team - 1 });
 	}
+
+	slapPlayer = (openSlapCard) => {
+        this.setState({
+            openSlapCard,
+            playerImg: this.imgSelected,
+            playerClap: this.clapCount,
+            playerSlap: this.slapCount,
+        })
+	}
+
+	randomNumber = () => { 
+        return  Math.floor(Math.random() * 100)
+ 	};
+	
 	// Tableau représentant les teams (+ logo) suivis par l'utilisateur
 	render() {
+
+	var slapCard;
+    if(this.state.openSlapCard) {
+    slapCard = <SlapCard slapped={this.slapPlayer} playerImg={this.state.playerImg} playerClap={this.state.playerClap} playerSlap={this.state.playerSlap} />
+	}
+	
 		var listPlayers = [
 			[
 				//listPlayers[0][1].logo
@@ -43,74 +65,74 @@ export default class TeamScreen extends Component {
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'LIONEL MESSI',
 						img: require('../../assets/players/messi.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'CRISTIANO RONALDO',
 						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					}
 				]
 			],
@@ -123,74 +145,74 @@ export default class TeamScreen extends Component {
 					{
 						name: 'alves',
 						img: require('../../assets/players/alves.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'areola',
 						img: require('../../assets/players/areola.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'cavani',
 						img: require('../../assets/players/cavani.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'draxler',
 						img: require('../../assets/players/draxler.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'kimpembe',
 						img: require('../../assets/players/kimpembe.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'kurzawa',
 						img: require('../../assets/players/kurzawa.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'marquinhos',
 						img: require('../../assets/players/marquinhos.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'mbappe',
 						img: require('../../assets/players/mbappe.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'neymar',
 						img: require('../../assets/players/neymar.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'rabiot',
 						img: require('../../assets/players/rabiot.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'verratti',
 						img: require('../../assets/players/verratti.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					},
 					{
 						name: 'antero',
 						img: require('../../assets/players/antero.png'),
-						clap: '10K',
-						slap: '200K'
+						clap: this.randomNumber(),
+						slap: this.randomNumber()
 					}
 				]
 			]
@@ -223,24 +245,43 @@ export default class TeamScreen extends Component {
 				source={teamLogo}
 			/>
 		);
+			
 		// Map permettant de lister chaques joueurs de l'équipe
 		var items = team.map((element, i) => {
+
+			// Addapt border color to the slap/clap count
+			var playerStatus
+
+			if (element.clap === element.slap){
+				playerStatus='#EFEAEA'
+				} else if (element.clap > element.slap) {
+					playerStatus='#00FF6A'
+				} else if (element.clap < element.slap && element.slap < element.clap * 3) {
+					playerStatus='#FFF200'
+				} else if (element.clap * 3 < element.slap && element.slap < element.clap * 6) {
+					playerStatus='#FF6C00'
+				} else {
+					playerStatus='#FF0027'
+				}
+
 			return (
 				<List
 					style={{
 						backgroundColor: 'white',
 						borderWidth: 2,
-						borderColor: '#3b5998',
+						borderColor: '#0062FF',
 						opacity: 0.8,
 						marginTop: 10,
 						marginLeft: 10,
 						marginRight: 10
 					}}
 				>
-					<ListItem avatar>
+		
+					<ListItem avatar onPress={()=> {this.imgSelected = element.img; this.clapCount =  element.clap; this.slapCount = element.slap; this.slapPlayer(true)}} style={{height: 100}}>
 						<Left>
 							<Thumbnail
-								style={{ marginBottom: 2, marginTop: -8, borderWidth: 2, borderColor: '#FF0027' }}
+								large
+								style={{ marginBottom: 2, marginTop: -8, borderWidth: 2, borderColor: playerStatus }}
 								source={element.img}
 							/>
 						</Left>
@@ -300,6 +341,9 @@ export default class TeamScreen extends Component {
 					style={{ height: '100%', width: '100%' }}
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
+					
+					{slapCard}
+
 					<AdBanner />
 					<View
 						style={{
