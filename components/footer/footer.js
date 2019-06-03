@@ -8,12 +8,9 @@ import { Font } from 'expo';
 export default class Footer extends React.Component {
 
   state = {
-<<<<<<< HEAD
-    blackboardVisible: false
-=======
+
     fontLoaded: false,
-    blackboardVisible: false 
->>>>>>> 03777af56acf64b735b5849506853721b97c21e6
+    blackboardVisible: false
   };
 
   // Insertion des nouvelles polices (fonts-family)
@@ -22,7 +19,7 @@ export default class Footer extends React.Component {
     await Font.loadAsync({
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
     });
-    
+
     this.setState({ fontLoaded: true });
 }
 
@@ -36,34 +33,8 @@ onBoardClick = () => {
 
     var popUpMenu;
     if(this.state.blackboardVisible) {
-<<<<<<< HEAD
-      return <View>
-      <View style={styles.footer} />
-      <TouchableOpacity
-        style={styles.menu}
-        onPress={this.onBoardClick}
-        >
-        <Image
-          source={require("../../assets/icons/menu_icon.png")}
-          style={styles.menu}
-        />
-      </TouchableOpacity>
 
-      <TouchableOpacity style={styles.coach}>
-        <Image
-          source={require("../../assets/icons/coach_icon.png")}
-          style={styles.coach}
-        />
-      </TouchableOpacity>
-
-      <Center horizontal>
-        <Text style={styles.text}>Footer</Text>
-      </Center>
-
-      <View style={styles.blackboard}>
-=======
-      popUpMenu = <View style={styles.blackboard}>       
->>>>>>> 03777af56acf64b735b5849506853721b97c21e6
+      popUpMenu = <View style={styles.blackboard}>
         <List>
           <ListItem>
             <View style={styles.menuList}>
@@ -86,7 +57,7 @@ onBoardClick = () => {
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
               />
-              
+
               {this.state.fontLoaded ? (
                 <Text style={styles.font}>Team</Text>
               ) : (
@@ -106,7 +77,7 @@ onBoardClick = () => {
               <Text style={styles.font}>Slapometer</Text>
             ) : (
               <Text>Slapometer</Text>
-            )}    
+            )}
 
         </View>
           </ListItem>
@@ -126,24 +97,16 @@ onBoardClick = () => {
           </View>
           </ListItem>
       </List>
-<<<<<<< HEAD
 
-        </View>
 
-=======
->>>>>>> 03777af56acf64b735b5849506853721b97c21e6
       </View>
-      }   
+      }
       return (
       <View>
       <View style={styles.footer} />
-<<<<<<< HEAD
+
       <TouchableOpacity
-        style={styles.menu}
-=======
-      <TouchableOpacity 
         style={styles.menuIcon}
->>>>>>> 03777af56acf64b735b5849506853721b97c21e6
         onPress={this.onBoardClick}>
         <Image
           source={require("../../assets/icons/menu_icon.png")}
@@ -159,10 +122,7 @@ onBoardClick = () => {
       </TouchableOpacity>
 
       <Center horizontal>
-<<<<<<< HEAD
-        <Text style={styles.text}>Footer</Text>
-      </Center>
-=======
+
 
         {this.state.fontLoaded ? (
           <Text style={styles.text}>Footer</Text>
@@ -170,9 +130,8 @@ onBoardClick = () => {
           <Text>Footer</Text>
         )}
 
-      </Center> 
-      {popUpMenu}  
->>>>>>> 03777af56acf64b735b5849506853721b97c21e6
+      </Center>
+      {popUpMenu}
       </View>
     )
   }
