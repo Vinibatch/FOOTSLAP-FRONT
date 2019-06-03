@@ -10,8 +10,8 @@ import SlapCard from '../slapCard/slapCard';
 
 class LiveGameScreen extends React.Component { 
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.setMinus = this.setMinus.bind(this);
 		this.setPlus = this.setPlus.bind(this);
         this.state = {
@@ -349,7 +349,6 @@ class LiveGameScreen extends React.Component {
 
     for (var i=0; i < this.state.matchLive.length; i++) {
         console.log("LIVE===>",this.state.matchLive.length)
-    // };
 
     
 
@@ -362,7 +361,6 @@ class LiveGameScreen extends React.Component {
     var gbListCopy
     var staffListCopy
 
-    // this.state.matchLive.map((match,i) => {   
         attListCopy = this.state.matchLive[this.state.live].attList.map((att, i) =>{
             console.log("ATTAQUANTS====>",att.img, att.lastname);
             console.log("SLAP====>",att.slap, att.lastname);

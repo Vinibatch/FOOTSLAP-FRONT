@@ -6,8 +6,8 @@ import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
 
 export default class TeamScreen extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.setTeamVisible = this.setTeamVisible.bind(this);
 		this.setTeamIisible = this.setTeamIisible.bind(this);
 		this.state = {
@@ -333,8 +333,11 @@ export default class TeamScreen extends Component {
 					</View>
 
 					<ScrollView>{items}</ScrollView>
+					
+					<Footer />
+
 				</ImageBackground>
-				<Footer />
+
 			</View>
 		);
 	}

@@ -3,9 +3,13 @@ import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { Center } from "@builderx/utils";
 import { Font } from 'expo';
-
+import { withNavigation } from 'react-navigation';
 
 class Footer extends React.Component {
+  constructor (props) {
+    super(props)
+    
+}
 
   state = {
     fontLoaded: false,
@@ -28,8 +32,13 @@ onBoardClick = () => {
   })
 }
 
+
+
+
   render() {
 
+    
+    
     var popUpMenu;
     if(this.state.blackboardVisible) {
       popUpMenu = <View style={styles.blackboard}>       
@@ -143,6 +152,7 @@ onBoardClick = () => {
       </Center> 
       {popUpMenu}  
       </View>
+
     )
   }
 }
@@ -214,4 +224,4 @@ const styles = StyleSheet.create({
 }
 );
 
-export default Footer
+export default withNavigation(Footer);

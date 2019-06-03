@@ -1,14 +1,18 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import LiveGameScreen from './components/screens/LiveGameScreen';
+import Navigation from './components/navigation/Navigation'
 
 
 export default class App extends React.Component {
+	constructor (props) {
+		super(props)
+	}
+	
 	render() {
 		return (
 			<View style={styles.container}>
-				<LiveGameScreen/>
+				<Navigation/>
 			</View>
 		)
 	}

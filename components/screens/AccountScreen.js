@@ -24,7 +24,8 @@ export default class AccountScreen extends React.Component {
 	async componentDidMount() {
 		await Font.loadAsync({
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
-			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
+			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf'),
+			// 'Roboto-Medium': require('../../assets/fonts/Roboto-Medium.ttf')
 		});
 
 		this.setState({ fontLoaded: true });
@@ -149,8 +150,9 @@ export default class AccountScreen extends React.Component {
 						<Text> Valider </Text>
 					</Button>
 				</ImageBackground>
-				<Footer />
-			</View>
+				
+			 <Footer/> 
+		 </View>
 		);
 	}
 }

@@ -9,6 +9,7 @@ import VsScreen from '../screens/VsScreen'
 
 
 const StackNavigator = createStackNavigator({
+    
 Live:LiveGameScreen,
 Team:TeamScreen,
 Slapo:SlapometerScreen,
