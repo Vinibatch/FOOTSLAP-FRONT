@@ -33,11 +33,6 @@ onBoardClick = () => {
 }
 
   render() {
-
-
-    console.log('nav', this.props.navigation.state.routeName)
-
-    console.log('state', this.state.blackboardVisible)
     
     var popUpMenu;
     if(this.state.blackboardVisible) {
