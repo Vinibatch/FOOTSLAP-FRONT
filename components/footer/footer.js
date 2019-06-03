@@ -34,6 +34,9 @@ onBoardClick = () => {
 
   render() {
 
+
+    console.log('nav', this.props.navigation.state.routeName)
+
     console.log('state', this.state.blackboardVisible)
     
     var popUpMenu;
@@ -141,7 +144,7 @@ onBoardClick = () => {
       <Center horizontal>
 
         {this.state.fontLoaded ? (
-          <Text style={styles.text}>Footer</Text>
+          <Text style={styles.text}>{this.props.navigation.state.routeName}</Text>
         ) : (
           <Text>Footer</Text>
         )}
