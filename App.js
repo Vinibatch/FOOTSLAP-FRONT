@@ -1,12 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import AccountScreen from './components/screens/AccountScreen';
+import { StyleSheet, View } from 'react-native';
+
+import Navigation from './components/navigation/navigation';
 
 export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<View style={styles.container}>
-				<AccountScreen />
+				<Navigation />
 			</View>
 		);
 	}
