@@ -153,10 +153,10 @@ class LiveGameScreen extends React.Component {
                 },
                 {
                     homeTeam:require("../../assets/logos/logoPsg.jpg"),
-                    visitorTeam:require("../../assets/logos/logoRealMadrid.png"),
-                    scoreHomeTeam:3,
-                    scoreVisitorTeam:1,
-                    timer : '75:00',
+                    visitorTeam:require("../../assets/logos/logoMarseille.png"),
+                    scoreHomeTeam:8,
+                    scoreVisitorTeam:0,
+                    timer : '90:00',
                     attList : [
                         {
                         firstname: 'Kylian',
@@ -244,6 +244,139 @@ class LiveGameScreen extends React.Component {
                             img: require("../../assets/players/kurzawa.png"),
                             },
                     ],
+                   gbList : [
+                        {
+                            firstname: 'Alphonse',
+                            lastname: 'AREOLA',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'G',
+                            img:require("../../assets/players/areola.png"),
+                            },
+                            
+                    ],
+                 staffList : [
+                        {
+                            firstname: 'Thomas',
+                            lastname: 'TUCHEL',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/players/tuchel.png"),
+                            },
+                            {
+                            firstname: 'Antero',
+                            lastname: 'HENRIQUE',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/players/antero.png"),
+                            },
+                            {
+                            firstname: 'Nasser',
+                            lastname: 'EL KHELAIFI',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img: require("../../assets/players/nasser.png"),
+                            },
+                    ]
+                },
+                {
+                    homeTeam:require("../../assets/logos/logoPsg.jpg"),
+                    visitorTeam:require("../../assets/logos/logoRealMadrid.png"),
+                    scoreHomeTeam:3,
+                    scoreVisitorTeam:1,
+                    timer : '75:00',
+                    attList : [
+                        {
+                        firstname: 'Kylian',
+                        lastname: 'MBAPPE',
+                        clap:this.randomNumber(),
+                        slap:this.randomNumber(),
+                        post: 'A',
+                        img:require("../../assets/players/mbappe.png"),
+                        },
+                        
+                        {
+                        firstname: 'Edinson',
+                        lastname: 'CAVANI',
+                        clap:this.randomNumber(),
+                        slap:this.randomNumber(),
+                        post: 'A',
+                        img: require("../../assets/players/cavani.png"),
+                         },
+                        
+                    ],
+                    midList : [
+                        {
+                            firstname: 'Marco',
+                            lastname: 'VERRATTI',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img:require("../../assets/players/verratti.png"),
+                            },
+                            {
+                            firstname: 'Adrien',
+                            lastname: 'RABIOT',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img:require("../../assets/players/rabiot.png"),
+                            },
+                            {
+                                firstname: '',
+                                lastname: 'NEYMAR',
+                                clap:this.randomNumber(),
+                                slap:this.randomNumber(),
+                                post: 'A',
+                                img:require("../../assets/players/neymar.png"),
+                                },
+                            {
+                            firstname: 'Julian',
+                            lastname: 'DRAXLER',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img: require("../../assets/players/draxler.png"),
+                             },
+                             {
+                                firstname: 'Laywin',
+                                lastname: 'KURZAWA',
+                                clap:this.randomNumber(),
+                                slap:this.randomNumber(),
+                                post: 'D',
+                                img: require("../../assets/players/kurzawa.png"),
+                                },
+                    ],
+                    defList : [
+                        {
+                            firstname: 'Dani',
+                            lastname: 'ALVES',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img:require("../../assets/players/alves.png"),
+                            },
+                            {
+                            firstname: '',
+                            lastname: 'MARQUINHOS',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img:require("../../assets/players/marquinhos.png"),
+                            },
+                            {
+                            firstname: 'Presnel',
+                            lastname: 'KIMPEMBE',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/players/kimpembe.png"),
+                            },
+                           
+                    ],
                    gbList :[
                         {
                             firstname: 'Alphonse',
@@ -262,7 +395,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img:require("../../assets/players/areola.png"),
+                            img:require("../../assets/players/tuchel.png"),
                             },
                             {
                             firstname: 'Antero',
@@ -294,10 +427,12 @@ class LiveGameScreen extends React.Component {
     setMinus(){
         console.log("CLICK M", this.state.live);
 
-          if (this.state.live < 0) {
-            this.setState({ live: 0 });
-        } else if ( this.state.like > 0) {
-            this.setState({live: this.state.live-1});
+        if (this.state.live === 0) {
+            this.setState({ live: 0 })
+        } else if (this.state.live < 0) {
+            this.setState({ live: 0 })
+        } else {
+            this.setState({ live:this.state.live -1 })
         }
     };
 
@@ -324,7 +459,7 @@ class LiveGameScreen extends React.Component {
     }
 
     slapPlayer = () => {
-        console.log('slap')
+        // console.log('slap')
         this.setState({
             openSlapCard: true
         })
@@ -342,13 +477,12 @@ class LiveGameScreen extends React.Component {
 
     var slapCard;
     if(this.state.openSlapCard) {
-        console.log('toto')
+        // console.log('toto')
         slapCard = <SlapCard slapped={this.slapped} live={this.live} />
     }
-        console.log('salut')
 
     for (var i=0; i < this.state.matchLive.length; i++) {
-        console.log("LIVE===>",this.state.matchLive.length)
+        // console.log("LIVE===>",this.state.matchLive.length)
 
     
 
@@ -361,10 +495,11 @@ class LiveGameScreen extends React.Component {
     var gbListCopy
     var staffListCopy
 
+    if (this.state.matchLive && this.state.matchLive[this.state.live]){
         attListCopy = this.state.matchLive[this.state.live].attList.map((att, i) =>{
-            console.log("ATTAQUANTS====>",att.img, att.lastname);
-            console.log("SLAP====>",att.slap, att.lastname);
-            console.log("CLAP====>",att.clap, att.lastname);
+            // console.log("ATTAQUANTS====>",att.img, att.lastname);
+            // console.log("SLAP====>",att.slap, att.lastname);
+            // console.log("CLAP====>",att.clap, att.lastname);
     
             var attStatus
     
@@ -520,6 +655,7 @@ class LiveGameScreen extends React.Component {
         )
     });
 
+  }
 };
     
 
@@ -532,7 +668,7 @@ class LiveGameScreen extends React.Component {
              <AdBanner/>
     
 
-    <View
+        <View
              style={styles.score}
         >
                  <TouchableOpacity 
@@ -624,21 +760,21 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     attLine: {
-        width:"90%",
+        width:"95%",
         justifyContent:"space-around",
         alignItems:"center", 
         flex: 0.2,
         flexDirection:"row"
     },
     midLine: {
-        width:"70%",
+        width:"95%",
         justifyContent:"space-around",
         alignItems:"center", 
         flex: 0.2,
         flexDirection:"row"
     },
     defLine: {
-        width:"92%",
+        width:"95%",
         justifyContent:"space-around",
         alignItems:"center", 
         flex: 0.2,

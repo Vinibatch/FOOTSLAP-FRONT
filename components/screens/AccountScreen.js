@@ -25,7 +25,8 @@ export default class AccountScreen extends React.Component {
 		await Font.loadAsync({
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
 			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf'),
-			// 'Roboto-Medium': require('../../assets/fonts/Roboto-Medium.ttf')
+			Roboto: require("native-base/Fonts/Roboto.ttf"),
+			Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")		
 		});
 
 		this.setState({ fontLoaded: true });
