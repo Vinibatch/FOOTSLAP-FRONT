@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { List, ListItem } from 'native-base';
-import { Center } from "@builderx/utils";
+import { Center } from '@builderx/utils';
 import { Font } from 'expo';
 import { withNavigation } from 'react-navigation';
 

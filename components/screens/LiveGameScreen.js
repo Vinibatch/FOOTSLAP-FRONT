@@ -6,18 +6,18 @@ import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
 import SlapCard from '../slapCard/slapCard';
 
-
-
 class LiveGameScreen extends React.Component { 
 
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.setMinus = this.setMinus.bind(this);
 		this.setPlus = this.setPlus.bind(this);
         this.state = {
             fontLoaded: false,
             openSlapCard: false,
-            liveSlap: false,
+            playerImg: null,
+            playerClap: 0,
+            playerSlap: 0,
             live : 0,
             matchLive : [
                 {
@@ -423,7 +423,6 @@ class LiveGameScreen extends React.Component {
         return  Math.floor(Math.random() * 100)
  };
  
-
     setMinus(){
         console.log("CLICK M", this.state.live);
 
@@ -456,38 +455,26 @@ class LiveGameScreen extends React.Component {
         });
     
         this.setState({ fontLoaded: true });
-    }
+    };
 
-    slapPlayer = () => {
-        // console.log('slap')
-        this.setState({
-            openSlapCard: true
-        })
-    }
-
-    slapped = (openSlapCard, liveSlap) =>{
-      
+    slapPlayer = (openSlapCard) => {
         this.setState({
             openSlapCard,
-            liveSlap
+            playerImg: this.imgSelected,
+            playerClap: this.clapCount,
+            playerSlap: this.slapCount,
         })
-    }
+    };
 
   render() {
-
+    
     var slapCard;
     if(this.state.openSlapCard) {
-        // console.log('toto')
-        slapCard = <SlapCard slapped={this.slapped} live={this.live} />
+    slapCard = <SlapCard slapped={this.slapPlayer} playerImg={this.state.playerImg} playerClap={this.state.playerClap} playerSlap={this.state.playerSlap} />
     }
 
     for (var i=0; i < this.state.matchLive.length; i++) {
-        // console.log("LIVE===>",this.state.matchLive.length)
-
-    
-
-     
-
+        console.log("LIVE===>",this.state.matchLive.length)
   
     var attListCopy 
     var midListCopy
@@ -495,40 +482,40 @@ class LiveGameScreen extends React.Component {
     var gbListCopy
     var staffListCopy
 
-    if (this.state.matchLive && this.state.matchLive[this.state.live]){
-        attListCopy = this.state.matchLive[this.state.live].attList.map((att, i) =>{
-            // console.log("ATTAQUANTS====>",att.img, att.lastname);
-            // console.log("SLAP====>",att.slap, att.lastname);
-            // console.log("CLAP====>",att.clap, att.lastname);
+    attListCopy = this.state.matchLive[this.state.live].attList.map((att, i) =>{
+        console.log("ATTAQUANTS====>",att.img, att.lastname);
+        console.log("SLAP====>",att.slap, att.lastname);
+        console.log("CLAP====>",att.clap, att.lastname);
+
+        var attStatus
+
+        if (att.clap === att.slap){
+                    attStatus='#EFEAEA'
+            } else if (att.clap > att.slap) {
+                    attStatus='#00FF6A'
+            } else if (att.clap< att.slap && att.slap < att.clap*3) {
+                    attStatus='#FFF200'
+            } else if (att.clap*3 < att.slap && att.slap< att.clap*6) {
+                    attStatus='#FF6C00'
+            } else {
+                    attStatus='#FF0027'
+            }
+
+        return (
+
+            <TouchableOpacity
+            key={i}
+            onPress={()=>{ this.imgSelected = att.img; this.clapCount =  att.clap; this.slapCount = att.slap; this.slapPlayer(true)}}
+            >
+            <Thumbnail 
+            style={{borderWidth: 2,  borderColor: attStatus}}
+            source={att.img}
+            />    
+            </TouchableOpacity>
+
+        )
     
-            var attStatus
-    
-            if (att.clap === att.slap){
-                        attStatus='#EFEAEA'
-                } else if (att.clap > att.slap) {
-                        attStatus='#00FF6A'
-                } else if (att.clap< att.slap && att.slap < att.clap*3) {
-                        attStatus='#FFF200'
-                } else if (att.clap*3 < att.slap && att.slap< att.clap*6) {
-                        attStatus='#FF6C00'
-                } else {
-                        attStatus='#FF0027'
-                }
-    
-            return (
-    
-                <TouchableOpacity
-                key={i}
-                >
-                <Thumbnail 
-                style={{borderWidth: 2,  borderColor: attStatus}}
-                source={att.img}
-                />    
-                </TouchableOpacity>
-    
-            )
-       
-        });
+    });
   
    
 
@@ -553,7 +540,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
-            onPress={this.slapPlayer}
+            onPress={()=>{ this.imgSelected = mid.img; this.clapCount =  mid.clap; this.slapCount = mid.slap; this.slapPlayer(true)}}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: midStatus}}
@@ -583,7 +570,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
-            onPress={this.slapPlayer}
+            onPress={()=>{ this.imgSelected = def.img; this.clapCount =  def.clap; this.slapCount = def.slap; this.slapPlayer(true)}}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: defStatus}}
@@ -614,7 +601,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
-            onPress={this.slapPlayer}
+            onPress={()=>{ this.imgSelected = gb.img; this.clapCount =  gb.clap; this.slapCount = gb.slap; this.slapPlayer(true)}}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: gbStatus}}
@@ -645,7 +632,7 @@ class LiveGameScreen extends React.Component {
             
             <TouchableOpacity
             key={i}
-            onPress={this.slapPlayer}
+            onPress={()=>{ this.imgSelected = staff.img; this.clapCount =  staff.clap; this.slapCount = staff.slap; this.slapPlayer(true)}}
             >
             <Thumbnail 
             style={{borderWidth: 2,  borderColor: staffStatus}}
@@ -656,17 +643,15 @@ class LiveGameScreen extends React.Component {
     });
 
   }
-};
-    
+
 
   return (
     <View
-        style={{flex:1, flexDirection:"column",width:"100%"}}
-    >
+        style={{flex:1, flexDirection:"column",width:"100%"}}>
+
             {slapCard}
 
              <AdBanner/>
-    
 
         <View
              style={styles.score}
@@ -746,8 +731,9 @@ class LiveGameScreen extends React.Component {
         </View>
 
     </View>
-  )
- }
+
+    )
+  }
 }
 
 
@@ -789,8 +775,6 @@ const styles = StyleSheet.create({
     ibg: {
         flex:1,
         alignItems:"center",
-        // width:"100%",
-        // resizeMode:'center',
     },
     score: {
         backgroundColor: '#FFF200',
