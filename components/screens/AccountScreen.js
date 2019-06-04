@@ -7,8 +7,10 @@ import AdBanner from '../../components/header/adBanner';
 import { Divider } from 'react-native-elements';
 var pickerA = [];
 var picker = [];
-var ctx = this;
 var avatar = [];
+var avatarA = [];
+var logo;
+var logoA = '';
 export default class AccountScreen extends React.Component {
 	constructor(props) {
 		super(props);
@@ -34,8 +36,8 @@ export default class AccountScreen extends React.Component {
 		});
 		// console.log(this.state.selected);
 
-		var Ligue1 = [ 'PSG', 'Lille', 'Lyon', 'Saint-Etienne', 'Marseille', 'Montpellier' ];
-		var LigueA = [ 'FC Barcelone', 'Atlético de Madrid', 'Real Madrid', 'Valence CF', 'Getafe', 'Séville FC' ];
+		var Ligue1 = [ 'psg', 'Marseille' ];
+		var LigueA = [ 'Real Madrid' ];
 		if (value === 'Ligue1') {
 			for (var i = 0; i < Ligue1.length; i++) {
 				picker[i] = <Picker.Item label={Ligue1[i]} value={Ligue1[i]} key={i} />;
@@ -50,18 +52,54 @@ export default class AccountScreen extends React.Component {
 	};
 
 	setLogoVisible = () => {
-		if (this.state.toto) {
-			for (var i = 0; i < 2; i++) {
-				avatar[i] = (
-					<Thumbnail
-						key={i}
-						style={{
-							borderWidth: 2,
-							borderColor: '#3b5998'
-						}}
-						source={require('../../assets/logo/psg.png')}
-					/>
-				);
+		var Ligue1 = [ 'psg', 'Marseille' ];
+		var LigueA = [ 'Real Madrid' ];
+		const coucou = [ require('../../assets/logo/psg.png'), require('../../assets/logo/Marseille.png') ];
+		const coco = [ require('../../assets/logo/RealMadrid.png') ];
+		for (var j = 0; j < Ligue1.length; j++) {
+			if (Ligue1[j] === this.state.toto) {
+				logo = this.state.toto;
+				console.log(logo);
+				console.log('--->logo:' + logo);
+				logoA = '';
+
+				console.log('------>j' + j);
+				if (logo) {
+					return (
+						(avatar = (
+							<Thumbnail
+								style={{
+									borderWidth: 2,
+									borderColor: '#3b5998'
+								}}
+								//source={require('../../assets/logo/psg.png')}
+								source={coucou[j]}
+							/>
+						)),
+						this.setState({ selected: '' })
+					);
+				}
+			} else if (LigueA[j] === this.state.toto) {
+				console.log('------------>' + j);
+
+				logoA = this.state.toto;
+				console.log('--->logoA:' + logoA);
+				logo = '';
+
+				if (logoA === this.state.toto) {
+					return (
+						(avatarA = (
+							<Thumbnail
+								style={{
+									borderWidth: 2,
+									borderColor: '#3b5998'
+								}}
+								source={coco[j]}
+							/>
+						)),
+						this.setState({ selected: '' })
+					);
+				}
 			}
 		}
 	};
@@ -144,6 +182,7 @@ export default class AccountScreen extends React.Component {
 									</Left>
 
 									{avatar}
+									{avatarA}
 								</Body>
 							</ListItem>
 							{this.state.fontLoaded ? (
@@ -287,7 +326,8 @@ export default class AccountScreen extends React.Component {
 												style={{
 													fontFamily: 'Sriracha-Regular',
 													fontSize: 28,
-													color: '#FFFFFF'
+													color: '#FFFFFF',
+													marginLeft: 20
 												}}
 											>
 												Mes Slaps: 790
@@ -297,19 +337,21 @@ export default class AccountScreen extends React.Component {
 												style={{
 													fontSize: 28,
 													textAlign: 'center',
-													color: '#FFFFFF'
+													color: '#FFFFFF',
+													marginLeft: 20
 												}}
 											>
 												Mes Slaps: 790
 											</Text>
 										)}
-
+										<Divider style={{ backgroundColor: '#565656' }} />
 										{this.state.fontLoaded ? (
 											<Text
 												style={{
 													fontFamily: 'Sriracha-Regular',
 													fontSize: 28,
-													color: '#FFFFFF'
+													color: '#FFFFFF',
+													marginLeft: 20
 												}}
 											>
 												Mes Wow: 22
@@ -319,20 +361,24 @@ export default class AccountScreen extends React.Component {
 												style={{
 													fontSize: 28,
 													textAlign: 'center',
-													color: '#FFFFFF'
+													color: '#FFFFFF',
+													marginLeft: 20
 												}}
 											>
 												Mes Wow: 22
 											</Text>
 										)}
+										<Divider style={{ backgroundColor: '#565656' }} />
 									</View>
+									<Divider style={{ backgroundColor: '#565656' }} />
 									<View style={{ alignSelf: 'center' }}>
 										{this.state.fontLoaded ? (
 											<Text
 												style={{
 													fontFamily: 'Sriracha-Regular',
 													fontSize: 28,
-													color: '#FFFFFF'
+													color: '#FFFFFF',
+													textAlign: 'center'
 												}}
 											>
 												Most Slapped
@@ -347,8 +393,16 @@ export default class AccountScreen extends React.Component {
 												Most Slapped
 											</Text>
 										)}
+										<Divider style={{ backgroundColor: '#565656', height: 50 }} />
+
 										<Thumbnail
-											style={{ alignSelf: 'center', borderColor: '#FF0027', borderWidth: 2 }}
+											style={{
+												alignSelf: 'center',
+												borderColor: '#FF0027',
+												borderWidth: 2,
+												width: 200,
+												height: 200
+											}}
 											large
 											source={require('../../assets/players/messi.jpg')}
 										/>
@@ -381,7 +435,7 @@ export default class AccountScreen extends React.Component {
 }
 const styles = StyleSheet.create({
 	blackboard: {
-		height: 230,
+		flex: 1,
 		width: '100%',
 		backgroundColor: '#565656',
 		// shadowColor: 'rgba(0,0,0,1)',

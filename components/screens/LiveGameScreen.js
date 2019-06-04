@@ -5,6 +5,7 @@ import Footer from '../footer/footer';
 import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
 import SlapCard from '../slapCard/slapCard';
+import {connect} from 'react-redux';
 
 class LiveGameScreen extends React.Component { 
 
@@ -781,5 +782,18 @@ const styles = StyleSheet.create({
         height:90
     },
   });
+
+
+function mapStateToProps(state) {
+    console.log("STATE",state)
+    return { user: state.user }
+    }
+    
+
+    export default connect(
+      mapStateToProps, 
+      null
+      )(LiveGameScreen);
+
   
-export default LiveGameScreen;
+

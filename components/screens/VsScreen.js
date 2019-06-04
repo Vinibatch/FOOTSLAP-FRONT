@@ -82,66 +82,63 @@ export default class VsScreen extends React.Component {
 					<CardItem cardBody style={{ margin: 5 }}>
 						<ImageBackground
 							style={{
-								height: 210,
+								flex: 1,
 								width: '100%',
 								borderWidth: 2,
 								borderColor: '#3b5998'
 							}}
 							source={require('../../assets/backgrounds/Vs_Bg.jpg')}
 						>
-							<View style={{ flexDirection: 'column', left: 5, top: 5 }}>
-								<TouchableOpacity onPress={this.setCountSlapPlayer1}>
-									<Thumbnail large source={eventLive[0][0].img} />
-								</TouchableOpacity>
+							<View style={{ flexDirection: 'column' }}>
 								{this.state.fontLoaded ? (
+									<Text style={styles.FontSlap}>
+										{eventLive[1][0].slap + this.state.countSlapPlayer2}
+									</Text>
+								) : (
 									<Text
 										style={{
-											fontFamily: 'Sriracha-Regular',
-											fontSize: 28,
-											marginTop: 50,
-											marginLeft: 5,
+											alignSelf: 'flex-end',
+											marginRight: 20,
+											fontSize: 35,
 											color: '#ffffff'
 										}}
 									>
-										{eventLive[0][0].slap + this.state.countSlapPlayer1}
-									</Text>
-								) : (
-										<Text style={{
-											fontSize: 22, marginTop: 50,
-											marginLeft: 5,
-											color: '#ffffff' }}>
-										{eventLive[0][0].slap + this.state.countSlapPlayer1}
+										{eventLive[1][0].slap + this.state.countSlapPlayer2}
 									</Text>
 								)}
+								<TouchableOpacity
+									onPress={this.setCountSlapPlayer1}
+									style={{ alignSelf: 'flex-start' }}
+								>
+									<Thumbnail style={{ marginLeft: 20 }} large source={eventLive[0][0].img} />
+								</TouchableOpacity>
 							</View>
-
-							<View style={{ flexDirection: 'column', left: 250, bottom: 150 }}>
+							<View style={{ flexDirection: 'column' }}>
+								<TouchableOpacity
+									onPress={this.setCountSlapPlayer2}
+									style={{
+										alignSelf: 'flex-end'
+									}}
+								>
+									<Thumbnail style={{ marginRight: 20 }} large source={eventLive[1][0].img} />
+								</TouchableOpacity>
+							</View>
+							<View style={{ display: 'flex' }}>
 								{this.state.fontLoaded ? (
-									<Text
-										style={{
-											fontFamily: 'Sriracha-Regular',
-											fontSize: 28,
-											paddingBottom: 50,
-											marginLeft: 10,
-											color: '#ffffff'
-										}}
-									>
-										{eventLive[1][0].slap + this.state.countSlapPlayer2}
+									<Text style={styles.withFontSlap}>
+										{eventLive[0][0].slap + this.state.countSlapPlayer1}
 									</Text>
 								) : (
 									<Text
 										style={{
-											fontSize: 28,
-											paddingBottom: 50,
-											marginLeft: 10
+											marginLeft: 20,
+											fontSize: 35,
+											color: '#ffffff'
 										}}
 									>
-										{eventLive[1][0].slap + this.state.countSlapPlayer2}
+										{eventLive[0][0].slap + this.state.countSlapPlayer1}
 									</Text>
 								)}
-								<TouchableOpacity onPress={this.setCountSlapPlayer2}>
-									<Thumbnail large source={eventLive[1][0].img} />
-								</TouchableOpacity>
 							</View>
 						</ImageBackground>
 					</CardItem>
@@ -165,7 +162,7 @@ export default class VsScreen extends React.Component {
 								</Text>
 							)}
 							{this.state.display ? (
-								<Text style={{}}>
+								<Text>
 									{this.state.fontLoaded ? (
 										<Text
 											style={{
@@ -261,7 +258,7 @@ class Toto extends React.Component {
 }
 const styles = StyleSheet.create({
 	blackboard: {
-		height: 230,
+		flex: 1,
 		width: '100%',
 		backgroundColor: '#565656',
 		// shadowColor: 'rgba(0,0,0,1)',
@@ -270,5 +267,32 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flex: 1
+	},
+	withFontSlap: {
+		fontFamily: 'Sriracha-Regular',
+		fontSize: 35,
+		marginLeft: 20,
+		color: '#ffffff',
+		shadowColor: 'rgba(0,0,0,1)',
+		shadowOffset: {
+			width: 0,
+			height: 0
+		},
+		shadowRadius: 3,
+		shadowOpacity: 0.3
+	},
+	FontSlap: {
+		fontFamily: 'Sriracha-Regular',
+		fontSize: 35,
+		alignSelf: 'flex-end',
+		marginRight: 20,
+		color: '#ffffff',
+		shadowColor: 'rgba(0,0,0,1)',
+		shadowOffset: {
+			width: 0,
+			height: 0
+		},
+		shadowRadius: 3,
+		shadowOpacity: 0.3
 	}
 });
