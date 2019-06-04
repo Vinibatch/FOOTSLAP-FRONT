@@ -120,7 +120,7 @@ export default class SlapCard extends Component {
             ) : (
                 <Text style={styles.withoutFontSlap}>{this.props.playerSlap}</Text>
             )}
-            
+        
         </View>
         </View>
         
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   //   top: "7%"
   // },
   slapShadow: {
-    top: 200,
+    top: 180,
     width: 339,
     height: 339,
     position: "absolute",
