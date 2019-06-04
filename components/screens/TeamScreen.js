@@ -36,26 +36,32 @@ export default class TeamScreen extends Component {
 	}
 
 	slapPlayer = (openSlapCard) => {
-        this.setState({
-            openSlapCard,
-            playerImg: this.imgSelected,
-            playerClap: this.clapCount,
-            playerSlap: this.slapCount,
-        })
-	}
+		this.setState({
+			openSlapCard,
+			playerImg: this.imgSelected,
+			playerClap: this.clapCount,
+			playerSlap: this.slapCount
+		});
+	};
 
-	randomNumber = () => { 
-        return  Math.floor(Math.random() * 100)
- 	};
-	
+	randomNumber = () => {
+		return Math.floor(Math.random() * 100);
+	};
+
 	// Tableau représentant les teams (+ logo) suivis par l'utilisateur
 	render() {
+		var slapCard;
+		if (this.state.openSlapCard) {
+			slapCard = (
+				<SlapCard
+					slapped={this.slapPlayer}
+					playerImg={this.state.playerImg}
+					playerClap={this.state.playerClap}
+					playerSlap={this.state.playerSlap}
+				/>
+			);
+		}
 
-	var slapCard;
-    if(this.state.openSlapCard) {
-    slapCard = <SlapCard slapped={this.slapPlayer} playerImg={this.state.playerImg} playerClap={this.state.playerClap} playerSlap={this.state.playerSlap} />
-	}
-	
 		var listPlayers = [
 			[
 				//listPlayers[0][1].logo
@@ -245,27 +251,27 @@ export default class TeamScreen extends Component {
 				source={teamLogo}
 			/>
 		);
-			
+
 		// Map permettant de lister chaques joueurs de l'équipe
 		var items = team.map((element, i) => {
-
 			// Addapt border color to the slap/clap count
-			var playerStatus
+			var playerStatus;
 
-			if (element.clap === element.slap){
-				playerStatus='#EFEAEA'
-				} else if (element.clap > element.slap) {
-					playerStatus='#00FF6A'
-				} else if (element.clap < element.slap && element.slap < element.clap * 3) {
-					playerStatus='#FFF200'
-				} else if (element.clap * 3 < element.slap && element.slap < element.clap * 6) {
-					playerStatus='#FF6C00'
-				} else {
-					playerStatus='#FF0027'
-				}
+			if (element.clap === element.slap) {
+				playerStatus = '#EFEAEA';
+			} else if (element.clap > element.slap) {
+				playerStatus = '#00FF6A';
+			} else if (element.clap < element.slap && element.slap < element.clap * 3) {
+				playerStatus = '#FFF200';
+			} else if (element.clap * 3 < element.slap && element.slap < element.clap * 6) {
+				playerStatus = '#FF6C00';
+			} else {
+				playerStatus = '#FF0027';
+			}
 
 			return (
 				<List
+					noIndent
 					style={{
 						backgroundColor: 'white',
 						borderWidth: 2,
@@ -276,8 +282,17 @@ export default class TeamScreen extends Component {
 						marginRight: 10
 					}}
 				>
-		
-					<ListItem avatar onPress={()=> {this.imgSelected = element.img; this.clapCount =  element.clap; this.slapCount = element.slap; this.slapPlayer(true)}} style={{height: 100}}>
+					<ListItem
+						noIndent
+						avatar
+						onPress={() => {
+							this.imgSelected = element.img;
+							this.clapCount = element.clap;
+							this.slapCount = element.slap;
+							this.slapPlayer(true);
+						}}
+						style={{ height: 100 }}
+					>
 						<Left>
 							<Thumbnail
 								large
@@ -286,13 +301,13 @@ export default class TeamScreen extends Component {
 							/>
 						</Left>
 
-						<Body style={{ height: 70 }}>
+						<Body style={{ height: 70, borderBottomWidth: 0 }}>
 							{this.state.fontLoaded ? (
-								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 25, textAlign: 'left' }}>
+								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 23, textAlign: 'left' }}>
 									{element.name}
 								</Text>
 							) : (
-								<Text style={{ fontSize: 25, textAlign: 'center' }}>{element.name}</Text>
+								<Text style={{ fontSize: 23, textAlign: 'center' }}>{element.name}</Text>
 							)}
 							<View
 								style={{
@@ -341,7 +356,6 @@ export default class TeamScreen extends Component {
 					style={{ height: '100%', width: '100%' }}
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
-					
 					{slapCard}
 
 					<AdBanner />
@@ -377,11 +391,9 @@ export default class TeamScreen extends Component {
 					</View>
 
 					<ScrollView>{items}</ScrollView>
-					
+
 					<Footer />
-
 				</ImageBackground>
-
 			</View>
 		);
 	}
