@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Navigation from './components/navigation/navigation';
-import user from './components/reducers/live.reducer';
-import {Provider, connect} from 'react-redux';
-import {createStore, combineReducers} from 'redux';
-const store = createStore(combineReducers({user}));
+// import user from './components/reducers/live.reducer';
+// import {Provider} from 'react-redux';
+// import {connect} from 'react-redux';
+// import {createStore, combineReducers} from 'redux';
+// const store = createStore(combineReducers({user}));
 
 
  class App extends React.Component {
@@ -12,31 +13,31 @@ const store = createStore(combineReducers({user}));
 		super(props);
 	}
 
-	componentDidMount(){
+	// componentDidMount(){
 
-		fetch('http://IpConfig:3000/nom de la route ')
-	.then((response)=>{
-		return response.json();
-	})
-	.then((user)=> {
-		console.log("après affichage",(user));
-		this.props.handleUserFromDB(user)
-	})
-	.catch((error) =>{
-		console.log('Request failed', error)
-	});
+	// 	fetch('http://IpConfig:3000/nom de la route ')
+	// .then((response)=>{
+	// 	return response.json();
+	// })
+	// .then((user)=> {
+	// 	console.log("après affichage",(user));
+	// 	this.props.handleUserFromDB(user)
+	// })
+	// .catch((error) =>{
+	// 	console.log('Request failed', error)
+	// });
 	
-	 }
+	//  }
 	
 
 
 	render() {
 		return (
-			<Provider store={store}>
+			// <Provider store={store}>
 			<View style={styles.container}>
 				<Navigation />
 			</View>
-			</Provider>
+			// </Provider>
 		);
 	}
 }
@@ -47,19 +48,20 @@ const styles = StyleSheet.create({
 	}
 });
 
-function mapDispatchToProps(dispatch) {
-	return {
-		handleUserFromDB: function(user) {
-	dispatch( {
-	  type: 'getUserFromDB', 
-	  user
-		}) 
-	  }
-	 }
-	}
+// function mapDispatchToProps(dispatch) {
+// 	return {
+// 		handleUserFromDB: function(user) {
+// 	dispatch( {
+// 	  type: 'getUserFromDB', 
+// 	  user
+// 		}) 
+// 	  }
+// 	 }
+// 	}
 	
-	export default connect(
-	null,
-	mapDispatchToProps
-	)(App);
+// 	export default connect(
+// 	null,
+// 	mapDispatchToProps
+// 	)(App);
   
+export default App
