@@ -521,13 +521,9 @@ class LiveGameScreen extends React.Component {
             source={att.img}
             />    
             </TouchableOpacity>
-
         )
-    
     });
   
-   
-
     midListCopy =  this.state.matchLive[this.state.live].midList.map((mid, i) =>{
 
         var midStatus

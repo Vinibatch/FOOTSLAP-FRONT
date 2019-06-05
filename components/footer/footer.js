@@ -6,9 +6,9 @@ import { Font } from 'expo';
 import { withNavigation } from 'react-navigation';
 
 class Footer extends React.Component {
+
   constructor (props) {
     super(props)
-    
 }
 
   state = {
@@ -22,7 +22,7 @@ class Footer extends React.Component {
     await Font.loadAsync({
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
     });
-    
+
     this.setState({ fontLoaded: true });
 }
 
@@ -32,12 +32,7 @@ onBoardClick = () => {
   })
 }
 
-
-
-
   render() {
-
-    
     
     var popUpMenu;
     if(this.state.blackboardVisible) {
@@ -46,7 +41,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Live')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Live')}}
             >
             <Image
               style={styles.icon}
@@ -64,13 +59,13 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Team')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Team')}}
             >
               <Image
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
               />
-              
+
               {this.state.fontLoaded ? (
                 <Text style={styles.font}>Team</Text>
               ) : (
@@ -82,7 +77,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
           style={styles.menuList}
-          onPress={ () => this.props.navigation.navigate('Slapo')}
+          onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Slapo')}}
           >
           <Image
             style={styles.icon}
@@ -94,14 +89,14 @@ onBoardClick = () => {
               <Text style={styles.font}>Slapometer</Text>
             ) : (
               <Text>Slapometer</Text>
-            )}    
+            )}
 
         </TouchableOpacity>
           </ListItem>
           <ListItem>
           <TouchableOpacity 
               style={styles.menuList}
-              onPress={ () => this.props.navigation.navigate('Events')}>
+              onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Events')}}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
@@ -118,7 +113,7 @@ onBoardClick = () => {
           </ListItem>
       </List>
       </View>
-      }   
+      }
       return (
       <View>
       <View style={styles.footer} />
@@ -144,7 +139,7 @@ onBoardClick = () => {
       <Center horizontal>
 
         {this.state.fontLoaded ? (
-          <Text style={styles.text}>Footer</Text>
+          <Text style={styles.text}>{this.props.navigation.state.routeName}</Text>
         ) : (
           <Text>Footer</Text>
         )}
