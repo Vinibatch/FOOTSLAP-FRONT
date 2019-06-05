@@ -69,8 +69,7 @@ export default class AccountScreen extends React.Component {
 						(avatar = (
 							<Thumbnail
 								style={{
-									borderWidth: 2,
-									borderColor: '#3b5998'
+									marginRight: 20,
 								}}
 								//source={require('../../assets/logo/psg.png')}
 								source={coucou[j]}
@@ -91,8 +90,7 @@ export default class AccountScreen extends React.Component {
 						(avatarA = (
 							<Thumbnail
 								style={{
-									borderWidth: 2,
-									borderColor: '#3b5998'
+									marginRight: 20,
 								}}
 								source={coco[j]}
 							/>
@@ -121,43 +119,10 @@ export default class AccountScreen extends React.Component {
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
 					<AdBanner />
-					<ScrollView>
+					<ScrollView>						
 						<View
 							style={{
-								flexDirection: 'row',
-								height: 80,
-								justifyContent: 'space-around',
-								alignItems: 'center',
-								backgroundColor: '#FFF200'
-							}}
-						>
-							{this.state.fontLoaded ? (
-								<Text
-									style={{
-										fontFamily: 'Sriracha-Regular',
-										fontSize: 28,
-										textAlign: 'center',
-										color: '#565656'
-									}}
-								>
-									Mon compte
-								</Text>
-							) : (
-								<Text
-									style={{
-										fontSize: 28,
-										textAlign: 'center',
-										color: '#565656'
-									}}
-								>
-									Mon compte
-								</Text>
-							)}
-						</View>
-
-						<View
-							style={{
-								display: 'flex'
+								display: 'flex',
 							}}
 						>
 							<ListItem
@@ -169,7 +134,7 @@ export default class AccountScreen extends React.Component {
 									opacity: 0.8,
 									marginTop: 10,
 									marginLeft: 10,
-									marginRight: 10
+									marginRight: 10,
 								}}
 							>
 								<Body
@@ -295,6 +260,9 @@ export default class AccountScreen extends React.Component {
 									{pickerA}
 								</Picker>
 							</Form>
+
+							<Divider style={{height: 10, backgroundColor: 'transparent'}}/>
+							
 							<View
 								style={{
 									alignSelf: 'center'
@@ -318,8 +286,13 @@ export default class AccountScreen extends React.Component {
 								</Button>
 							</View>
 
+							<Divider style={{height: 30, backgroundColor: 'transparent'}}/>
+
 							<CardItem cardBody style={{ margin: 5, display: 'flex' }}>
 								<ImageBackground style={styles.blackboard}>
+
+								<Divider style={{height: 10, backgroundColor: 'transparent'}}/>
+
 									<View style={{ alignSelf: 'flex-start' }}>
 										{this.state.fontLoaded ? (
 											<Text
@@ -344,7 +317,7 @@ export default class AccountScreen extends React.Component {
 												Mes Slaps: 790
 											</Text>
 										)}
-										<Divider style={{ backgroundColor: '#565656' }} />
+									
 										{this.state.fontLoaded ? (
 											<Text
 												style={{
@@ -354,7 +327,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Wow: 22
+												Mes Claps: 22
 											</Text>
 										) : (
 											<Text
@@ -365,12 +338,14 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Wow: 22
+												Mes Claps: 22
 											</Text>
 										)}
-										<Divider style={{ backgroundColor: '#565656' }} />
+									
 									</View>
-									<Divider style={{ backgroundColor: '#565656',height:50 }} />
+									
+									<Divider style={{height: 20, backgroundColor: 'transparent'}}/>
+
 									<View style={{ alignSelf: 'center' }}>
 										{this.state.fontLoaded ? (
 											<Text
@@ -393,12 +368,13 @@ export default class AccountScreen extends React.Component {
 												Most Slapped
 											</Text>
 										)}
-										<Divider style={{ backgroundColor: '#565656', height: 20 }} />
+										<Divider style={{ backgroundColor: 'transparent', height: 10 }} />
 
 										<Thumbnail
 											style={{
 												alignSelf: 'center',
 												borderColor: '#FF0027',
+												borderRadius: 100,
 												borderWidth: 2,
 												width: 200,
 												height: 200
@@ -407,14 +383,17 @@ export default class AccountScreen extends React.Component {
 											source={require('../../assets/players/messi.jpg')}
 										/>
 									</View>
+									<Divider style={{ backgroundColor: 'transparent', height: 20 }} />
 								</ImageBackground>
 							</CardItem>
+
+							<Divider style={{ backgroundColor: 'transparent', height: 30 }} />
+							
 							<Button light rounded style={{ alignSelf: 'center', opacity: 0.9 }}>
 								<Text>
 									{this.state.fontLoaded ? (
 										<Text
 											style={{
-												fontWeight: 'bold',
 												fontFamily: 'McLaren-Regular'
 											}}
 										>
@@ -426,6 +405,9 @@ export default class AccountScreen extends React.Component {
 								</Text>
 							</Button>
 						</View>
+
+						<Divider style={{ backgroundColor: 'transparent', height: 30 }} />
+
 					</ScrollView>
 					<Footer />
 				</ImageBackground>
