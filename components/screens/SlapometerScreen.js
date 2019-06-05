@@ -17,17 +17,10 @@
                 number: 0,
                 championnats :
                   [
-                    {
-                    name : "Ligue 1"
-                    },{
-                      name : "Liga"
-                      },{
-                        name : "Champions League"
-                        },
+                    {name : "Ligue 1"},
+                    {name : "Liga"},
+                    {name : "Champions League"},
                   ]
-
-
-                
               };
             }
             toggleModal() {
@@ -47,17 +40,85 @@
             }
 
 
-            setTeamVisible() {
-              this.setState({ number: this.state.number + 1 }) 
-              console.log(this.state.number)
-            }
-            setTeamIisible() {
-              this.setState({ number: this.state.number - 1 })
-              console.log(this.state.number)
-              ;
-            }
+            setTeamVisible(){
+      
+                if (this.state.number >= this.state.championnats.length-1) {
+                  this.setState({ number: 0 });
+              } else if (this.state.number < 0) {
+                  this.setState({ number: 0 });
+              } else {
+                  this.setState({number: this.state.number+1});
+              }
+             
+          };
+            setTeamIisible(){
+        
+              if (this.state.number === 0) {
+                  this.setState({ number: 0 })
+              } else if (this.state.number < 0) {
+                  this.setState({ number: 0 })
+              } else {
+                  this.setState({ number:this.state.number -1 })
+              }
+              
+          };
+      
+
+
+
+
+
+
           render () {
-            console.log("render",this.state.number)
+            if( this.state.number === 0) {
+              var top1 = <Thumbnail 
+              style={{ borderColor: '#FF0027',borderWidth: 2, left : "41%", bottom : "170%"}}
+              source= {require("../../assets/players/antero.png")}
+            />
+            var top3 =  <Thumbnail   
+            style={{  borderColor: '#FF0027',borderWidth: 2, left :"61%", top: '85%'}}
+            source= {require("../../assets/players/draxler.png")}
+          />
+          var top2 = <Thumbnail 
+          style={{borderColor: '#FF0027',borderWidth: 2, left : "20%", bottom : "25%" }}
+          source= {require("../../assets/players/tuchel.png")}
+        />
+            }
+          
+
+
+
+            else if( this.state.number ===1){
+               top1 = <Thumbnail 
+              style={{ borderColor: '#FF0027',borderWidth: 2, left : "41%", bottom : "170%"}}
+              source= {require("../../assets/players/rabiot.png")}
+            />
+             top3 =  <Thumbnail   
+            style={{  borderColor: '#FF0027',borderWidth: 2, left :"61%", top: '85%'}}
+            source= {require("../../assets/players/nasser.png")}
+          />
+           top2 = <Thumbnail 
+          style={{borderColor: '#FF0027',borderWidth: 2, left : "20%", bottom : "25%" }}
+          source= {require("../../assets/players/cavani.png")}
+        />
+            }
+            else if( this.state.number ===2){
+            top1 = <Thumbnail 
+             style={{ borderColor: '#FF0027',borderWidth: 2, left : "41%", bottom : "170%"}}
+             source= {require("../../assets/players/mbappe.png")}
+            />
+            top3 =  <Thumbnail   
+              style={{  borderColor: '#FF0027',borderWidth: 2, left :"61%", top: '85%'}}
+              source= {require("../../assets/players/kurzawa.png")}
+            />
+            top2 = <Thumbnail 
+              style={{borderColor: '#FF0027',borderWidth: 2, left : "20%", bottom : "25%" }}
+              source= {require("../../assets/players/verratti.png")}
+            />
+           }
+           
+          
+          
 
            
             var searchPlayer = [
@@ -151,15 +212,15 @@
                           source={element.img}
                         />
                       </Left>
-                <Body style={{alignItems:"flex-end"}}>
+                <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
 
                     {this.state.fontLoaded ? (
-                        <Text style={{fontFamily: 'McLaren-Regular',fontSize: 20}}>
+                        <Text style={{fontFamily: 'McLaren-Regular',fontSize: 17 , textAlign: 'left' }}>
                           {element.name}
                         </Text>
                         ) :  null }
                     {this.state.fontLoaded ? (
-                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 20}}>
+                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 17}}>
                           Slap : {element.slap}
                         </Text>
                         ):null }
@@ -276,30 +337,20 @@
               </View>
                   <View style = { { bottom: '6%', left: '80%'}}>
                   <TouchableOpacity onPress={this.setTeamVisible}>
-
                   <Image 
                     style={{width: 30,height: 30}}
                     source={require('../../assets/icons/right-chevron.png')}
                   />
-                                  </TouchableOpacity>
+                </TouchableOpacity>
                 </View>
                 <View>
-                <Thumbnail   
-                  style={{  borderColor: '#FF0027',borderWidth: 2, left :"61%", top: '85%'}}
-                  source= {require("../../assets/players/alves.png")}
-                />
+               {top3}
                 </View>
                   <View>
-                    <Thumbnail 
-                      style={{borderColor: '#FF0027',borderWidth: 2, left : "20%", bottom : "25%" }}
-                      source= {require("../../assets/players/rabiot.png")}
-                    />
+                    {top2}
                   </View>
                     <View>
-                      <Thumbnail 
-                        style={{ borderColor: '#FF0027',borderWidth: 2, left : "41%", bottom : "170%"}}
-                        source= {require("../../assets/players/neymar.png")}
-                      />
+                      {top1}
                       </View>
                       <View style = {{position: 'absolute',top : "20%", left : "20%"}}>
                       <Image 
@@ -309,62 +360,124 @@
                       </View>
                       <TouchableOpacity onPress = {() => {this.toggleModal(true)}} >
                         <Image  
-                        style={{width: 30,height: 30, left : "45%", top :'80%'}}
+                        style={{width: 30,height: 30, left : "45%", top :'70%'}}
                         source={require('../../assets/icons/bottom-chevron.png')}
                         />
-                      </TouchableOpacity>
+                                </TouchableOpacity>
+                <Modal animationType = {"slide"} transparent = {false}
+                    visible = {this.state.modalVisible}
+                    onRequestClose = {() => { console.log("Modal has been closed.") } }>
+                    <AdBanner/>
+                    <ScrollView>
+                    <ImageBackground
+                          source={require("../../assets/backgrounds/Field_Bg.png")}
+                          style={{flex:1,
+                            alignItems:"center",height : 1500}}
+                          >
+                    <View style = {{}}>
+                    <TouchableHighlight onPress = {() => {
+                          this.toggleModal(this.state.modalVisible)}} >
+                          <Image  
+                                  style={{width: 30,height: 30, left : "45%", top :'25%'}}
+                                  source={require('../../assets/icons/top-chevron.png')}
+                                  />
+                        </TouchableHighlight>
+                        {ListPlayer}
+                        
+                        <TouchableHighlight onPress = {() => {
+                          this.toggleModal(this.state.modalVisible)}} >
+                          <Image  
+                                  style={{width: 30,height: 30, left : "45%", top :'75%'}}
+                                  source={require('../../assets/icons/top-chevron.png')}
+                                  />
+                        </TouchableHighlight>
+                    </View>
+                    </ImageBackground>
+                    </ScrollView>
+                  </Modal>
+                            </Card>
+                            <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8}}>
+                        <View style = { { top: '4%', left: '10%'}}>
+                        <TouchableOpacity>
+                          <Image 
+                            style={{ width: 30, height: 30 }}
+                            source={require('../../assets/icons/left-chevron.png')}
+                          />
+                          </TouchableOpacity>
+                          </View>
+                          <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "19%"}}>
+                        {this.state.fontLoaded ? (
+                          <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
+                          
+                          </Text>
+                          ):null }
+                        </View>
+                            <View style = { { bottom: '6%', left: '80%'}}>
+                            <TouchableOpacity >
+                            <Image 
+                              style={{width: 30,height: 30}}
+                              source={require('../../assets/icons/right-chevron.png')}
+                            />
+                          </TouchableOpacity>
+                          </View>
+                          <View>
+                          </View>
+                            <View>
+                            </View>
+                              <View>
+                                </View>
+                                <View style = {{position: 'absolute',top : "20%", left : "20%"}}>
+                                <Image 
+                                  style={{width : 200, height :200 }}
+                                  source={require('../../assets/icons/podium.png')}
+                                />
+                                </View>
+                                <TouchableOpacity>
+                                  <Image  
+                                  style={{width: 30,height: 30, left : "45%", top :'70%'}}
+                                  source={require('../../assets/icons/bottom-chevron.png')}
+                                  />
+                                </TouchableOpacity>
+                                <Modal animationType = {"slide"} transparent = {false}
+                    visible = {this.state.modalVisible}
+                    onRequestClose = {() => { console.log("Modal has been closed.") } }>
+                    <AdBanner/>
+                    <ScrollView>
+                    <ImageBackground
+                          source={require("../../assets/backgrounds/Field_Bg.png")}
+                          style={{flex:1,
+                            alignItems:"center",height : 1500}}
+                          >
+                    <View style = {{}}>
+                    <TouchableHighlight onPress = {() => {
+                          this.toggleModal(this.state.modalVisible)}} >
+                          <Image  
+                                  style={{width: 30,height: 30, left : "45%", top :'25%'}}
+                                  source={require('../../assets/icons/top-chevron.png')}
+                                  />
+                        </TouchableHighlight>
+                        {ListPlayer}
+                        
+                        <TouchableHighlight onPress = {() => {
+                          this.toggleModal(this.state.modalVisible)}} >
+                          <Image  
+                                  style={{width: 30,height: 30, left : "45%", top :'75%'}}
+                                  source={require('../../assets/icons/top-chevron.png')}
+                                  />
+                        </TouchableHighlight>
+                    </View>
+                    </ImageBackground>
+                    </ScrollView>
+                  </Modal>
 
+                            </Card>
+                                      </ImageBackground>
 
-
-                      <Modal animationType = {"slide"} transparent = {false}
-           visible = {this.state.modalVisible}
-           onRequestClose = {() => { console.log("Modal has been closed.") } }>
-           <AdBanner/>
-           <ScrollView>
-           <ImageBackground
-                source={require("../../assets/backgrounds/Field_Bg.png")}
-                style={{flex:1,
-                  alignItems:"center",height : 1500}}
-                >
-           <View style = {{}}>
-              {ListPlayer}
-              
-              <TouchableHighlight onPress = {() => {
-                 this.toggleModal(this.state.modalVisible)}} >
-                 <Image  
-                        style={{width: 30,height: 30, left : "45%", top :'80%'}}
-                        source={require('../../assets/icons/top-chevron.png')}
-                        />
-              </TouchableHighlight>
-           </View>
-           </ImageBackground>
-           </ScrollView>
-        </Modal>
-
-
-
-
-
-
-
-
-                      {/* {
-                      this.state.visible 
-                      ?
-                      // <View style= {{ width : "100%", height : '100%', top : "40%", display: 'block', flex:1 }}> 
-                      //   <View style={{backgroundColor:'red'}}>
-                      //     {ListPlayer}
-                      //   </View>
-                      </View>
-                     : null  } */}
-                   </Card>
-                            </ImageBackground>
-
-              </ScrollView>
-              </View>
-             <Footer/>
-     </Container>
-    );
-  }
-}
-     export default SlapometerScreen;
+                        </ScrollView>
+                        </View>
+                      <Footer/>
+              </Container>
+              );
+            }
+          }
+              export default SlapometerScreen;
