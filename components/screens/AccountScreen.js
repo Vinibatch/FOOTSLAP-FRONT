@@ -370,7 +370,7 @@ export default class AccountScreen extends React.Component {
 										)}
 										<Divider style={{ backgroundColor: '#565656' }} />
 									</View>
-									<Divider style={{ backgroundColor: '#565656' }} />
+									<Divider style={{ backgroundColor: '#565656',height:50 }} />
 									<View style={{ alignSelf: 'center' }}>
 										{this.state.fontLoaded ? (
 											<Text
@@ -393,7 +393,7 @@ export default class AccountScreen extends React.Component {
 												Most Slapped
 											</Text>
 										)}
-										<Divider style={{ backgroundColor: '#565656', height: 50 }} />
+										<Divider style={{ backgroundColor: '#565656', height: 20 }} />
 
 										<Thumbnail
 											style={{
