@@ -3,14 +3,17 @@ import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { List, ListItem } from 'native-base';
 import { Center } from "@builderx/utils";
 import { Font } from 'expo';
+import { withNavigation } from 'react-navigation';
 
-
-export default class Footer extends React.Component {
+class Footer extends React.Component {
+  constructor (props) {
+    super(props)
+    
+}
 
   state = {
-
     fontLoaded: false,
-    blackboardVisible: false
+    blackboardVisible: false 
   };
 
   // Insertion des nouvelles polices (fonts-family)
@@ -29,15 +32,22 @@ onBoardClick = () => {
   })
 }
 
+
+
+
   render() {
 
+    
+    
     var popUpMenu;
     if(this.state.blackboardVisible) {
-
-      popUpMenu = <View style={styles.blackboard}>
+      popUpMenu = <View style={styles.blackboard}>       
         <List>
           <ListItem>
-            <View style={styles.menuList}>
+            <TouchableOpacity 
+            style={styles.menuList}
+            onPress={ () => this.props.navigation.navigate('Live')}
+            >
             <Image
               style={styles.icon}
               source={require("../../assets/icons/liveGame_icon.png")}
@@ -49,10 +59,13 @@ onBoardClick = () => {
               <Text>Match</Text>
             )}
 
-          </View>
+          </TouchableOpacity>
           </ListItem>
           <ListItem>
-            <View style={styles.menuList}>
+            <TouchableOpacity 
+            style={styles.menuList}
+            onPress={ () => this.props.navigation.navigate('Team')}
+            >
               <Image
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
@@ -64,13 +77,17 @@ onBoardClick = () => {
                 <Text>Team</Text>
               )}
 
-            </View>
+            </TouchableOpacity>
           </ListItem>
           <ListItem>
-          <View style={styles.menuList}>
+          <TouchableOpacity 
+          style={styles.menuList}
+          onPress={ () => this.props.navigation.navigate('Slapo')}
+          >
           <Image
             style={styles.icon}
             source={require("../../assets/icons/world-cup_icon.png")}
+           
           />
 
             {this.state.fontLoaded ? (
@@ -79,13 +96,16 @@ onBoardClick = () => {
               <Text>Slapometer</Text>
             )}
 
-        </View>
+        </TouchableOpacity>
           </ListItem>
           <ListItem>
-          <View style={styles.menuList}>
+          <TouchableOpacity 
+              style={styles.menuList}
+              onPress={ () => this.props.navigation.navigate('Events')}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
+             
             />
 
             {this.state.fontLoaded ? (
@@ -94,18 +114,15 @@ onBoardClick = () => {
               <Text>Events</Text>
             )}
 
-          </View>
+          </TouchableOpacity>
           </ListItem>
       </List>
-
-
       </View>
       }
       return (
       <View>
       <View style={styles.footer} />
-
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.menuIcon}
         onPress={this.onBoardClick}>
         <Image
@@ -114,7 +131,10 @@ onBoardClick = () => {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.coach}>
+      <TouchableOpacity 
+        style={styles.coach}
+        onPress={ () => this.props.navigation.navigate('Account')}
+        >
         <Image
           source={require("../../assets/icons/coach_icon.png")}
           style={styles.coach}
@@ -123,16 +143,16 @@ onBoardClick = () => {
 
       <Center horizontal>
 
-
         {this.state.fontLoaded ? (
           <Text style={styles.text}>Footer</Text>
         ) : (
           <Text>Footer</Text>
         )}
 
-      </Center>
-      {popUpMenu}
+      </Center> 
+      {popUpMenu}  
       </View>
+
     )
   }
 }
@@ -203,3 +223,5 @@ const styles = StyleSheet.create({
   },
 }
 );
+
+export default withNavigation(Footer);

@@ -3,9 +3,11 @@ import { Font } from 'expo';
 import { ImageBackground, ScrollView, View, Image, TouchableOpacity } from 'react-native';
 import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
 import Footer from '../../components/footer/footer';
+import AdBanner from '../../components/header/adBanner';
+
 export default class TeamScreen extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.setTeamVisible = this.setTeamVisible.bind(this);
 		this.setTeamIisible = this.setTeamIisible.bind(this);
 		this.state = {
@@ -213,7 +215,7 @@ export default class TeamScreen extends Component {
 		}
 		//Récupération du logo de chaque team
 		var logo = (
-			<Image
+			<Thumbnail
 				style={{
 					width: 60,
 					height: 60
@@ -294,12 +296,11 @@ export default class TeamScreen extends Component {
 
 		return (
 			<View style={{ flex: 1, width: '100%' }}>
-				{/* <Header style={{ heiight: -5 }} /> */}
-				<View style={{ backgroundColor: '#545454', height: 20, width: '100%' }} />
 				<ImageBackground
 					style={{ height: '100%', width: '100%' }}
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
+					<AdBanner />
 					<View
 						style={{
 							flexDirection: 'row',
@@ -332,8 +333,11 @@ export default class TeamScreen extends Component {
 					</View>
 
 					<ScrollView>{items}</ScrollView>
+					
+					<Footer />
+
 				</ImageBackground>
-				<Footer />
+
 			</View>
 		);
 	}

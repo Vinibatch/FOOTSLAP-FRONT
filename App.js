@@ -1,28 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SlapometerScreen from './components/screens/SlapometerScreen';
+import { StyleSheet, View } from 'react-native';
 
-import LiveGameScreen from './components/screens/LiveGameScreen';
-
-import Footer from './components/footer/footer';
-import AdBanner from './components/header/adBanner';
-import SlapCard from './components/slapCard/slapCard';
+import Navigation from './components/navigation/navigation'
 
 
 export default class App extends React.Component {
-  render() {
-    return (
-
-      <View style={styles.container}>
-      <SlapometerScreen> </SlapometerScreen>
-      
-      </View>
-    );
-  }
-}
+	constructor (props) {
+		super(props)
+	}
+	
+	render() {
+		return (
+			<View style={styles.container}>
+				<Navigation/>
+			</View>
+		)
+	}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-})
+	container: {
+		flex: 1
+	}
+});
