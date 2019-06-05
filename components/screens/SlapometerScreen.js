@@ -14,8 +14,20 @@
           			fontLoaded: false,
                 visible:false,
                 modalVisible: false,
-                championnats: 0
-               
+                number: 0,
+                championnats :
+                  [
+                    {
+                    name : "Ligue 1"
+                    },{
+                      name : "Liga"
+                      },{
+                        name : "Champions League"
+                        },
+                  ]
+
+
+                
               };
             }
             toggleModal() {
@@ -36,26 +48,18 @@
 
 
             setTeamVisible() {
-              this.setState({ championnats: this.state.championnats + 1 }) 
-              console.log(this.state.championnats)
+              this.setState({ number: this.state.number + 1 }) 
+              console.log(this.state.number)
             }
             setTeamIisible() {
-              this.setState({ championnats: this.state.championnats - 1 })
-              console.log(this.state.championnats)
+              this.setState({ number: this.state.number - 1 })
+              console.log(this.state.number)
               ;
             }
           render () {
-            console.log("render",this.state.championnats)
+            console.log("render",this.state.number)
 
-            var championnats = [
-              {
-              name : "Ligue 1"
-              },{
-                name : "Liga"
-                },{
-                  name : "Champions League"
-                  },
-            ];
+           
             var searchPlayer = [
               {
                 name: 'Lionel Messi',
@@ -120,22 +124,15 @@
                 slap: '200K'
               }
             ];
-            var championnats = championnats.map((element, i) => {
-              return (
-                      <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "19%"}}>
-                  {this.state.fontLoaded ? (
-                    <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
-                    {element.name}
-                    </Text>
-                    ):null }
-                  </View>
 
 
+              for (var i = 0; i < this.state.championnats.length; i++) {
 
-                );
+                
+              
               }
-                );
 
+            
               
 
                 
@@ -149,7 +146,7 @@
                    <CardItem style ={{ alignContent : 'center', alignItems: 'center'}} >
                      <Left>
                        <Thumbnail
-                          large
+                          
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={element.img}
                         />
@@ -270,7 +267,13 @@
                 />
                 </TouchableOpacity>
                 </View>
-                {championnats}
+                <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "19%"}}>
+              {this.state.fontLoaded ? (
+                <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
+                {this.state.championnats[this.state.number].name}
+                </Text>
+                ):null }
+              </View>
                   <View style = { { bottom: '6%', left: '80%'}}>
                   <TouchableOpacity onPress={this.setTeamVisible}>
 
@@ -316,7 +319,13 @@
                       <Modal animationType = {"slide"} transparent = {false}
            visible = {this.state.modalVisible}
            onRequestClose = {() => { console.log("Modal has been closed.") } }>
+           <AdBanner/>
            <ScrollView>
+           <ImageBackground
+                source={require("../../assets/backgrounds/Field_Bg.png")}
+                style={{flex:1,
+                  alignItems:"center",height : 1500}}
+                >
            <View style = {{}}>
               {ListPlayer}
               
@@ -328,6 +337,7 @@
                         />
               </TouchableHighlight>
            </View>
+           </ImageBackground>
            </ScrollView>
         </Modal>
 

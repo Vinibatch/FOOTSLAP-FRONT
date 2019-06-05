@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { List, ListItem } from 'native-base';
-import { Center } from "@builderx/utils";
+import { Center } from '@builderx/utils';
 import { Font } from 'expo';
 import { withNavigation } from 'react-navigation';
 
 class Footer extends React.Component {
+
   constructor (props) {
     super(props)
-    
 }
 
   state = {
@@ -32,12 +32,7 @@ onBoardClick = () => {
   })
 }
 
-
-
-
   render() {
-
-    
     
     var popUpMenu;
     if(this.state.blackboardVisible) {
@@ -46,7 +41,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Live')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Live')}}
             >
             <Image
               style={styles.icon}
@@ -64,7 +59,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => this.props.navigation.navigate('Team')}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Team')}}
             >
               <Image
                 style={styles.icon}
@@ -82,7 +77,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
           style={styles.menuList}
-          onPress={ () => this.props.navigation.navigate('Slapo')}
+          onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Slapo')}}
           >
           <Image
             style={styles.icon}
@@ -101,7 +96,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
               style={styles.menuList}
-              onPress={ () => this.props.navigation.navigate('Events')}>
+              onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Events')}}>
             <Image
               style={styles.icon}
               source={require("../../assets/icons/Vs_icon.png")}
@@ -144,7 +139,7 @@ onBoardClick = () => {
       <Center horizontal>
 
         {this.state.fontLoaded ? (
-          <Text style={styles.text}>Footer</Text>
+          <Text style={styles.text}>{this.props.navigation.state.routeName}</Text>
         ) : (
           <Text>Footer</Text>
         )}
