@@ -470,10 +470,23 @@ class LiveGameScreen extends React.Component {
 
   render() {
 
-    var userData = this.props.user.user? this.props.user.user : {};
+    var userData = this.props.user? this.props.user : {};
 
-    console.log("THIS PROPS USER",userData._id)
-    console.log("THIS PROPS USER",userData.teams)
+    
+    if ( userData && userData.user && userData.user.teams ) {
+
+        for (let i = 0; i < userData.user.teams.length; i++) {
+            
+            // console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i])
+
+            for (let j = 0; j < userData.user.teams[i].staffList.length; j++) {
+            
+                console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i].staffList[j].staff.poste)
+                
+            }
+
+        }
+    }
 
 
     
@@ -794,14 +807,14 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     // console.log("STATE===>",state)
-    // console.log("STATE.TEAMS===>",state.user.user)
+    // console.log("STATE.TEAMS===>",state.user)
     return { user: state.user }
     }
     
 
     export default connect(
       mapStateToProps, 
-      null
+      null 
       )(LiveGameScreen);
 
 
