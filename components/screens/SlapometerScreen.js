@@ -118,7 +118,6 @@
            }
            
           
-          
 
            
             var searchPlayer = [
@@ -368,12 +367,13 @@
                     visible = {this.state.modalVisible}
                     onRequestClose = {() => { console.log("Modal has been closed.") } }>
                     <AdBanner/>
-                    <ScrollView>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
                           style={{flex:1,
-                            alignItems:"center",height : 1500}}
+                            alignItems:"center",height : 1900}}
                           >
+                                              <ScrollView>
+
                     <View style = {{}}>
                     <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
@@ -387,15 +387,20 @@
                         <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
                           <Image  
-                                  style={{width: 30,height: 30, left : "45%", top :'75%'}}
+                                  style={{width: 30,height: 30, left : "45%", top :'55%'}}
                                   source={require('../../assets/icons/top-chevron.png')}
                                   />
                         </TouchableHighlight>
                     </View>
-                    </ImageBackground>
                     </ScrollView>
+
+                    </ImageBackground>
                   </Modal>
                             </Card>
+
+
+
+                          {/* DEUXIEME CARD */}
                             <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8}}>
                         <View style = { { top: '4%', left: '10%'}}>
                         <TouchableOpacity>
@@ -442,12 +447,13 @@
                     visible = {this.state.modalVisible}
                     onRequestClose = {() => { console.log("Modal has been closed.") } }>
                     <AdBanner/>
-                    <ScrollView>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
                           style={{flex:1,
                             alignItems:"center",height : 1500}}
                           >
+                    <ScrollView>
+                   
                     <View style = {{}}>
                     <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
@@ -466,13 +472,18 @@
                                   />
                         </TouchableHighlight>
                     </View>
-                    </ImageBackground>
                     </ScrollView>
+                    </ImageBackground>
+
                   </Modal>
 
-                            </Card>
-                                      </ImageBackground>
 
+
+
+
+
+                            </Card>
+                            </ImageBackground>
                         </ScrollView>
                         </View>
                       <Footer/>

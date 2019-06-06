@@ -380,7 +380,7 @@ export default class AccountScreen extends React.Component {
 												height: 200
 											}}
 											large
-											source={require('../../assets/players/messi.jpg')}
+											source={require('../../assets/players/neymar.png')}
 										/>
 									</View>
 									<Divider style={{ backgroundColor: 'transparent', height: 20 }} />
