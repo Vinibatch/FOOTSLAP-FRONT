@@ -22,7 +22,7 @@ class Footer extends React.Component {
     await Font.loadAsync({
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
     });
-    
+
     this.setState({ fontLoaded: true });
 }
 
@@ -65,7 +65,7 @@ onBoardClick = () => {
                 style={styles.icon}
                 source={require("../../assets/icons/team_icon.png")}
               />
-              
+
               {this.state.fontLoaded ? (
                 <Text style={styles.font}>Team</Text>
               ) : (
@@ -89,7 +89,7 @@ onBoardClick = () => {
               <Text style={styles.font}>Slapometer</Text>
             ) : (
               <Text>Slapometer</Text>
-            )}    
+            )}
 
         </TouchableOpacity>
           </ListItem>
@@ -113,7 +113,7 @@ onBoardClick = () => {
           </ListItem>
       </List>
       </View>
-      }   
+      }
       return (
       <View>
       <View style={styles.footer} />

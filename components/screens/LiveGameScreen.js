@@ -5,7 +5,7 @@ import Footer from '../footer/footer';
 import { Font } from 'expo';
 import AdBanner from '../header/adBanner';
 import SlapCard from '../slapCard/slapCard';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
 class LiveGameScreen extends React.Component { 
 
@@ -121,7 +121,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'G',
-                            img:require("../../assets/players/areola.png"),
+                            img:require("../../assets/players/areola2.png"),
                             },
                             
                     ],
@@ -252,7 +252,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'G',
-                            img:require("../../assets/players/areola.png"),
+                            img:require("../../assets/players/areola2.png"),
                             },
                             
                     ],
@@ -385,7 +385,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'G',
-                            img:require("../../assets/players/areola.png"),
+                            img:require("../../assets/players/areola2.png"),
                             },
                             
                     ],
@@ -425,7 +425,7 @@ class LiveGameScreen extends React.Component {
  };
  
     setMinus(){
-        console.log("CLICK M", this.state.live);
+        // console.log("CLICK M", this.state.live);
 
         if (this.state.live === 0) {
             this.setState({ live: 0 })
@@ -437,7 +437,7 @@ class LiveGameScreen extends React.Component {
     };
 
     setPlus(){
-        console.log("CLICK P",this.state.live);
+        // console.log("CLICK P",this.state.live);
 
           if (this.state.live >= this.state.matchLive.length-1) {
             this.setState({ live: 0 });
@@ -467,7 +467,28 @@ class LiveGameScreen extends React.Component {
         })
     };
 
+
   render() {
+
+    var userData = this.props.user? this.props.user : {};
+
+    
+    if ( userData && userData.user && userData.user.teams ) {
+
+        for (let i = 0; i < userData.user.teams.length; i++) {
+            
+            // console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i])
+
+            for (let j = 0; j < userData.user.teams[i].staffList.length; j++) {
+            
+                console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i].staffList[j].staff.poste)
+                
+            }
+
+        }
+    }
+
+
     
     var slapCard;
     if(this.state.openSlapCard) {
@@ -475,7 +496,7 @@ class LiveGameScreen extends React.Component {
     }
 
     for (var i=0; i < this.state.matchLive.length; i++) {
-        console.log("LIVE===>",this.state.matchLive.length)
+        // console.log("LIVE===>",this.state.matchLive.length)
   
     var attListCopy 
     var midListCopy
@@ -484,9 +505,9 @@ class LiveGameScreen extends React.Component {
     var staffListCopy
 
     attListCopy = this.state.matchLive[this.state.live].attList.map((att, i) =>{
-        console.log("ATTAQUANTS====>",att.img, att.lastname);
-        console.log("SLAP====>",att.slap, att.lastname);
-        console.log("CLAP====>",att.clap, att.lastname);
+        // console.log("ATTAQUANTS====>",att.img, att.lastname);
+        // console.log("SLAP====>",att.slap, att.lastname);
+        // console.log("CLAP====>",att.clap, att.lastname);
 
         var attStatus
 
@@ -784,16 +805,16 @@ const styles = StyleSheet.create({
   });
 
 
-// function mapStateToProps(state) {
-//     console.log("STATE",state)
-//     return { user: state.user }
-//     }
+function mapStateToProps(state) {
+    // console.log("STATE===>",state)
+    // console.log("STATE.TEAMS===>",state.user)
+    return { user: state.user }
+    }
     
 
-//     export default connect(
-//       mapStateToProps, 
-//       null
-//       )(LiveGameScreen);
+    export default connect(
+      mapStateToProps, 
+      null 
+      )(LiveGameScreen);
 
-  export default LiveGameScreen
 
