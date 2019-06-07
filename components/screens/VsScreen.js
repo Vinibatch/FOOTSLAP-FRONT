@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Font } from 'expo';
 import { ImageBackground, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, CardItem, CheckBox, Body, ListItem, Thumbnail } from 'native-base';
+import { Divider } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default class VsScreen extends React.Component {
 	constructor() {
@@ -50,8 +52,8 @@ export default class VsScreen extends React.Component {
 
 	render() {
 		var eventLive = [
-			[ { img: require('../../assets/players/messi.jpg'), slap: 200 } ],
-			[ { img: require('../../assets/players/Ronaldo.jpg'), slap: 200 } ]
+			[ { img: require('../../assets/vs/messiVS.png'), slap: 97 } ],
+			[ { img: require('../../assets/vs/ronaldoVS.png'), slap: 134 } ]
 		];
 
 		var events = [
@@ -86,7 +88,7 @@ export default class VsScreen extends React.Component {
 									flex: 1,
 									width: '100%',
 									borderWidth: 2,
-									borderColor: '#3b5998'
+									borderColor: '#0062FF'
 								}}
 								source={require('../../assets/backgrounds/Vs_Bg.jpg')}
 							>
@@ -111,7 +113,7 @@ export default class VsScreen extends React.Component {
 										onPress={this.setCountSlapPlayer1}
 										style={{ alignSelf: 'flex-start' }}
 									>
-										<Thumbnail style={{ marginLeft: 20 }} large source={eventLive[0][0].img} />
+										<Thumbnail style={{ marginLeft: 20, borderWidth: 2, borderColor: '#474747'}} large source={eventLive[0][0].img} />
 									</TouchableOpacity>
 								</View>
 								<View style={{ flexDirection: 'column' }}>
@@ -121,7 +123,7 @@ export default class VsScreen extends React.Component {
 											alignSelf: 'flex-end'
 										}}
 									>
-										<Thumbnail style={{ marginRight: 20 }} large source={eventLive[1][0].img} />
+										<Thumbnail style={{ marginRight: 20, borderWidth: 2, borderColor: '#474747' }} large source={eventLive[1][0].img} />
 									</TouchableOpacity>
 								</View>
 								<View style={{ display: 'flex' }}>
@@ -193,6 +195,7 @@ export default class VsScreen extends React.Component {
 								)}
 
 								<ScrollView style={{ display: this.state.display }}>{items}</ScrollView>
+								<Divider style={{height: 20, backgroundColor: 'transparent'}}/>
 							</ImageBackground>
 						</CardItem>
 					</ScrollView>
@@ -264,10 +267,17 @@ const styles = StyleSheet.create({
 	blackboard: {
 		flex: 1,
 		width: '100%',
-		backgroundColor: '#565656',
+		backgroundColor: '#474747',
 		// shadowColor: 'rgba(0,0,0,1)',
-		borderWidth: 2,
-		borderColor: '#3b5998'
+		// borderWidth: 2,
+		// borderColor: '#3b5998',
+		shadowColor: "rgba(0,0,0,1)",
+		shadowOffset: {
+		width: 0,
+		height: 0
+		},
+		shadowRadius: 5,
+		shadowOpacity: 1
 	},
 	container: {
 		flex: 1
