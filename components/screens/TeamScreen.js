@@ -148,20 +148,15 @@ class TeamScreen extends Component {
 							/>
 						</Left>
 
-						<Body style={{ height: 70, borderBottomWidth: 0 }}>
+						<Body style={{ height: 70, borderBottomWidth: 0, marginLeft: 25 }}>
 							{this.state.fontLoaded ? (
-								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 19, textAlign: 'left' }}>
-									{element.name}
-								</Text>
+								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 19 }}>{element.name}</Text>
 							) : (
-								<Text style={{ fontSize: 19, textAlign: 'center' }}>{element.name}</Text>
+								<Text style={{ fontSize: 19 }}>{element.name}</Text>
 							)}
 							<View
 								style={{
-									display: 'flex',
-									flexDirection: 'row',
-									justifyContent: 'space-around',
-									alignItems: 'center'
+									flexDirection: 'row'
 								}}
 							>
 								{this.state.fontLoaded ? (
@@ -169,26 +164,25 @@ class TeamScreen extends Component {
 										style={{
 											fontFamily: 'Sriracha-Regular',
 											fontSize: 17,
-											textAlign: 'center'
+											marginRight: 29
 										}}
 									>
 										Clap: {element.clap}
 									</Text>
 								) : (
-									<Text style={{ fontSize: 17, textAlign: 'center' }}>Clap: {element.clap}</Text>
+									<Text style={{ fontSize: 17 }}>Clap: {element.clap}</Text>
 								)}
 								{this.state.fontLoaded ? (
 									<Text
 										style={{
 											fontFamily: 'Sriracha-Regular',
-											fontSize: 17,
-											textAlign: 'center'
+											fontSize: 17
 										}}
 									>
 										Slap: {element.slap}
 									</Text>
 								) : (
-									<Text style={{ fontSize: 17, textAlign: 'center' }}>Slap: {element.slap}</Text>
+									<Text style={{ fontSize: 17 }}>Slap: {element.slap}</Text>
 								)}
 							</View>
 						</Body>
@@ -212,7 +206,7 @@ class TeamScreen extends Component {
 							height: 80,
 							justifyContent: 'space-around',
 							alignItems: 'center',
-							backgroundColor: '#FFF200'
+							backgroundColor: '#FFD700'
 						}}
 					>
 						<TouchableOpacity onPress={this.setTeamIisible}>

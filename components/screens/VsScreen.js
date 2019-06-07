@@ -17,7 +17,10 @@ export default class VsScreen extends React.Component {
 		this.state = {
 			fontLoaded: false,
 			countSlapPlayer1: 0,
-			countSlapPlayer2: 0
+			countSlapPlayer2: 0,
+			count: true,
+			border: false,
+			boorder: false
 		};
 	}
 
@@ -36,9 +39,15 @@ export default class VsScreen extends React.Component {
 			display: 'none'
 		});
 	};
+
 	setCountSlapPlayer1() {
-		this.setState({ countSlapPlayer1: this.state.countSlapPlayer1 + 1 });
-		console.log(this.state.countSlapPlayer1);
+		if (this.state.count) {
+			this.setState({ countSlapPlayer1: this.state.countSlapPlayer1 + 1 });
+			console.log(this.state.countSlapPlayer1);
+			this.setState({ border: '#FF0027' });
+		}
+		this.setState({ count: false });
+
 		// this.setState({ selected: true });
 		// console.log(selected.coucou);
 		// console.log(name);
@@ -46,8 +55,12 @@ export default class VsScreen extends React.Component {
 	}
 
 	setCountSlapPlayer2() {
-		this.setState({ countSlapPlayer2: this.state.countSlapPlayer2 + 1 });
-		console.log(this.state.countSlapPlayer2);
+		if (this.state.count) {
+			this.setState({ countSlapPlayer2: this.state.countSlapPlayer2 + 1 });
+			console.log(this.state.countSlapPlayer2);
+			this.setState({ boorder: '#FF0027' });
+		}
+		this.setState({ count: false });
 	}
 
 	render() {
@@ -57,9 +70,9 @@ export default class VsScreen extends React.Component {
 		];
 
 		var events = [
-			{ event: 'Murinho - Guardiola', selected: false },
+			{ event: 'Mourinho - Guardiola', selected: false },
 			{ event: 'Neymar - Mbappé', selected: true },
-			{ event: 'Liverpool - Totenham', selected: false }
+			{ event: 'Liverpool - Tottenham', selected: false }
 		];
 
 		var items = events.map((element, i) => {
@@ -109,22 +122,69 @@ export default class VsScreen extends React.Component {
 											{eventLive[1][0].slap + this.state.countSlapPlayer2}
 										</Text>
 									)}
-									<TouchableOpacity
-										onPress={this.setCountSlapPlayer1}
-										style={{ alignSelf: 'flex-start' }}
-									>
-										<Thumbnail style={{ marginLeft: 20, borderWidth: 2, borderColor: '#474747'}} large source={eventLive[0][0].img} />
-									</TouchableOpacity>
+									{this.state.border ? (
+										<TouchableOpacity
+											onPress={this.setCountSlapPlayer1}
+											style={{ alignSelf: 'flex-start' }}
+										>
+											<Thumbnail
+												style={{
+													marginLeft: 20,
+													borderWidth: 2,
+													borderColor: this.state.border
+												}}
+												large
+												source={eventLive[0][0].img}
+											/>
+										</TouchableOpacity>
+									) : (
+										<TouchableOpacity
+											onPress={this.setCountSlapPlayer1}
+											style={{ alignSelf: 'flex-start' }}
+										>
+											<Thumbnail
+												style={{
+													marginLeft: 20,
+													borderWidth: 2
+												}}
+												large
+												source={eventLive[0][0].img}
+											/>
+										</TouchableOpacity>
+									)}
 								</View>
 								<View style={{ flexDirection: 'column' }}>
-									<TouchableOpacity
-										onPress={this.setCountSlapPlayer2}
-										style={{
-											alignSelf: 'flex-end'
-										}}
-									>
-										<Thumbnail style={{ marginRight: 20, borderWidth: 2, borderColor: '#474747' }} large source={eventLive[1][0].img} />
-									</TouchableOpacity>
+									{this.state.boorder ? (
+										<TouchableOpacity
+											onPress={this.setCountSlapPlayer2}
+											style={{
+												alignSelf: 'flex-end'
+											}}
+										>
+											<Thumbnail
+												style={{
+													marginRight: 20,
+													borderWidth: 2,
+													borderColor: this.state.boorder
+												}}
+												large
+												source={eventLive[1][0].img}
+											/>
+										</TouchableOpacity>
+									) : (
+										<TouchableOpacity
+											onPress={this.setCountSlapPlayer2}
+											style={{
+												alignSelf: 'flex-end'
+											}}
+										>
+											<Thumbnail
+												style={{ marginRight: 20, borderWidth: 2, borderColor: '#474747' }}
+												large
+												source={eventLive[1][0].img}
+											/>
+										</TouchableOpacity>
+									)}
 								</View>
 								<View style={{ display: 'flex' }}>
 									{this.state.fontLoaded ? (
@@ -195,7 +255,7 @@ export default class VsScreen extends React.Component {
 								)}
 
 								<ScrollView style={{ display: this.state.display }}>{items}</ScrollView>
-								<Divider style={{height: 20, backgroundColor: 'transparent'}}/>
+								<Divider style={{ height: 20, backgroundColor: 'transparent' }} />
 							</ImageBackground>
 						</CardItem>
 					</ScrollView>
@@ -271,10 +331,10 @@ const styles = StyleSheet.create({
 		// shadowColor: 'rgba(0,0,0,1)',
 		// borderWidth: 2,
 		// borderColor: '#3b5998',
-		shadowColor: "rgba(0,0,0,1)",
+		shadowColor: 'rgba(0,0,0,1)',
 		shadowOffset: {
-		width: 0,
-		height: 0
+			width: 0,
+			height: 0
 		},
 		shadowRadius: 5,
 		shadowOpacity: 1
@@ -293,7 +353,7 @@ const styles = StyleSheet.create({
 			height: 0
 		},
 		shadowRadius: 3,
-		shadowOpacity: 0.3
+		shadowOpacity: 10
 	},
 	FontSlap: {
 		fontFamily: 'Sriracha-Regular',
@@ -307,6 +367,6 @@ const styles = StyleSheet.create({
 			height: 0
 		},
 		shadowRadius: 3,
-		shadowOpacity: 0.3
+		shadowOpacity: 10
 	}
 });
