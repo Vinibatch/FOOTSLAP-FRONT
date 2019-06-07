@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import Timer from './components/timer/timer';
 import Rooter from './components/rooter/rooter';
 import user from './components/reducers/live.reducer';
 import {Provider} from 'react-redux';
@@ -16,6 +17,7 @@ const store = createStore(combineReducers({user}));
 	render() {
 		return (
 			<Provider store={store}>
+				{/* <Timer/> */}
 				<Rooter/>
 			</Provider>
 		);

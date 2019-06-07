@@ -7,7 +7,7 @@
 		"platforms": [ "ios", "android" ],
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/logos/logoslapfoot.ico",
+		"icon": "./assets/logos/favicon.ico",
 		"splash": {
 			"image": "./assets/backgrounds/loading_Bg.png",
 			"resizeMode": "contain",
