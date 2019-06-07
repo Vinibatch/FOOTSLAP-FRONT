@@ -581,7 +581,7 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
         </View>
             <ImageBackground
-                source={require("../../assets/backgrounds/backgroundRond.png")}
+                source={require("../../assets/backgrounds/backgroundRondDark.jpg")}
                 style={styles.ibg}
                 >
                 <View

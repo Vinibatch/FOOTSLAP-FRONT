@@ -79,7 +79,7 @@ export default class VsScreen extends React.Component {
 				<AdBanner />
 				<ImageBackground
 					style={{ flex: 1, width: '100%' }}
-					source={require('../../assets/backgrounds/Field_Bg.png')}
+					source={require('../../assets/backgrounds/backgroundRondDark.jpg')}
 				>
 					<ScrollView>
 						<CardItem cardBody style={{ margin: 5 }}>

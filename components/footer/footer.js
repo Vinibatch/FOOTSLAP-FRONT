@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   menuIcon: {
     height: 42,
     width: 42,
-    bottom: 7,
+    bottom: 6,
     left: '7%',
     position: "absolute"
   },

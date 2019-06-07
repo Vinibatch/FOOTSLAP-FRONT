@@ -38,6 +38,7 @@ export default class LoginScreen extends Component {
         </Center>
         <Center horizontal>
           <TouchableOpacity 
+            activeOpacity={0.8}
             style={styles.fbButton} 
             onPress={ () => this.props.navigation.navigate('Account')}/>
         </Center>
@@ -50,11 +51,13 @@ export default class LoginScreen extends Component {
         </Center>
         <Center horizontal>
           <TouchableOpacity 
+            activeOpacity={0.8}
             style={styles.googleButton}
             onPress={ () => this.props.navigation.navigate('Account')} />
         </Center>
         <Center horizontal>
           <TouchableOpacity 
+            activeOpacity={0.9}
             style={styles.emailButton}
             onPress={ () => this.props.navigation.navigate('Account')} />
         </Center>

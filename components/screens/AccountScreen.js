@@ -173,7 +173,7 @@ export default class AccountScreen extends React.Component {
 			<View style={styles.container}>
 				<ImageBackground
 					style={{ height: '100%', width: '100%' }}
-					source={require('../../assets/backgrounds/Field_Bg.png')}
+					source={require('../../assets/backgrounds/backgroundRondDark.jpg')}
 				>
 					<AdBanner />
 					<ScrollView>
@@ -393,7 +393,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Claps: 22
+												Mes Claps: 27
 											</Text>
 										)}
 									</View>
@@ -429,12 +429,12 @@ export default class AccountScreen extends React.Component {
 												alignSelf: 'center',
 												borderColor: '#FF0027',
 												borderRadius: 100,
-												borderWidth: 2,
+												borderWidth: 3,
 												width: 200,
 												height: 200
 											}}
 											large
-											source={require('../../assets/players/neymar.png')}
+											source={require('../../assets/Vince.jpg')}
 										/>
 									</View>
 									<Divider style={{ backgroundColor: 'transparent', height: 20 }} />
@@ -443,7 +443,11 @@ export default class AccountScreen extends React.Component {
 
 							<Divider style={{ backgroundColor: 'transparent', height: 30 }} />
 
-							<Button light rounded style={{ alignSelf: 'center', opacity: 0.9 }}>
+							<Button 
+								light 
+								rounded 
+								onPress={ () => this.props.navigation.navigate('Login')} 
+								style={{ alignSelf: 'center', opacity: 0.9 }}>
 								<Text>
 									{this.state.fontLoaded ? (
 										<Text
