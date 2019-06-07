@@ -5,8 +5,9 @@ import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
 import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
 import SlapCard from '../slapCard/slapCard';
+import { connect } from 'react-redux';
 
-export default class TeamScreen extends Component {
+class TeamScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.setTeamVisible = this.setTeamVisible.bind(this);
@@ -14,7 +15,9 @@ export default class TeamScreen extends Component {
 		this.state = {
 			fontLoaded: false,
 			openSlapCard: false,
-			team: 0
+			team: 0,
+			psg: [],
+			barca: []
 		};
 	}
 	// Insertion des nouvelles polices (fonts-family)
@@ -23,11 +26,13 @@ export default class TeamScreen extends Component {
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
 			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
 		});
+		console.log(this.props.listPlayers);
 
 		this.setState({ fontLoaded: true });
 	}
 	//Création de 2 fonctions permettant d'incrémenter ou de décrémenter un compteur afin de mapper sur la variable
 	// listPlayers en fonction de la team de l'utlisateur
+
 	setTeamVisible() {
 		this.setState({ team: this.state.team + 1 });
 	}
@@ -62,167 +67,7 @@ export default class TeamScreen extends Component {
 			);
 		}
 
-		var listPlayers = [
-			[
-				//listPlayers[0][1].logo
-				{ logo: require('../../assets/logos/logoMarseille.png') },
-				[
-					//listPlayers[0][1]
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'LIONEL MESSI',
-						img: require('../../assets/players/messi.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'CRISTIANO RONALDO',
-						img: require('../../assets/players/Ronaldo.jpg'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					}
-				]
-			],
-
-			[
-				//listPlayers[1][1].logo
-				{ logo: require('../../assets/logo/psg.png') },
-				[
-					//listPlayers[1][1]
-					{
-						name: 'alves',
-						img: require('../../assets/players/alves.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'areola',
-						img: require('../../assets/players/areola.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'cavani',
-						img: require('../../assets/players/cavani.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'draxler',
-						img: require('../../assets/players/draxler.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'kimpembe',
-						img: require('../../assets/players/kimpembe.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'kurzawa',
-						img: require('../../assets/players/kurzawa.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'marquinhos',
-						img: require('../../assets/players/marquinhos.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'mbappe',
-						img: require('../../assets/players/mbappe.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'neymar',
-						img: require('../../assets/players/neymar.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'rabiot',
-						img: require('../../assets/players/rabiot.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'verratti',
-						img: require('../../assets/players/verratti.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					},
-					{
-						name: 'antero',
-						img: require('../../assets/players/antero.png'),
-						clap: this.randomNumber(),
-						slap: this.randomNumber()
-					}
-				]
-			]
-		];
+		var listPlayers = this.props.listPlayers;
 		// Enchainement de condition pour éviter des erreurs de valeurs de this.state.team
 		var team = [];
 		var teamLogo = '';
@@ -248,7 +93,7 @@ export default class TeamScreen extends Component {
 					width: 60,
 					height: 60
 				}}
-				source={teamLogo}
+				source={{ uri: teamLogo }}
 			/>
 		);
 
@@ -286,7 +131,9 @@ export default class TeamScreen extends Component {
 						noIndent
 						avatar
 						onPress={() => {
-							this.imgSelected = element.img;
+							this.imgSelected = {
+								uri: element.img
+							};
 							this.clapCount = element.clap;
 							this.slapCount = element.slap;
 							this.slapPlayer(true);
@@ -297,7 +144,7 @@ export default class TeamScreen extends Component {
 							<Thumbnail
 								large
 								style={{ marginBottom: 2, marginTop: -8, borderWidth: 2, borderColor: playerStatus }}
-								source={element.img}
+								source={{ uri: element.img }}
 							/>
 						</Left>
 
@@ -398,3 +245,52 @@ export default class TeamScreen extends Component {
 		);
 	}
 }
+function mapStateToProps(state) {
+	var psg = [];
+	var logoPsg = [];
+	var barca = [];
+	var logoBarca = [];
+	var listPlayers = [];
+	for (var i = 0; i < state.user.user.teams.length; i++) {
+		if (state.user.user.teams[i].name === 'Paris Saint Germain') {
+			logoPsg.push({ logo: state.user.user.teams[i].logo });
+			for (var j = 0; j < state.user.user.teams[i].staffList.length; j++) {
+				psg.push({
+					name:
+						state.user.user.teams[i].staffList[j].staff.lastName +
+						' ' +
+						state.user.user.teams[i].staffList[j].staff.firstName,
+					img: state.user.user.teams[i].staffList[j].staff.avatar,
+					clap: Math.floor(Math.random() * 100),
+					slap: Math.floor(Math.random() * 100)
+				});
+			}
+		} else if (state.user.user.teams[i].name === 'FC Barcelona') {
+			logoBarca.push({ logo: state.user.user.teams[i].logo });
+			for (var j = 0; j < state.user.user.teams[i].staffList.length; j++) {
+				barca.push({
+					name:
+						state.user.user.teams[i].staffList[j].staff.lastName +
+						' ' +
+						state.user.user.teams[i].staffList[j].staff.firstName,
+					img: state.user.user.teams[i].staffList[j].staff.avatar,
+					clap: Math.floor(Math.random() * 100),
+					slap: Math.floor(Math.random() * 100)
+				});
+				console.log(state.user.user.teams[i].staffList[j].staff.lastName);
+			}
+		}
+		// console.log(state.user.user.teams[i]);
+	}
+	logoPsg.push(psg);
+	logoBarca.push(barca);
+	listPlayers.push(logoPsg, logoBarca);
+	// console.log('STATE===>', state.user.user);
+	console.log('coucou');
+	// console.log('STATE===>', state.user.user);
+	// console.log('STATE===>', state);
+
+	return { listPlayers: listPlayers };
+}
+
+export default connect(mapStateToProps, null)(TeamScreen);
