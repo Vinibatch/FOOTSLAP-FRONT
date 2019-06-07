@@ -79,121 +79,125 @@ export default class VsScreen extends React.Component {
 					style={{ flex: 1, width: '100%' }}
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
-					<CardItem cardBody style={{ margin: 5 }}>
-						<ImageBackground
-							style={{
-								flex: 1,
-								width: '100%',
-								borderWidth: 2,
-								borderColor: '#3b5998'
-							}}
-							source={require('../../assets/backgrounds/Vs_Bg.jpg')}
-						>
-							<View style={{ flexDirection: 'column' }}>
-								{this.state.fontLoaded ? (
-									<Text style={styles.FontSlap}>
-										{eventLive[1][0].slap + this.state.countSlapPlayer2}
-									</Text>
-								) : (
-									<Text
-										style={{
-											alignSelf: 'flex-end',
-											marginRight: 20,
-											fontSize: 35,
-											color: '#ffffff'
-										}}
-									>
-										{eventLive[1][0].slap + this.state.countSlapPlayer2}
-									</Text>
-								)}
-								<TouchableOpacity
-									onPress={this.setCountSlapPlayer1}
-									style={{ alignSelf: 'flex-start' }}
-								>
-									<Thumbnail style={{ marginLeft: 20 }} large source={eventLive[0][0].img} />
-								</TouchableOpacity>
-							</View>
-							<View style={{ flexDirection: 'column' }}>
-								<TouchableOpacity
-									onPress={this.setCountSlapPlayer2}
-									style={{
-										alignSelf: 'flex-end'
-									}}
-								>
-									<Thumbnail style={{ marginRight: 20 }} large source={eventLive[1][0].img} />
-								</TouchableOpacity>
-							</View>
-							<View style={{ display: 'flex' }}>
-								{this.state.fontLoaded ? (
-									<Text style={styles.withFontSlap}>
-										{eventLive[0][0].slap + this.state.countSlapPlayer1}
-									</Text>
-								) : (
-									<Text
-										style={{
-											marginLeft: 20,
-											fontSize: 35,
-											color: '#ffffff'
-										}}
-									>
-										{eventLive[0][0].slap + this.state.countSlapPlayer1}
-									</Text>
-								)}
-							</View>
-						</ImageBackground>
-					</CardItem>
-
-					<CardItem cardBody style={{ margin: 5 }}>
-						<ImageBackground style={styles.blackboard}>
-							{this.state.fontLoaded ? (
-								<Text
-									style={{
-										fontFamily: 'Sriracha-Regular',
-										fontSize: 28,
-										textAlign: 'center',
-										color: '#ffffff'
-									}}
-								>
-									Vote pour le prochain slap VS:
-								</Text>
-							) : (
-								<Text style={{ fontSize: 22, textAlign: 'center' }}>
-									Vote pour le prochain slap VS:
-								</Text>
-							)}
-							{this.state.display ? (
-								<Text>
+					<ScrollView>
+						<CardItem cardBody style={{ margin: 5 }}>
+							<ImageBackground
+								style={{
+									flex: 1,
+									width: '100%',
+									borderWidth: 2,
+									borderColor: '#3b5998'
+								}}
+								source={require('../../assets/backgrounds/Vs_Bg.jpg')}
+							>
+								<View style={{ flexDirection: 'column' }}>
 									{this.state.fontLoaded ? (
-										<Text
-											style={{
-												fontFamily: 'Sriracha-Regular',
-												fontSize: 28,
-												textAlign: 'center',
-												color: '#ffffff'
-											}}
-										>
-											A voté!
+										<Text style={styles.FontSlap}>
+											{eventLive[1][0].slap + this.state.countSlapPlayer2}
 										</Text>
 									) : (
 										<Text
 											style={{
-												fontSize: 28,
-												fontSize: 28,
-												textAlign: 'center',
+												alignSelf: 'flex-end',
+												marginRight: 20,
+												fontSize: 35,
 												color: '#ffffff'
 											}}
 										>
-											A voté!
+											{eventLive[1][0].slap + this.state.countSlapPlayer2}
 										</Text>
 									)}
-								</Text>
-							) : (
-								<Text />
-							)}
-							<ScrollView style={{ display: this.state.display }}>{items}</ScrollView>
-						</ImageBackground>
-					</CardItem>
+									<TouchableOpacity
+										onPress={this.setCountSlapPlayer1}
+										style={{ alignSelf: 'flex-start' }}
+									>
+										<Thumbnail style={{ marginLeft: 20 }} large source={eventLive[0][0].img} />
+									</TouchableOpacity>
+								</View>
+								<View style={{ flexDirection: 'column' }}>
+									<TouchableOpacity
+										onPress={this.setCountSlapPlayer2}
+										style={{
+											alignSelf: 'flex-end'
+										}}
+									>
+										<Thumbnail style={{ marginRight: 20 }} large source={eventLive[1][0].img} />
+									</TouchableOpacity>
+								</View>
+								<View style={{ display: 'flex' }}>
+									{this.state.fontLoaded ? (
+										<Text style={styles.withFontSlap}>
+											{eventLive[0][0].slap + this.state.countSlapPlayer1}
+										</Text>
+									) : (
+										<Text
+											style={{
+												marginLeft: 20,
+												fontSize: 35,
+												color: '#ffffff'
+											}}
+										>
+											{eventLive[0][0].slap + this.state.countSlapPlayer1}
+										</Text>
+									)}
+								</View>
+							</ImageBackground>
+						</CardItem>
+
+						<CardItem cardBody style={{ margin: 5 }}>
+							<ImageBackground style={styles.blackboard}>
+								{this.state.fontLoaded ? (
+									<Text
+										style={{
+											fontFamily: 'Sriracha-Regular',
+											fontSize: 28,
+											textAlign: 'center',
+											color: '#ffffff'
+										}}
+									>
+										Vote pour le prochain slap VS:
+									</Text>
+								) : (
+									<Text style={{ fontSize: 22, textAlign: 'center' }}>
+										Vote pour le prochain slap VS:
+									</Text>
+								)}
+								{this.state.display ? (
+									<Text>
+										{this.state.fontLoaded ? (
+											<Text
+												style={{
+													fontFamily: 'Sriracha-Regular',
+													fontSize: 28,
+													textAlign: 'center',
+													color: '#ffffff'
+												}}
+											>
+												A voté!
+											</Text>
+										) : (
+											<Text
+												style={{
+													fontSize: 28,
+													fontSize: 28,
+													textAlign: 'center',
+													color: '#ffffff'
+												}}
+											>
+												A voté!
+											</Text>
+										)}
+									</Text>
+								) : (
+									<Text />
+								)}
+
+								<ScrollView style={{ display: this.state.display }}>{items}</ScrollView>
+							</ImageBackground>
+						</CardItem>
+					</ScrollView>
 				</ImageBackground>
+
 				<Footer />
 			</View>
 		);

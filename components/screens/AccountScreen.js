@@ -9,7 +9,9 @@ var pickerA = [];
 var picker = [];
 var avatar = [];
 var avatarA = [];
+var ctx = this;
 var logo;
+var tata = [];
 var logoA = '';
 export default class AccountScreen extends React.Component {
 	constructor(props) {
@@ -18,8 +20,61 @@ export default class AccountScreen extends React.Component {
 		this.state = {
 			fontLoaded: false,
 			selected: '',
-			toto: ''
+			toto: '',
+			team: [],
+			team1: [],
+			team2: [],
+			team3: []
 		};
+	}
+	// Insertion des nouvelles polices (fonts-family)
+	async componentDidMount() {
+		await Font.loadAsync({
+			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
+			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
+			// 'Roboto-Medium': require('../../assets/fonts/Roboto-Medium.ttf')
+		});
+		var ctx = this;
+		this.setState({ fontLoaded: true });
+		fetch('http://localhost:3000/account')
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(data) {
+				console.log(data);
+				//Pour récuperer des infos du back, on utilise les states et pour ce faire, on doit créer une copie
+				// ET NE PAS OUBLIER LE CTX!!!!!
+				var copyTeam = [ ...ctx.state.team ];
+				var copyTeam1 = [ ...ctx.state.team1 ];
+				var copyTeam2 = [ ...ctx.state.team2 ];
+				var copyTeam3 = [ ...ctx.state.team3 ];
+
+				copyTeam3.push(data.competitions[1].teamList[0].teams.name);
+				for (var i = 0; i < data.competitions.length; i++) {
+					copyTeam.push(data.competitions[i].name);
+				}
+
+				for (var j = 0; j < data.competitions[2].teamList.length; j++) {
+					copyTeam1.push({
+						id: data.competitions[0].teamList[j].teams._id,
+						logo: data.competitions[0].teamList[j].teams.logo,
+						team: data.competitions[0].teamList[j].teams.name
+					});
+					copyTeam2.push({
+						id: data.competitions[2].teamList[j].teams._id,
+						logo: data.competitions[2].teamList[j].teams.logo,
+						team: data.competitions[2].teamList[j].teams.name
+					});
+				}
+
+				ctx.setState({ team: copyTeam });
+				ctx.setState({ team1: copyTeam1 });
+				ctx.setState({ team2: copyTeam2 });
+				ctx.setState({ team3: copyTeam3 });
+			})
+			.catch(function(error) {
+				console.log('Request failed', error);
+			});
 	}
 
 	onValueChangeToto = (value) => {
@@ -35,83 +90,85 @@ export default class AccountScreen extends React.Component {
 			selected: value
 		});
 		// console.log(this.state.selected);
-
+		var ctx = this;
 		var Ligue1 = [ 'psg', 'Marseille' ];
 		var LigueA = [ 'Real Madrid' ];
-		if (value === 'Ligue1') {
-			for (var i = 0; i < Ligue1.length; i++) {
-				picker[i] = <Picker.Item label={Ligue1[i]} value={Ligue1[i]} key={i} />;
+
+		if (value === 'Ligue 1') {
+			for (var i = 0; i < ctx.state.team1.length; i++) {
+				picker[i] = <Picker.Item label={ctx.state.team1[i].team} value={ctx.state.team1[i].team} key={i} />;
 				pickerA = [];
 			}
-		} else if (value === 'LigueA') {
-			for (var i = 0; i < LigueA.length; i++) {
-				pickerA[i] = <Picker.Item label={LigueA[i]} value={LigueA[i]} key={i} />;
+		} else if (value === 'Liga') {
+			for (var i = 0; i < ctx.state.team2.length; i++) {
+				pickerA[i] = <Picker.Item label={ctx.state.team2[i].team} value={ctx.state.team2[i].team} key={i} />;
+				picker = [];
+			}
+		} else if (value === 'Champions League') {
+			for (var i = 0; i < ctx.state.team3.length; i++) {
+				pickerA[i] = <Picker.Item label={ctx.state.team3[i]} value={ctx.state.team3[i]} key={i} />;
 				picker = [];
 			}
 		}
 	};
 
 	setLogoVisible = () => {
-		var Ligue1 = [ 'psg', 'Marseille' ];
-		var LigueA = [ 'Real Madrid' ];
-		const coucou = [ require('../../assets/logo/psg.png'), require('../../assets/logo/Marseille.png') ];
-		const coco = [ require('../../assets/logo/RealMadrid.png') ];
-		for (var j = 0; j < Ligue1.length; j++) {
-			if (Ligue1[j] === this.state.toto) {
-				logo = this.state.toto;
-				console.log(logo);
-				console.log('--->logo:' + logo);
-				logoA = '';
+		var Ligue1 = [ ...this.state.team1 ];
+		var Liga = [ ...this.state.team2 ];
 
-				console.log('------>j' + j);
-				if (logo) {
-					return (
-						(avatar = (
-							<Thumbnail
-								style={{
-									marginRight: 20,
-								}}
-								//source={require('../../assets/logo/psg.png')}
-								source={coucou[j]}
-							/>
-						)),
-						this.setState({ selected: '' })
-					);
-				}
-			} else if (LigueA[j] === this.state.toto) {
-				console.log('------------>' + j);
+		for (var i = 0; i < Ligue1.length; i++) {
+			var ctx = this;
+			// console.log(ctx.state.toto);
+			console.log(Ligue1[i].team);
 
-				logoA = this.state.toto;
-				console.log('--->logoA:' + logoA);
-				logo = '';
+			if (Ligue1[i].team === ctx.state.toto) {
+				console.log(Ligue1[i].logo);
 
-				if (logoA === this.state.toto) {
-					return (
-						(avatarA = (
-							<Thumbnail
-								style={{
-									marginRight: 20,
-								}}
-								source={coco[j]}
-							/>
-						)),
-						this.setState({ selected: '' })
-					);
-				}
+				return (
+					(avatarA = (
+						<Thumbnail
+							style={{
+								marginRight: 20
+							}}
+							source={{ uri: Ligue1[i].logo }}
+						/>
+					)),
+					this.setState({ selected: '' })
+				);
+			}
+		}
+
+		for (var i = 0; i < Liga.length; i++) {
+			var ctx = this;
+			console.log(ctx.state.toto);
+			console.log(Liga[i].team);
+
+			if (Liga[i].team === ctx.state.toto) {
+				console.log(Liga[i].logo);
+
+				return (
+					(avatar = (
+						<Thumbnail
+							style={{
+								marginRight: 20
+							}}
+							source={{ uri: Liga[i].logo }}
+						/>
+					)),
+					this.setState({ selected: '' })
+				);
 			}
 		}
 	};
-	// Insertion des nouvelles polices (fonts-family)
-	async componentDidMount() {
-		await Font.loadAsync({
-			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
-			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
-			// 'Roboto-Medium': require('../../assets/fonts/Roboto-Medium.ttf')
-		});
 
-		this.setState({ fontLoaded: true });
-	}
 	render() {
+		//Récupération des informations de THIS.STATE.TEAM[], pour les afficher dans {tata}
+		var ctx = this;
+
+		for (var i = 0; i < ctx.state.team.length; i++) {
+			tata[i] = <Picker.Item label={ctx.state.team[i]} value={ctx.state.team[i]} key={i} />;
+		}
+
 		return (
 			<View style={styles.container}>
 				<ImageBackground
@@ -119,10 +176,10 @@ export default class AccountScreen extends React.Component {
 					source={require('../../assets/backgrounds/Field_Bg.png')}
 				>
 					<AdBanner />
-					<ScrollView>						
+					<ScrollView>
 						<View
 							style={{
-								display: 'flex',
+								display: 'flex'
 							}}
 						>
 							<ListItem
@@ -134,7 +191,7 @@ export default class AccountScreen extends React.Component {
 									opacity: 0.8,
 									marginTop: 10,
 									marginLeft: 10,
-									marginRight: 10,
+									marginRight: 10
 								}}
 							>
 								<Body
@@ -212,8 +269,7 @@ export default class AccountScreen extends React.Component {
 									selectedValue={this.state.selected}
 									onValueChange={this.onValueChange}
 								>
-									<Picker.Item label="Ligue 1" value="Ligue1" />
-									<Picker.Item label="Ligue A" value="LigueA" />
+									{tata}
 								</Picker>
 							</Form>
 
@@ -261,8 +317,8 @@ export default class AccountScreen extends React.Component {
 								</Picker>
 							</Form>
 
-							<Divider style={{height: 10, backgroundColor: 'transparent'}}/>
-							
+							<Divider style={{ height: 10, backgroundColor: 'transparent' }} />
+
 							<View
 								style={{
 									alignSelf: 'center'
@@ -286,12 +342,11 @@ export default class AccountScreen extends React.Component {
 								</Button>
 							</View>
 
-							<Divider style={{height: 30, backgroundColor: 'transparent'}}/>
+							<Divider style={{ height: 30, backgroundColor: 'transparent' }} />
 
 							<CardItem cardBody style={{ margin: 5, display: 'flex' }}>
 								<ImageBackground style={styles.blackboard}>
-
-								<Divider style={{height: 10, backgroundColor: 'transparent'}}/>
+									<Divider style={{ height: 10, backgroundColor: 'transparent' }} />
 
 									<View style={{ alignSelf: 'flex-start' }}>
 										{this.state.fontLoaded ? (
@@ -317,7 +372,7 @@ export default class AccountScreen extends React.Component {
 												Mes Slaps: 790
 											</Text>
 										)}
-									
+
 										{this.state.fontLoaded ? (
 											<Text
 												style={{
@@ -341,10 +396,9 @@ export default class AccountScreen extends React.Component {
 												Mes Claps: 22
 											</Text>
 										)}
-									
 									</View>
-									
-									<Divider style={{height: 20, backgroundColor: 'transparent'}}/>
+
+									<Divider style={{ height: 20, backgroundColor: 'transparent' }} />
 
 									<View style={{ alignSelf: 'center' }}>
 										{this.state.fontLoaded ? (
@@ -380,7 +434,7 @@ export default class AccountScreen extends React.Component {
 												height: 200
 											}}
 											large
-											source={require('../../assets/players/messi.jpg')}
+											source={require('../../assets/players/neymar.png')}
 										/>
 									</View>
 									<Divider style={{ backgroundColor: 'transparent', height: 20 }} />
@@ -388,7 +442,7 @@ export default class AccountScreen extends React.Component {
 							</CardItem>
 
 							<Divider style={{ backgroundColor: 'transparent', height: 30 }} />
-							
+
 							<Button light rounded style={{ alignSelf: 'center', opacity: 0.9 }}>
 								<Text>
 									{this.state.fontLoaded ? (
@@ -407,7 +461,6 @@ export default class AccountScreen extends React.Component {
 						</View>
 
 						<Divider style={{ backgroundColor: 'transparent', height: 30 }} />
-
 					</ScrollView>
 					<Footer />
 				</ImageBackground>
