@@ -4,7 +4,12 @@ import { View, StyleSheet, Image, Text, ImageBackground, TouchableOpacity } from
 import { Font } from 'expo';
 
 export default class LoginScreen extends Component {
-
+  constructor (){
+    super()
+    state = {
+      fontLoaded: false,
+  }
+  }
     state = {
         fontLoaded: false,
     }
@@ -27,7 +32,7 @@ export default class LoginScreen extends Component {
         >
         <Center horizontal>
           <Image
-            source={require("../../assets/logos/FSlogo.png")}
+            source={require("../../assets/logos/FSlogo1.png")}
             style={styles.slapLogo}
           />
         </Center>
@@ -40,7 +45,7 @@ export default class LoginScreen extends Component {
         {this.state.fontLoaded ? (
                 <Text style={styles.facebook}>Facebook</Text>
           ) : (
-                <Text style={styles.facebook}>Facebook</Text>
+                <Text style={styles.facebook2}>Facebook</Text>
             )}
         </Center>
         <Center horizontal>
@@ -57,33 +62,33 @@ export default class LoginScreen extends Component {
             {this.state.fontLoaded ? (
                 <Text style={styles.google}>Google</Text>
             ) : (
-                <Text style={styles.google}>Google</Text>
+                <Text style={styles.google2}>Google</Text>
             )}        
         </Center>
         <Center horizontal>
             {this.state.fontLoaded ? (
                 <Text style={styles.email}>Email</Text>
             ) : (
-                <Text style={styles.email}>Email</Text>
+                <Text style={styles.email2}>Email</Text>
             )}         
         </Center>
             {this.state.fontLoaded ? (
                 <Text style={styles.title}>Welcome to FootSlap</Text>
             ) : (
-                <Text style={styles.title}>Welcome to FootSlap</Text>
+                <Text style={styles.title2}>Welcome to FootSlap</Text>
             )} 
         <Center horizontal>
             {this.state.fontLoaded ? (
                 <Text style={styles.signIn}>Sign in</Text>
             ) : (
-                <Text style={styles.signIn}>Sign in</Text>
+                <Text style={styles.signIn2}>Sign in</Text>
             )} 
         </Center>
         <Center horizontal>
             {this.state.fontLoaded ? (
                 <Text style={styles.createAccount}>Create an account</Text>
             ) : (
-                <Text style={styles.createAccount}>Create an account</Text>
+                <Text style={styles.createAccount2}>Create an account</Text>
             )} 
         </Center>
         </ImageBackground>
@@ -98,8 +103,8 @@ const styles = StyleSheet.create({
 //    flex: 1,
 //   },
   slapLogo: {
-    height: 171,
-    width: 200,
+    height: 250,
+    width: 250,
     position: "absolute",
     // top: "1%"
   },
@@ -113,10 +118,17 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   facebook: {
-    top: '62%',
+    top: '61%',
     position: "absolute",
     backgroundColor: "transparent",
     fontFamily: "McLaren-Regular",
+    fontSize: 21,
+    color: "rgba(255,255,255,1)"
+  },
+  facebook2: {
+    top: '61%',
+    position: "absolute",
+    backgroundColor: "transparent",
     fontSize: 21,
     color: "rgba(255,255,255,1)"
   },
@@ -139,26 +151,50 @@ const styles = StyleSheet.create({
     borderRadius: 50
   },
   google: {
-    top: '72%',
+    top: '71%',
     position: "absolute",
     backgroundColor: "transparent",
     fontSize: 21,
     fontFamily: "McLaren-Regular",
     color: "rgba(255,255,255,1)"
   },
+  google2: {
+    top: '71%',
+    position: "absolute",
+    backgroundColor: "transparent",
+    fontSize: 21,
+    color: "rgba(255,255,255,1)"
+  },
   email: {
-    top: '82%',
+    top: '81%',
     position: "absolute",
     backgroundColor: "transparent",
     fontSize: 21,
     fontFamily: "McLaren-Regular",
     color: "rgba(84,84,84,1)"
   },
+  email2: {
+    top: '81%',
+    position: "absolute",
+    backgroundColor: "transparent",
+    fontSize: 21,
+    color: "rgba(84,84,84,1)"
+  },
   title: {
-    top: '35%',
+    top: '32%',
     position: "absolute",
     backgroundColor: "transparent",
     fontFamily: "McLaren-Regular",
+    fontSize: 45,
+    color: "rgba(255,255,255,1)",
+    left: "0.13%",
+    right: -0.5,
+    textAlign: "center"
+  },
+  title2: {
+    top: '32%',
+    position: "absolute",
+    backgroundColor: "transparent",
     fontSize: 47,
     color: "rgba(255,255,255,1)",
     left: "0.13%",
@@ -166,11 +202,11 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   signIn: {
-    top: '53%',
+    top: '52%',
     position: "absolute",
     backgroundColor: "transparent",
     fontFamily: "Sriracha-Regular",
-    fontSize: 27,
+    fontSize: 25,
     color: "rgba(255,255,255,1)"
   },
   createAccount: {
@@ -180,5 +216,20 @@ const styles = StyleSheet.create({
     fontSize: 21,
     color: "rgba(255,255,255,1)",
     fontFamily: "Sriracha-Regular"
-  }
+  },
+  signIn2: {
+    top: '52%',
+    position: "absolute",
+    backgroundColor: "transparent",
+    fontSize: 25,
+    color: "rgba(255,255,255,1)"
+  },
+  createAccount2: {
+    top: '90%',
+    position: "absolute",
+    backgroundColor: "transparent",
+    fontSize: 21,
+    color: "rgba(255,255,255,1)",
+  },
+  
 });
