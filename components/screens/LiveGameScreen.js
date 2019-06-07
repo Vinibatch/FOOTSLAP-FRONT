@@ -712,7 +712,7 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
         </View>
             <ImageBackground
-                source={require("../../assets/backgrounds/FieldBackground3.png")}
+                source={require("../../assets/backgrounds/backgroundRond.png")}
                 style={styles.ibg}
                 >
                 <View
@@ -795,7 +795,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
     },
     score: {
-        backgroundColor: '#FFF200',
+        backgroundColor: '#FFD700',
         justifyContent:"space-around",
         alignItems:"center", 
         flexDirection:"row", 

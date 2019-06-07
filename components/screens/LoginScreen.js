@@ -32,7 +32,9 @@ export default class LoginScreen extends Component {
           />
         </Center>
         <Center horizontal>
-          <TouchableOpacity style={styles.fbButton} />
+          <TouchableOpacity 
+            style={styles.fbButton} 
+            onPress={ () => this.props.navigation.navigate('Account')}/>
         </Center>
         <Center horizontal>
         {this.state.fontLoaded ? (
@@ -42,10 +44,14 @@ export default class LoginScreen extends Component {
             )}
         </Center>
         <Center horizontal>
-          <TouchableOpacity style={styles.googleButton} />
+          <TouchableOpacity 
+            style={styles.googleButton}
+            onPress={ () => this.props.navigation.navigate('Account')} />
         </Center>
         <Center horizontal>
-          <TouchableOpacity style={styles.emailButton} />
+          <TouchableOpacity 
+            style={styles.emailButton}
+            onPress={ () => this.props.navigation.navigate('Account')} />
         </Center>
         <Center horizontal>
             {this.state.fontLoaded ? (
