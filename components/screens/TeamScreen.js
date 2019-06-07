@@ -303,11 +303,11 @@ export default class TeamScreen extends Component {
 
 						<Body style={{ height: 70, borderBottomWidth: 0 }}>
 							{this.state.fontLoaded ? (
-								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 23, textAlign: 'left' }}>
+								<Text style={{ fontFamily: 'McLaren-Regular', fontSize: 19, textAlign: 'left' }}>
 									{element.name}
 								</Text>
 							) : (
-								<Text style={{ fontSize: 23, textAlign: 'center' }}>{element.name}</Text>
+								<Text style={{ fontSize: 19, textAlign: 'center' }}>{element.name}</Text>
 							)}
 							<View
 								style={{
@@ -321,27 +321,27 @@ export default class TeamScreen extends Component {
 									<Text
 										style={{
 											fontFamily: 'Sriracha-Regular',
-											fontSize: 22,
+											fontSize: 17,
 											textAlign: 'center'
 										}}
 									>
 										Clap: {element.clap}
 									</Text>
 								) : (
-									<Text style={{ fontSize: 22, textAlign: 'center' }}>Clap: {element.clap}</Text>
+									<Text style={{ fontSize: 17, textAlign: 'center' }}>Clap: {element.clap}</Text>
 								)}
 								{this.state.fontLoaded ? (
 									<Text
 										style={{
 											fontFamily: 'Sriracha-Regular',
-											fontSize: 22,
+											fontSize: 17,
 											textAlign: 'center'
 										}}
 									>
 										Slap: {element.slap}
 									</Text>
 								) : (
-									<Text style={{ fontSize: 22, textAlign: 'center' }}>Slap: {element.slap}</Text>
+									<Text style={{ fontSize: 17, textAlign: 'center' }}>Slap: {element.slap}</Text>
 								)}
 							</View>
 						</Body>

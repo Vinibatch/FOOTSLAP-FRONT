@@ -36,7 +36,7 @@ export default class AccountScreen extends React.Component {
 		});
 		var ctx = this;
 		this.setState({ fontLoaded: true });
-		fetch('http://172.20.10.4:3000/account')
+		fetch('http://localhost:3000/account')
 			.then(function(response) {
 				return response.json();
 			})
