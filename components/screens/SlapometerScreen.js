@@ -118,7 +118,6 @@
            }
            
           
-          
 
            
             var searchPlayer = [
@@ -215,17 +214,17 @@
                 <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
 
                     {this.state.fontLoaded ? (
-                        <Text style={{fontFamily: 'McLaren-Regular',fontSize: 17 , textAlign: 'left' }}>
+                        <Text style={{fontFamily: 'McLaren-Regular',fontSize: 15 , textAlign: 'left' }}>
                           {element.name}
                         </Text>
                         ) :  null }
                     {this.state.fontLoaded ? (
-                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 17}}>
+                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 15}}>
                           Slap : {element.slap}
                         </Text>
                         ):null }
                     {this.state.fontLoaded ? (
-                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 15}}>
+                        <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 13}}>
                           Clap :  {element.clap}
                         </Text>
                          ):null }
@@ -275,9 +274,7 @@
 
                   <View style = {{ flex: 1, height : 100 }}>
 
-                     
-             <ScrollView style = {{flex : 1, opacity:0.9}} 
-             >
+              
 
              <ImageBackground
                 source={require("../../assets/backgrounds/Field_Bg.png")}
@@ -319,8 +316,12 @@
                   {
                     // CARD CHAMPIONNAT
                   }
-            <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8}}>
-              <View style = { { top: '4%', left: '10%'}}>
+
+                    <ScrollView style = {{flex : 1, opacity:0.9, width : "90%", height : 280, left : '3.5%'}} >
+
+
+            <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8,}}>
+              <View style = { { top: '4%', left: '8%'}}>
                <TouchableOpacity onPress={this.setTeamIisible}>
                 <Image 
                   style={{ width: 30, height: 30 }}
@@ -328,14 +329,14 @@
                 />
                 </TouchableOpacity>
                 </View>
-                <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "19%"}}>
+                <View key={i} style = {{alignItems : 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200,left : "17%%", }}>
               {this.state.fontLoaded ? (
                 <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
                 {this.state.championnats[this.state.number].name}
                 </Text>
                 ):null }
               </View>
-                  <View style = { { bottom: '6%', left: '80%'}}>
+                  <View style = { { bottom: '7%', left: '82%'}}>
                   <TouchableOpacity onPress={this.setTeamVisible}>
                   <Image 
                     style={{width: 30,height: 30}}
@@ -364,17 +365,21 @@
                         source={require('../../assets/icons/bottom-chevron.png')}
                         />
                                 </TouchableOpacity>
+                        {/* MODAL */}
+
                 <Modal animationType = {"slide"} transparent = {false}
                     visible = {this.state.modalVisible}
                     onRequestClose = {() => { console.log("Modal has been closed.") } }>
                     <AdBanner/>
-                    <ScrollView>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
                           style={{flex:1,
-                            alignItems:"center",height : 1500}}
+                            alignItems:"center",height : 1900}}
                           >
-                    <View style = {{}}>
+                                              <ScrollView>
+
+                    <View style = {{alignItems : "center"}}>
+                    <View>
                     <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
                           <Image  
@@ -382,22 +387,29 @@
                                   source={require('../../assets/icons/top-chevron.png')}
                                   />
                         </TouchableHighlight>
+                        </View>
                         {ListPlayer}
-                        
+                        <View>
                         <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
                           <Image  
-                                  style={{width: 30,height: 30, left : "45%", top :'75%'}}
+                                  style={{width: 30,height: 30, left : "10%",bottom : "1%"}}
                                   source={require('../../assets/icons/top-chevron.png')}
                                   />
                         </TouchableHighlight>
+                      </View>
                     </View>
-                    </ImageBackground>
                     </ScrollView>
+
+                    </ImageBackground>
                   </Modal>
                             </Card>
+
+
+
+                          {/* DEUXIEME CARD */}
                             <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8}}>
-                        <View style = { { top: '4%', left: '10%'}}>
+                            <View style = { { top: '4%', left: '8%'}}>
                         <TouchableOpacity>
                           <Image 
                             style={{ width: 30, height: 30 }}
@@ -405,14 +417,14 @@
                           />
                           </TouchableOpacity>
                           </View>
-                          <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "19%"}}>
+                          <View key={i} style = {{alignItems: 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200, left : "17%"}}>
                         {this.state.fontLoaded ? (
                           <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
                           
                           </Text>
                           ):null }
                         </View>
-                            <View style = { { bottom: '6%', left: '80%'}}>
+                        <View style = { { bottom: '7%', left: '83%'}}>
                             <TouchableOpacity >
                             <Image 
                               style={{width: 30,height: 30}}
@@ -432,22 +444,25 @@
                                   source={require('../../assets/icons/podium.png')}
                                 />
                                 </View>
+                                <View>
                                 <TouchableOpacity>
                                   <Image  
-                                  style={{width: 30,height: 30, left : "45%", top :'70%'}}
+                                  style={{width: 30,height: 30, left : "45%", top :'600%'}}
                                   source={require('../../assets/icons/bottom-chevron.png')}
                                   />
                                 </TouchableOpacity>
+                                </View>
                                 <Modal animationType = {"slide"} transparent = {false}
                     visible = {this.state.modalVisible}
                     onRequestClose = {() => { console.log("Modal has been closed.") } }>
                     <AdBanner/>
-                    <ScrollView>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
                           style={{flex:1,
                             alignItems:"center",height : 1500}}
                           >
+                    <ScrollView>
+                   
                     <View style = {{}}>
                     <TouchableHighlight onPress = {() => {
                           this.toggleModal(this.state.modalVisible)}} >
@@ -466,14 +481,20 @@
                                   />
                         </TouchableHighlight>
                     </View>
-                    </ImageBackground>
                     </ScrollView>
+                    </ImageBackground>
+
                   </Modal>
 
-                            </Card>
-                                      </ImageBackground>
 
-                        </ScrollView>
+
+
+
+
+                            </Card>
+                                                    </ScrollView>
+
+                            </ImageBackground>
                         </View>
                       <Footer/>
               </Container>

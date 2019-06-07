@@ -26,7 +26,7 @@ class LiveGameScreen extends React.Component {
                     visitorTeam:require("../../assets/logos/logoMarseille.png"),
                     scoreHomeTeam:5,
                     scoreVisitorTeam:0,
-                    timer : '45:00',
+                    timer : '37:23',
                     attList : [
                         {
                         firstname: 'Kylian',
@@ -34,7 +34,7 @@ class LiveGameScreen extends React.Component {
                         clap:this.randomNumber(),
                         slap:this.randomNumber(),
                         post: 'A',
-                        img:require("../../assets/players/mbappe.png"),
+                        img:require("../../assets/players/mbappe2.png"),
                         },
                         {
                         firstname: '',
@@ -42,7 +42,7 @@ class LiveGameScreen extends React.Component {
                         clap:this.randomNumber(),
                         slap:this.randomNumber(),
                         post: 'A',
-                        img:require("../../assets/players/neymar.png"),
+                        img:require("../../assets/players/neymar2.png"),
                         },
                         {
                         firstname: 'Edinson',
@@ -50,7 +50,7 @@ class LiveGameScreen extends React.Component {
                         clap:this.randomNumber(),
                         slap:this.randomNumber(),
                         post: 'A',
-                        img: require("../../assets/players/cavani.png"),
+                        img: require("../../assets/players/cavani2.png"),
                          },
                         
                     ],
@@ -61,7 +61,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'M',
-                            img:require("../../assets/players/verratti.png"),
+                            img:require("../../assets/players/verratti2.png"),
                             },
                             {
                             firstname: 'Adrien',
@@ -69,7 +69,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'M',
-                            img:require("../../assets/players/rabiot.png"),
+                            img:require("../../assets/players/rabiot2.png"),
                             },
                             {
                             firstname: 'Julian',
@@ -77,7 +77,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'M',
-                            img: require("../../assets/players/draxler.png"),
+                            img: require("../../assets/players/draxler2.png"),
                              },
                     ],
                     defList : [
@@ -87,7 +87,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img:require("../../assets/players/alves.png"),
+                            img:require("../../assets/players/alves2.png"),
                             },
                             {
                             firstname: '',
@@ -95,7 +95,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img:require("../../assets/players/marquinhos.png"),
+                            img:require("../../assets/players/marquinhos2.png"),
                             },
                             {
                             firstname: 'Presnel',
@@ -103,7 +103,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img: require("../../assets/players/kimpembe.png"),
+                            img: require("../../assets/players/kimpembe2.png"),
                             },
                             {
                             firstname: 'Laywin',
@@ -111,7 +111,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img: require("../../assets/players/kurzawa.png"),
+                            img: require("../../assets/players/kurzawa2.png"),
                             },
                     ],
                    gbList : [
@@ -132,7 +132,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img:require("../../assets/players/tuchel.png"),
+                            img:require("../../assets/players/tuchel2.png"),
                             },
                             {
                             firstname: 'Antero',
@@ -140,7 +140,7 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img:require("../../assets/players/antero.png"),
+                            img:require("../../assets/players/antero2.png"),
                             },
                             {
                             firstname: 'Nasser',
@@ -148,271 +148,140 @@ class LiveGameScreen extends React.Component {
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img: require("../../assets/players/nasser.png"),
+                            img: require("../../assets/players/nasser2.png"),
                             },
                     ]
                 },
                 {
-                    homeTeam:require("../../assets/logos/logoPsg.jpg"),
-                    visitorTeam:require("../../assets/logos/logoMarseille.png"),
-                    scoreHomeTeam:8,
-                    scoreVisitorTeam:0,
-                    timer : '90:00',
-                    attList : [
-                        {
-                        firstname: 'Kylian',
-                        lastname: 'MBAPPE',
-                        clap:this.randomNumber(),
-                        slap:this.randomNumber(),
-                        post: 'A',
-                        img:require("../../assets/players/mbappe.png"),
-                        },
-                        {
-                        firstname: '',
-                        lastname: 'NEYMAR',
-                        clap:this.randomNumber(),
-                        slap:this.randomNumber(),
-                        post: 'A',
-                        img:require("../../assets/players/neymar.png"),
-                        },
-                        {
-                        firstname: 'Edinson',
-                        lastname: 'CAVANI',
-                        clap:this.randomNumber(),
-                        slap:this.randomNumber(),
-                        post: 'A',
-                        img: require("../../assets/players/cavani.png"),
-                         },
-                        
-                    ],
-                    midList : [
-                        {
-                            firstname: 'Marco',
-                            lastname: 'VERRATTI',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'M',
-                            img:require("../../assets/players/verratti.png"),
-                            },
-                            {
-                            firstname: 'Adrien',
-                            lastname: 'RABIOT',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'M',
-                            img:require("../../assets/players/rabiot.png"),
-                            },
-                            {
-                            firstname: 'Julian',
-                            lastname: 'DRAXLER',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'M',
-                            img: require("../../assets/players/draxler.png"),
-                             },
-                    ],
-                    defList : [
-                        {
-                            firstname: 'Dani',
-                            lastname: 'ALVES',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'D',
-                            img:require("../../assets/players/alves.png"),
-                            },
-                            {
-                            firstname: '',
-                            lastname: 'MARQUINHOS',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'D',
-                            img:require("../../assets/players/marquinhos.png"),
-                            },
-                            {
-                            firstname: 'Presnel',
-                            lastname: 'KIMPEMBE',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'D',
-                            img: require("../../assets/players/kimpembe.png"),
-                            },
-                            {
-                            firstname: 'Laywin',
-                            lastname: 'KURZAWA',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'D',
-                            img: require("../../assets/players/kurzawa.png"),
-                            },
-                    ],
-                   gbList : [
-                        {
-                            firstname: 'Alphonse',
-                            lastname: 'AREOLA',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'G',
-                            img:require("../../assets/players/areola2.png"),
-                            },
-                            
-                    ],
-                 staffList : [
-                        {
-                            firstname: 'Thomas',
-                            lastname: 'TUCHEL',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'S',
-                            img:require("../../assets/players/tuchel.png"),
-                            },
-                            {
-                            firstname: 'Antero',
-                            lastname: 'HENRIQUE',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'S',
-                            img:require("../../assets/players/antero.png"),
-                            },
-                            {
-                            firstname: 'Nasser',
-                            lastname: 'EL KHELAIFI',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'S',
-                            img: require("../../assets/players/nasser.png"),
-                            },
-                    ]
-                },
-                {
-                    homeTeam:require("../../assets/logos/logoPsg.jpg"),
+                    homeTeam:require("../../assets/logos/logoBarca.png"),
                     visitorTeam:require("../../assets/logos/logoRealMadrid.png"),
                     scoreHomeTeam:3,
                     scoreVisitorTeam:1,
-                    timer : '75:00',
+                    timer : '71:52',
                     attList : [
                         {
-                        firstname: 'Kylian',
-                        lastname: 'MBAPPE',
+                        firstname: 'Lionel',
+                        lastname: 'MESSI',
                         clap:this.randomNumber(),
                         slap:this.randomNumber(),
                         post: 'A',
-                        img:require("../../assets/players/mbappe.png"),
+                        img:require("../../assets/players/Messi.png"),
                         },
                         
                         {
-                        firstname: 'Edinson',
-                        lastname: 'CAVANI',
+                        firstname: 'Luis',
+                        lastname: 'SUAREZ',
                         clap:this.randomNumber(),
                         slap:this.randomNumber(),
                         post: 'A',
-                        img: require("../../assets/players/cavani.png"),
+                        img: require("../../assets/players/Suarez.png"),
                          },
+                         {
+                            firstname: 'Ousmane',
+                            lastname: 'DEMBELE',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'A',
+                            img:require("../../assets/players/Dembele.png"),
+                            },
                         
                     ],
                     midList : [
                         {
-                            firstname: 'Marco',
-                            lastname: 'VERRATTI',
+                            firstname: 'Ivan',
+                            lastname: 'RAKITIC',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'M',
-                            img:require("../../assets/players/verratti.png"),
+                            img:require("../../assets/players/Rakitic.png"),
                             },
                             {
-                            firstname: 'Adrien',
-                            lastname: 'RABIOT',
+                                firstname: 'Sergio',
+                                lastname: 'BUSQUETS',
+                                clap:this.randomNumber(),
+                                slap:this.randomNumber(),
+                                post: 'M',
+                                img: require("../../assets/players/Busquets.png"),
+                                 },
+                            {
+                            firstname: '',
+                            lastname: 'ARTHUR',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'M',
-                            img:require("../../assets/players/rabiot.png"),
-                            },
-                            {
-                                firstname: '',
-                                lastname: 'NEYMAR',
-                                clap:this.randomNumber(),
-                                slap:this.randomNumber(),
-                                post: 'A',
-                                img:require("../../assets/players/neymar.png"),
-                                },
-                            {
-                            firstname: 'Julian',
-                            lastname: 'DRAXLER',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'M',
-                            img: require("../../assets/players/draxler.png"),
-                             },
-                             {
-                                firstname: 'Laywin',
-                                lastname: 'KURZAWA',
-                                clap:this.randomNumber(),
-                                slap:this.randomNumber(),
-                                post: 'D',
-                                img: require("../../assets/players/kurzawa.png"),
-                                },
+                            img:require("../../assets/players/Arthur.png"),
+                            },                            
                     ],
                     defList : [
                         {
-                            firstname: 'Dani',
-                            lastname: 'ALVES',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'D',
-                            img:require("../../assets/players/alves.png"),
-                            },
-                            {
                             firstname: '',
-                            lastname: 'MARQUINHOS',
+                            lastname: 'SEMEDO',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img:require("../../assets/players/marquinhos.png"),
+                            img:require("../../assets/players/Semedo.png"),
                             },
                             {
-                            firstname: 'Presnel',
-                            lastname: 'KIMPEMBE',
+                            firstname: 'Gerard',
+                            lastname: 'PIQUE',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'D',
-                            img: require("../../assets/players/kimpembe.png"),
+                            img:require("../../assets/players/Piqué.png"),
                             },
+                            {
+                            firstname: 'Clément',
+                            lastname: 'LENGLET',
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/players/Lenglet.png"),
+                            },
+                            {
+                                firstname: 'Jordi',
+                                lastname: 'ALBA',
+                                clap:this.randomNumber(),
+                                slap:this.randomNumber(),
+                                post: 'D',
+                                img: require("../../assets/players/Alba.png"),
+                                },
                            
                     ],
                    gbList :[
                         {
-                            firstname: 'Alphonse',
-                            lastname: 'AREOLA',
+                            firstname: 'Marc-André',
+                            lastname: 'TER-STEGEN',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'G',
-                            img:require("../../assets/players/areola2.png"),
+                            img:require("../../assets/players/TerStegen.png"),
                             },
                             
                     ],
                    staffList:[
                         {
-                            firstname: 'Thomas',
-                            lastname: 'TUCHEL',
+                            firstname: 'Ernesto',
+                            lastname: 'VALVERDE',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img:require("../../assets/players/tuchel.png"),
+                            img:require("../../assets/players/Valverde.png"),
                             },
+                            // {
+                            // firstname: 'Antero',
+                            // lastname: 'HENRIQUE',
+                            // clap:this.randomNumber(),
+                            // slap:this.randomNumber(),
+                            // post: 'S',
+                            // img:require("../../assets/players/antero.png"),
+                            // },
                             {
-                            firstname: 'Antero',
-                            lastname: 'HENRIQUE',
+                            firstname: 'Josep Maria',
+                            lastname: 'BARTHOMEU',
                             clap:this.randomNumber(),
                             slap:this.randomNumber(),
                             post: 'S',
-                            img:require("../../assets/players/antero.png"),
-                            },
-                            {
-                            firstname: 'Nasser',
-                            lastname: 'EL KHELAIFI',
-                            clap:this.randomNumber(),
-                            slap:this.randomNumber(),
-                            post: 'S',
-                            img: require("../../assets/players/nasser.png"),
+                            img: require("../../assets/players/Barthomeu.png"),
                             },
                     ]
                 }
@@ -481,7 +350,7 @@ class LiveGameScreen extends React.Component {
 
             for (let j = 0; j < userData.user.teams[i].staffList.length; j++) {
             
-                console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i].staffList[j].staff.poste)
+                // console.log("USER DATA TEAMS STAFFLIST",userData.user.teams[i].staffList[j].staff.poste)
                 
             }
 
@@ -712,7 +581,7 @@ class LiveGameScreen extends React.Component {
                  </TouchableOpacity>
         </View>
             <ImageBackground
-                source={require("../../assets/backgrounds/FieldBackground3.png")}
+                source={require("../../assets/backgrounds/backgroundRond.png")}
                 style={styles.ibg}
                 >
                 <View
@@ -795,7 +664,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
     },
     score: {
-        backgroundColor: '#FFF200',
+        backgroundColor: '#FFD700',
         justifyContent:"space-around",
         alignItems:"center", 
         flexDirection:"row", 

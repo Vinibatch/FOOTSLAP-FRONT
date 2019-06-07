@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     width: '100%',
     bottom: 0,
     left: 0,
-    backgroundColor: "#FFF200",
+    backgroundColor: "#FFD700",
     opacity: 1,
   },
   icon: {
