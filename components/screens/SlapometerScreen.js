@@ -201,34 +201,32 @@
 
             var ListPlayer = ListPlayer.map((element, i) => {
               return (
-                < Card style = {{  width : "90%", opacity: 0.8, flexDirection: 'column',display: 'flex',
-                flexDirection: 'row', alignItems: 'center' }}>
+                <Card style = {{  width : "90%", opacity: 0.8, flexDirection: 'column',display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                    <CardItem style ={{ alignContent : 'center', alignItems: 'center'}} >
-                     <Left>
-                       <Thumbnail
-                          
+                      <Left>
+                         <Thumbnail
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={element.img}
-                        />
+                         />
                       </Left>
-                <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
+                       <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
 
-                    {this.state.fontLoaded ? (
+                       {this.state.fontLoaded ? (
                         <Text style={{fontFamily: 'McLaren-Regular',fontSize: 17 , textAlign: 'left' }}>
                           {element.name}
                         </Text>
                         ) :  null }
-                    {this.state.fontLoaded ? (
+                       {this.state.fontLoaded ? (
                         <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 17}}>
                           Slap : {element.slap}
                         </Text>
                         ):null }
-                    {this.state.fontLoaded ? (
+                       {this.state.fontLoaded ? (
                         <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 15}}>
                           Clap :  {element.clap}
                         </Text>
                          ):null }
-                   </Body>
+                       </Body>
                    </CardItem>
                  </Card>
               );
@@ -362,17 +360,19 @@
                         style={{width: 30,height: 30, left : "45%", top :'70%'}}
                         source={require('../../assets/icons/bottom-chevron.png')}
                         />
-                                </TouchableOpacity>
+                       </TouchableOpacity>
+
+
+
                 <Modal animationType = {"slide"} transparent = {false}
                     visible = {this.state.modalVisible}
                     onRequestClose = {() => { console.log("Modal has been closed.") } }>
                     <AdBanner/>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
-                          style={{flex:1,
-                            alignItems:"center",height : 1900}}
+                          style={{flex:1, alignItems:"center",height : 1900}}
                           >
-                                              <ScrollView>
+                     <ScrollView>
 
                     <View style = {{}}>
                     <TouchableHighlight onPress = {() => {
@@ -381,21 +381,22 @@
                                   style={{width: 30,height: 30, left : "45%", top :'25%'}}
                                   source={require('../../assets/icons/top-chevron.png')}
                                   />
-                        </TouchableHighlight>
+                    </TouchableHighlight>
                         {ListPlayer}
                         
-                        <TouchableHighlight onPress = {() => {
-                          this.toggleModal(this.state.modalVisible)}} >
+                    <TouchableHighlight onPress = {() => {
+                    this.toggleModal(this.state.modalVisible)}} >
                           <Image  
-                                  style={{width: 30,height: 30, left : "45%", top :'55%'}}
-                                  source={require('../../assets/icons/top-chevron.png')}
-                                  />
-                        </TouchableHighlight>
+                           style={{width: 30,height: 30, left : "45%", top :'55%'}}
+                           source={require('../../assets/icons/top-chevron.png')}
+                            />
+                    </TouchableHighlight>
                     </View>
                     </ScrollView>
 
                     </ImageBackground>
-                  </Modal>
+                 </Modal>
+
                             </Card>
 
 
