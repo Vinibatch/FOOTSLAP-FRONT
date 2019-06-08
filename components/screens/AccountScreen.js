@@ -177,11 +177,15 @@ export default class AccountScreen extends React.Component {
 				>
 					<AdBanner />
 					<ScrollView>
+						
 						<View
 							style={{
 								display: 'flex'
 							}}
 						>
+							
+							<Divider style={{ height: 20, backgroundColor: 'transparent' }} />
+
 							<ListItem
 								avatar
 								style={{
@@ -207,6 +211,9 @@ export default class AccountScreen extends React.Component {
 									{avatarA}
 								</Body>
 							</ListItem>
+
+							<Divider style={{ height: 30, backgroundColor: 'transparent' }} />
+
 							{this.state.fontLoaded ? (
 								<Text
 									style={{
@@ -344,6 +351,32 @@ export default class AccountScreen extends React.Component {
 
 							<Divider style={{ height: 30, backgroundColor: 'transparent' }} />
 
+							{this.state.fontLoaded ? (
+								<Text
+									style={{
+										marginLeft: 10,
+										fontFamily: 'Sriracha-Regular',
+										fontSize: 25,
+										color: '#FFFFFF'
+									}}
+								>
+									Mes stats
+								</Text>
+							) : (
+								<Text
+									style={{
+										marginLeft: 10,
+										fontSize: 25,
+										color: '#FFFFFF'
+									}}
+								>
+									Mes stats
+								</Text>
+							)}
+
+							<Divider style={{ height: 10, backgroundColor: 'transparent' }} />
+
+
 							<CardItem cardBody style={{ margin: 5, display: 'flex' }}>
 								<ImageBackground style={styles.blackboard}>
 									<Divider style={{ height: 10, backgroundColor: 'transparent' }} />
@@ -358,7 +391,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Slaps: 790
+												Mes Slaps: 5
 											</Text>
 										) : (
 											<Text
@@ -369,7 +402,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Slaps: 790
+												Mes Slaps: 5
 											</Text>
 										)}
 
@@ -382,7 +415,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Claps: 22
+												Mes Claps: 2
 											</Text>
 										) : (
 											<Text
@@ -393,7 +426,7 @@ export default class AccountScreen extends React.Component {
 													marginLeft: 20
 												}}
 											>
-												Mes Claps: 27
+												Mes Claps: 2
 											</Text>
 										)}
 									</View>

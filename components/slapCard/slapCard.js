@@ -146,15 +146,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "35%",
   },
-  // player: {
-  //   width: 243,
-  //   height: 243,
-  //   position: "absolute",
-  //   borderWidth: 6,
-  //   borderColor: playerStatus,
-  //   borderRadius: 120,
-  //   top: "7%"
-  // },
   slapShadow: {
     top: 170,
     width: 339,

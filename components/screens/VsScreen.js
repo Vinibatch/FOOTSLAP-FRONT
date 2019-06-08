@@ -81,7 +81,7 @@ export default class VsScreen extends React.Component {
 					name={element.event}
 					key={i}
 					onPress={this.setSelected}
-					burgerNumber={i + 1}
+					burgerNumber={i + 1} 
 					array={events}
 					handleClickParent={this.handleClick}
 				/>
