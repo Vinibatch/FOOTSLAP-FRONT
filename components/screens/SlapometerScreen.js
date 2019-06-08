@@ -201,17 +201,15 @@
 
             var ListPlayer = ListPlayer.map((element, i) => {
               return (
-                < Card style = {{  width : "90%", opacity: 0.8, flexDirection: 'column',display: 'flex',
-                flexDirection: 'row', alignItems: 'center' }}>
+                <Card style = {{  width : "90%", opacity: 0.8, flexDirection: 'column',display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                    <CardItem style ={{ alignContent : 'center', alignItems: 'center'}} >
-                     <Left>
-                       <Thumbnail
-                          
+                      <Left>
+                         <Thumbnail
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={element.img}
-                        />
+                         />
                       </Left>
-                <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
+                       <Body style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
 
                     {this.state.fontLoaded ? (
                         <Text style={{fontFamily: 'McLaren-Regular',fontSize: 15 , textAlign: 'left' }}>
@@ -228,7 +226,7 @@
                           Clap :  {element.clap}
                         </Text>
                          ):null }
-                   </Body>
+                       </Body>
                    </CardItem>
                  </Card>
               );
@@ -373,10 +371,9 @@
                     <AdBanner/>
                     <ImageBackground
                           source={require("../../assets/backgrounds/Field_Bg.png")}
-                          style={{flex:1,
-                            alignItems:"center",height : 1900}}
+                          style={{flex:1, alignItems:"center",height : 1900}}
                           >
-                                              <ScrollView>
+                     <ScrollView>
 
                     <View style = {{alignItems : "center"}}>
                     <View>
@@ -402,7 +399,8 @@
                     </ScrollView>
 
                     </ImageBackground>
-                  </Modal>
+                 </Modal>
+
                             </Card>
 
 
