@@ -9,10 +9,7 @@ var pickerA = [];
 var picker = [];
 var avatar = [];
 var avatarA = [];
-var ctx = this;
-var logo;
 var tata = [];
-var logoA = '';
 export default class AccountScreen extends React.Component {
 	constructor(props) {
 		super(props);
@@ -36,12 +33,11 @@ export default class AccountScreen extends React.Component {
 		});
 		var ctx = this;
 		this.setState({ fontLoaded: true });
-		fetch('http://localhost:3000/account')
+		fetch('http://10.2.4.26:3000/account')
 			.then(function(response) {
 				return response.json();
 			})
 			.then(function(data) {
-				console.log(data);
 				//Pour récuperer des infos du back, on utilise les states et pour ce faire, on doit créer une copie
 				// ET NE PAS OUBLIER LE CTX!!!!!
 				var copyTeam = [ ...ctx.state.team ];
@@ -81,19 +77,13 @@ export default class AccountScreen extends React.Component {
 		this.setState({
 			toto: value
 		});
-
-		console.log(value);
 	};
 
 	onValueChange = (value) => {
 		this.setState({
 			selected: value
 		});
-		// console.log(this.state.selected);
 		var ctx = this;
-		var Ligue1 = [ 'psg', 'Marseille' ];
-		var LigueA = [ 'Real Madrid' ];
-
 		if (value === 'Ligue 1') {
 			for (var i = 0; i < ctx.state.team1.length; i++) {
 				picker[i] = <Picker.Item label={ctx.state.team1[i].team} value={ctx.state.team1[i].team} key={i} />;
@@ -118,12 +108,7 @@ export default class AccountScreen extends React.Component {
 
 		for (var i = 0; i < Ligue1.length; i++) {
 			var ctx = this;
-			// console.log(ctx.state.toto);
-			console.log(Ligue1[i].team);
-
 			if (Ligue1[i].team === ctx.state.toto) {
-				console.log(Ligue1[i].logo);
-
 				return (
 					(avatarA = (
 						<Thumbnail
@@ -140,12 +125,8 @@ export default class AccountScreen extends React.Component {
 
 		for (var i = 0; i < Liga.length; i++) {
 			var ctx = this;
-			console.log(ctx.state.toto);
-			console.log(Liga[i].team);
 
 			if (Liga[i].team === ctx.state.toto) {
-				console.log(Liga[i].logo);
-
 				return (
 					(avatar = (
 						<Thumbnail
