@@ -6,7 +6,7 @@ import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
 import SlapCard from '../slapCard/slapCard';
 import { connect } from 'react-redux';
-
+console.disableYellowBox = true;
 class TeamScreen extends Component {
 	constructor(props) {
 		super(props);
@@ -26,7 +26,6 @@ class TeamScreen extends Component {
 			'McLaren-Regular': require('../../assets/fonts/McLaren-Regular.ttf'),
 			'Sriracha-Regular': require('../../assets/fonts/Sriracha-Regular.ttf')
 		});
-		console.log(this.props.listPlayers);
 
 		this.setState({ fontLoaded: true });
 	}
@@ -116,6 +115,7 @@ class TeamScreen extends Component {
 
 			return (
 				<List
+					key={i}
 					noIndent
 					style={{
 						backgroundColor: 'white',
@@ -271,7 +271,6 @@ function mapStateToProps(state) {
 					clap: Math.floor(Math.random() * 100),
 					slap: Math.floor(Math.random() * 100)
 				});
-				console.log(state.user.user.teams[i].staffList[j].staff.lastName);
 			}
 		}
 		// console.log(state.user.user.teams[i]);
@@ -279,11 +278,6 @@ function mapStateToProps(state) {
 	logoPsg.push(psg);
 	logoBarca.push(barca);
 	listPlayers.push(logoPsg, logoBarca);
-	// console.log('STATE===>', state.user.user);
-	console.log('coucou');
-	// console.log('STATE===>', state.user.user);
-	// console.log('STATE===>', state);
-
 	return { listPlayers: listPlayers };
 }
 

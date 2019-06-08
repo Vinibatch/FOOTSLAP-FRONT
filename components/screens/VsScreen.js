@@ -20,7 +20,8 @@ export default class VsScreen extends React.Component {
 			countSlapPlayer2: 0,
 			count: true,
 			border: false,
-			boorder: false
+			boorder: false,
+			TouchableOpacity: false
 		};
 	}
 
@@ -45,13 +46,9 @@ export default class VsScreen extends React.Component {
 			this.setState({ countSlapPlayer1: this.state.countSlapPlayer1 + 1 });
 			console.log(this.state.countSlapPlayer1);
 			this.setState({ border: '#FF0027' });
+			this.setState({ TouchableOpacity: true });
 		}
 		this.setState({ count: false });
-
-		// this.setState({ selected: true });
-		// console.log(selected.coucou);
-		// console.log(name);
-		// console.log(this.props.name);
 	}
 
 	setCountSlapPlayer2() {
@@ -59,6 +56,7 @@ export default class VsScreen extends React.Component {
 			this.setState({ countSlapPlayer2: this.state.countSlapPlayer2 + 1 });
 			console.log(this.state.countSlapPlayer2);
 			this.setState({ boorder: '#FF0027' });
+			this.setState({ TouchableOpacity: true });
 		}
 		this.setState({ count: false });
 	}
@@ -124,6 +122,7 @@ export default class VsScreen extends React.Component {
 									)}
 									{this.state.border ? (
 										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
 											onPress={this.setCountSlapPlayer1}
 											style={{ alignSelf: 'flex-start' }}
 										>
@@ -139,6 +138,7 @@ export default class VsScreen extends React.Component {
 										</TouchableOpacity>
 									) : (
 										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
 											onPress={this.setCountSlapPlayer1}
 											style={{ alignSelf: 'flex-start' }}
 										>
@@ -156,6 +156,7 @@ export default class VsScreen extends React.Component {
 								<View style={{ flexDirection: 'column' }}>
 									{this.state.boorder ? (
 										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
 											onPress={this.setCountSlapPlayer2}
 											style={{
 												alignSelf: 'flex-end'
@@ -173,6 +174,7 @@ export default class VsScreen extends React.Component {
 										</TouchableOpacity>
 									) : (
 										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
 											onPress={this.setCountSlapPlayer2}
 											style={{
 												alignSelf: 'flex-end'
@@ -273,7 +275,7 @@ class Toto extends React.Component {
 		this.setSelected = this.setSelected.bind(this);
 
 		this.state = {
-			selected: null,
+			selected: false,
 			count: 0
 		};
 	}
@@ -287,7 +289,7 @@ class Toto extends React.Component {
 	}
 	setSelected() {
 		if (!this.state.selected) {
-			this.setState({ selected: !this.state.selected });
+			this.setState({ selected: true });
 
 			this.props.handleClickParent();
 			// this.setState({ display: true });
