@@ -199,9 +199,9 @@
                         
                   
 
-            var ListPlayer = ListPlayer.map((element, i) => {
+            var ListPlayer = ListPlayer.map((element, x) => {
               return (
-                < Card style = {{  width : "90%", opacity: 0.8, flexDirection: 'column',display: 'flex',
+                < Card key={x} style = {{  width : "90%", opacity: 0.9, flexDirection: 'column',display: 'flex',
                 flexDirection: 'row', alignItems: 'center' }}>
                    <CardItem style ={{ alignContent : 'center', alignItems: 'center'}} >
                      <Left>
@@ -317,11 +317,11 @@
                     // CARD CHAMPIONNAT
                   }
 
-                    <ScrollView style = {{flex : 1, opacity:0.9, width : "90%", height : 280, left : '3.5%'}} >
+                    <ScrollView style = {{flex : 1, opacity:0.9, width : "90%", height : 280, left : '2%'}} >
 
 
-            <Card  style={{width: "90%", height: 280, backgroundColor: 'white', opacity: 0.8,}}>
-              <View style = { { top: '4%', left: '8%'}}>
+            <Card  style={{width: "95%", height: 280, backgroundColor: 'white', opacity: 0.9,}}>
+              <View style = { { top: '4%', left: '6%'}}>
                <TouchableOpacity onPress={this.setTeamIisible}>
                 <Image 
                   style={{ width: 30, height: 30 }}
@@ -329,9 +329,9 @@
                 />
                 </TouchableOpacity>
                 </View>
-                <View key={i} style = {{alignItems : 'center', position: 'absolute', top: '3%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200,left : "17%%", }}>
+                <View key={i} style = {{alignItems : 'center', position: 'absolute', top: '3.5%', backgroundColor: '#0D0F50', textColor : "white", height: 34, width: 200,left : "17%%", }}>
               {this.state.fontLoaded ? (
-                <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 18,color : "white"}} >
+                <Text style = {{fontFamily: 'McLaren-Regular',top:'10%',fontSize : 18,color : "white"}} >
                 {this.state.championnats[this.state.number].name}
                 </Text>
                 ):null }
@@ -353,7 +353,7 @@
                     <View>
                       {top1}
                       </View>
-                      <View style = {{position: 'absolute',top : "20%", left : "20%"}}>
+                      <View style = {{position: 'absolute',top : "20%", left : "17%"}}>
                       <Image 
                         style={{width : 200, height :200 }}
                         source={require('../../assets/icons/podium.png')}
@@ -438,9 +438,9 @@
                             </View>
                               <View>
                                 </View>
-                                <View style = {{position: 'absolute',top : "20%", left : "20%"}}>
+                                <View style = {{position: 'absolute',top : "20%", left : "17%"}}>
                                 <Image 
-                                  style={{width : 200, height :200 }}
+                                  style={{width : 200, height :200, alignItems: 'center' }}
                                   source={require('../../assets/icons/podium.png')}
                                 />
                                 </View>

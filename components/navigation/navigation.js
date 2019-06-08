@@ -9,11 +9,11 @@ import VsScreen from '../screens/VsScreen'
 import LoginScreen from '../screens/LoginScreen'
 
 const StackNavigator = createStackNavigator({
+    Slapo:SlapometerScreen,
 
 Login:LoginScreen,    
 Live:LiveGameScreen,
 Team:TeamScreen,
-Slapo:SlapometerScreen,
 Account:AccountScreen,
 Events: VsScreen,
 },
