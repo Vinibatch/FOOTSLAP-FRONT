@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Font } from 'expo';
 import { ImageBackground, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, CardItem, CheckBox, Body, ListItem, Thumbnail } from 'native-base';
+import { Divider } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import Footer from '../../components/footer/footer';
 import AdBanner from '../../components/header/adBanner';
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default class VsScreen extends React.Component {
 	constructor() {
@@ -15,7 +17,11 @@ export default class VsScreen extends React.Component {
 		this.state = {
 			fontLoaded: false,
 			countSlapPlayer1: 0,
-			countSlapPlayer2: 0
+			countSlapPlayer2: 0,
+			count: true,
+			border: false,
+			boorder: false,
+			TouchableOpacity: false
 		};
 	}
 
@@ -34,30 +40,37 @@ export default class VsScreen extends React.Component {
 			display: 'none'
 		});
 	};
+
 	setCountSlapPlayer1() {
-		this.setState({ countSlapPlayer1: this.state.countSlapPlayer1 + 1 });
-		console.log(this.state.countSlapPlayer1);
-		// this.setState({ selected: true });
-		// console.log(selected.coucou);
-		// console.log(name);
-		// console.log(this.props.name);
+		if (this.state.count) {
+			this.setState({ countSlapPlayer1: this.state.countSlapPlayer1 + 1 });
+			console.log(this.state.countSlapPlayer1);
+			this.setState({ border: '#FF0027' });
+			this.setState({ TouchableOpacity: true });
+		}
+		this.setState({ count: false });
 	}
 
 	setCountSlapPlayer2() {
-		this.setState({ countSlapPlayer2: this.state.countSlapPlayer2 + 1 });
-		console.log(this.state.countSlapPlayer2);
+		if (this.state.count) {
+			this.setState({ countSlapPlayer2: this.state.countSlapPlayer2 + 1 });
+			console.log(this.state.countSlapPlayer2);
+			this.setState({ boorder: '#FF0027' });
+			this.setState({ TouchableOpacity: true });
+		}
+		this.setState({ count: false });
 	}
 
 	render() {
 		var eventLive = [
-			[ { img: require('../../assets/players/messi.jpg'), slap: 200 } ],
-			[ { img: require('../../assets/players/Ronaldo.jpg'), slap: 200 } ]
+			[ { img: require('../../assets/vs/messiVS.png'), slap: 97 } ],
+			[ { img: require('../../assets/vs/ronaldoVS.png'), slap: 134 } ]
 		];
 
 		var events = [
-			{ event: 'Murinho - Guardiola', selected: false },
+			{ event: 'Mourinho - Guardiola', selected: false },
 			{ event: 'Neymar - Mbappé', selected: true },
-			{ event: 'Liverpool - Totenham', selected: false }
+			{ event: 'Liverpool - Tottenham', selected: false }
 		];
 
 		var items = events.map((element, i) => {
@@ -86,7 +99,7 @@ export default class VsScreen extends React.Component {
 									flex: 1,
 									width: '100%',
 									borderWidth: 2,
-									borderColor: '#3b5998'
+									borderColor: '#0062FF'
 								}}
 								source={require('../../assets/backgrounds/Vs_Bg.jpg')}
 							>
@@ -107,22 +120,73 @@ export default class VsScreen extends React.Component {
 											{eventLive[1][0].slap + this.state.countSlapPlayer2}
 										</Text>
 									)}
-									<TouchableOpacity
-										onPress={this.setCountSlapPlayer1}
-										style={{ alignSelf: 'flex-start' }}
-									>
-										<Thumbnail style={{ marginLeft: 20 }} large source={eventLive[0][0].img} />
-									</TouchableOpacity>
+									{this.state.border ? (
+										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
+											onPress={this.setCountSlapPlayer1}
+											style={{ alignSelf: 'flex-start' }}
+										>
+											<Thumbnail
+												style={{
+													marginLeft: 20,
+													borderWidth: 2,
+													borderColor: this.state.border
+												}}
+												large
+												source={eventLive[0][0].img}
+											/>
+										</TouchableOpacity>
+									) : (
+										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
+											onPress={this.setCountSlapPlayer1}
+											style={{ alignSelf: 'flex-start' }}
+										>
+											<Thumbnail
+												style={{
+													marginLeft: 20,
+													borderWidth: 2
+												}}
+												large
+												source={eventLive[0][0].img}
+											/>
+										</TouchableOpacity>
+									)}
 								</View>
 								<View style={{ flexDirection: 'column' }}>
-									<TouchableOpacity
-										onPress={this.setCountSlapPlayer2}
-										style={{
-											alignSelf: 'flex-end'
-										}}
-									>
-										<Thumbnail style={{ marginRight: 20 }} large source={eventLive[1][0].img} />
-									</TouchableOpacity>
+									{this.state.boorder ? (
+										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
+											onPress={this.setCountSlapPlayer2}
+											style={{
+												alignSelf: 'flex-end'
+											}}
+										>
+											<Thumbnail
+												style={{
+													marginRight: 20,
+													borderWidth: 2,
+													borderColor: this.state.boorder
+												}}
+												large
+												source={eventLive[1][0].img}
+											/>
+										</TouchableOpacity>
+									) : (
+										<TouchableOpacity
+											disabled={this.state.TouchableOpacity}
+											onPress={this.setCountSlapPlayer2}
+											style={{
+												alignSelf: 'flex-end'
+											}}
+										>
+											<Thumbnail
+												style={{ marginRight: 20, borderWidth: 2, borderColor: '#474747' }}
+												large
+												source={eventLive[1][0].img}
+											/>
+										</TouchableOpacity>
+									)}
 								</View>
 								<View style={{ display: 'flex' }}>
 									{this.state.fontLoaded ? (
@@ -193,6 +257,7 @@ export default class VsScreen extends React.Component {
 								)}
 
 								<ScrollView style={{ display: this.state.display }}>{items}</ScrollView>
+								<Divider style={{ height: 20, backgroundColor: 'transparent' }} />
 							</ImageBackground>
 						</CardItem>
 					</ScrollView>
@@ -210,7 +275,7 @@ class Toto extends React.Component {
 		this.setSelected = this.setSelected.bind(this);
 
 		this.state = {
-			selected: null,
+			selected: false,
 			count: 0
 		};
 	}
@@ -224,7 +289,7 @@ class Toto extends React.Component {
 	}
 	setSelected() {
 		if (!this.state.selected) {
-			this.setState({ selected: !this.state.selected });
+			this.setState({ selected: true });
 
 			this.props.handleClickParent();
 			// this.setState({ display: true });
@@ -264,10 +329,17 @@ const styles = StyleSheet.create({
 	blackboard: {
 		flex: 1,
 		width: '100%',
-		backgroundColor: '#565656',
+		backgroundColor: '#474747',
 		// shadowColor: 'rgba(0,0,0,1)',
-		borderWidth: 2,
-		borderColor: '#3b5998'
+		// borderWidth: 2,
+		// borderColor: '#3b5998',
+		shadowColor: 'rgba(0,0,0,1)',
+		shadowOffset: {
+			width: 0,
+			height: 0
+		},
+		shadowRadius: 5,
+		shadowOpacity: 1
 	},
 	container: {
 		flex: 1
@@ -283,7 +355,7 @@ const styles = StyleSheet.create({
 			height: 0
 		},
 		shadowRadius: 3,
-		shadowOpacity: 0.3
+		shadowOpacity: 10
 	},
 	FontSlap: {
 		fontFamily: 'Sriracha-Regular',
@@ -297,6 +369,6 @@ const styles = StyleSheet.create({
 			height: 0
 		},
 		shadowRadius: 3,
-		shadowOpacity: 0.3
+		shadowOpacity: 10
 	}
 });
