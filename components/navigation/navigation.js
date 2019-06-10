@@ -3,18 +3,18 @@ import {createAppContainer, createStackNavigator} from 'react-navigation';
 
 import LiveGameScreen from '../screens/LiveGameScreen';
 import AccountScreen from '../screens/AccountScreen';
-import SlapometerScreen2 from '../screens/SlapometerScreen2';
+import SlapometerScreen from '../screens/SlapometerScreen';
 import TeamScreen from '../screens/TeamScreen';
 import VsScreen from '../screens/VsScreen'
 import LoginScreen from '../screens/LoginScreen'
 
 const StackNavigator = createStackNavigator({
 
-ActuSlap:SlapometerScreen2,
 Login:LoginScreen,    
 Live:LiveGameScreen,
 Teams:TeamScreen,
 Account:AccountScreen,
+ActuSlap:SlapometerScreen,
 Events: VsScreen,
 
 },
