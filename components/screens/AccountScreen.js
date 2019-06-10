@@ -18,6 +18,8 @@ export default class AccountScreen extends React.Component {
 			fontLoaded: false,
 			selected: '',
 			toto: '',
+			avatar: null,
+			avatar1: null,
 			team: [],
 			team1: [],
 			team2: [],
@@ -109,16 +111,19 @@ export default class AccountScreen extends React.Component {
 		for (var i = 0; i < Ligue1.length; i++) {
 			var ctx = this;
 			if (Ligue1[i].team === ctx.state.toto) {
-				return (
-					(avatarA = (
-						<Thumbnail
-							style={{
-								marginRight: 20
-							}}
-							source={{ uri: Ligue1[i].logo }}
-						/>
-					)),
-					this.setState({ selected: '' })
+				let avatar1 = (
+					<Thumbnail
+						style={{
+							marginRight: 20
+						}}
+						source={{ uri: Ligue1[i].logo }}
+					/>
+				);
+
+				this.setState(
+					{ avatar1 }
+
+					//this.setState({ toto: '' })
 				);
 			}
 		}
@@ -127,16 +132,19 @@ export default class AccountScreen extends React.Component {
 			var ctx = this;
 
 			if (Liga[i].team === ctx.state.toto) {
-				return (
-					(avatar = (
-						<Thumbnail
-							style={{
-								marginRight: 20
-							}}
-							source={{ uri: Liga[i].logo }}
-						/>
-					)),
-					this.setState({ selected: '' })
+				let avatar = (
+					<Thumbnail
+						style={{
+							marginRight: 20
+						}}
+						source={{ uri: Liga[i].logo }}
+					/>
+				);
+
+				this.setState(
+					{ avatar }
+
+					//this.setState({ toto: '' })
 				);
 			}
 		}
@@ -188,8 +196,8 @@ export default class AccountScreen extends React.Component {
 										<Text>Mes Equipes:</Text>
 									</Left>
 
-									{avatar}
-									{avatarA}
+									{this.state.avatar}
+									{this.state.avatar1}
 								</Body>
 							</ListItem>
 
