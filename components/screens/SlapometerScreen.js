@@ -21,8 +21,8 @@ class SlapometerScreen2 extends React.Component {
             modalVisible: false,
             Compets: [],
             team: [],
-			team1: [],
-			team2: [],
+            team1: [],
+            team2: [],
             team3: []
     };
   }
@@ -289,8 +289,8 @@ return(
             >
                 <ScrollView 
                      contentContainerStyle={{alignItems:'center'}}
-                     centerContent={true} 
-                     style={{flex:1, width:'100%'}}>
+                     style={{flex:1, width:'100%'}}
+                     >
 
                 <View style={{width:'90%', height:400, backgroundColor:'white', borderWidth:2,borderColor: '#0062FF',opacity: 0.9,marginTop: 20, justifyContent:"space-around", alignItems:"center"}}>
 
@@ -447,7 +447,7 @@ return(
 
                 <TouchableOpacity 
                     onPress = {() => {this.toggleModal(true)}}
-                    style={{borderBottomWidth:1, borderColor: '#FFD700',borderRadius:10, width:'30%',alignItems:'center'}}
+                    style={{borderBottomWidth:1, borderColor: '#0062FF',borderRadius:10, width:'30%',alignItems:'center'}}
                     >
                     {this.state.fontLoaded ? (
                             <Text style = {{fontFamily: 'McLaren-Regular',fontSize : 17,color : '#0062FF'}} >
@@ -498,12 +498,13 @@ return(
 
                       <Left>
                          <Thumbnail
+                          large
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={require('../../assets/players/mbappe2.png')}
                          />
                       </Left>
 
-                       <View style={{height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
+                       <View style={{ height: 70, borderBottomWidth: 0,alignItems:"flex-end"}}>
 
                        {this.state.fontLoaded ? (
                         <Text style={{fontFamily: 'McLaren-Regular',fontSize: 17 , textAlign: 'left' }}>
@@ -534,6 +535,7 @@ return(
 
                       <Left>
                          <Thumbnail
+                         large
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={require('../../assets/players/alves2.png')}
                          />
@@ -570,6 +572,7 @@ return(
 
                       <Left>
                          <Thumbnail
+                         large
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={require('../../assets/players/kimpembe2.png')}
                          />
@@ -606,6 +609,7 @@ return(
 
                       <Left>
                          <Thumbnail
+                         large
                           style={{ borderWidth : 2,borderColor: '#FF0027'}}
                           source={require('../../assets/players/marquinhos2.png')}
                          />
@@ -642,6 +646,7 @@ return(
 
    <Left>
       <Thumbnail
+      large
        style={{ borderWidth : 2,borderColor: '#FF0027'}}
        source={require('../../assets/players/nasser2.png')}
       />
@@ -677,6 +682,7 @@ return(
 
    <Left>
       <Thumbnail
+      large
        style={{ borderWidth : 2,borderColor: '#FF0027'}}
        source={require('../../assets/players/verratti2.png')}
       />
@@ -712,6 +718,7 @@ return(
 
    <Left>
       <Thumbnail
+      large
        style={{ borderWidth : 2,borderColor: '#FF0027'}}
        source={require('../../assets/players/areola2.png')}
       />

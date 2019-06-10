@@ -21,7 +21,7 @@ export default class AccountScreen extends React.Component {
 			team: [],
 			team1: [],
 			team2: [],
-			team3: []
+			team3: [],
 		};
 	}
 	// Insertion des nouvelles polices (fonts-family)
@@ -33,7 +33,7 @@ export default class AccountScreen extends React.Component {
 		});
 		var ctx = this;
 		this.setState({ fontLoaded: true });
-		fetch('http://10.2.4.26:3000/account')
+		fetch('http://localhost:3000/account')
 			.then(function(response) {
 				return response.json();
 			})
