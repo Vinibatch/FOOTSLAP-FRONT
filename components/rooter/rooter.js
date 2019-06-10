@@ -9,7 +9,7 @@ class rooter extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('http://10.2.3.184:3000/redux')
+		fetch('http://192.168.1.17:3000/redux')
 			.then((response) => {
 				return response.json();
 			})
