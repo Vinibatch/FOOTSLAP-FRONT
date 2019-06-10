@@ -34,12 +34,13 @@ class SlapometerScreen2 extends React.Component {
 });
     this.setState({ fontLoaded: true });
     var ctx = this;
-    fetch('http://10.2.3.184:3000/actu-slap')
+    fetch('http://192.168.1.17:3000/actu-slap')
     .then((response)=>{
         return response.json();
     })
     .then((actu)=> {
-        // console.log("après affichage",actu);
+
+        console.log("après affichage",actu);
 var copyCompets = [...ctx.state.Compets]
 	for (var i = 0; i < actu.competitions.length; i++) {
     console.log (actu.competitions[i].name )	
@@ -53,7 +54,8 @@ var copyCompets = [...ctx.state.Compets]
 
 				copyTeam3.push(actu.competitions[1].teamList[0].teams.name);
 				for (var i = 0; i < actu.competitions.length; i++) {
-					copyTeam.push(actu.competitions[i].name);
+          copyTeam.push(actu.competitions[i].name);
+          console.log(actu.competitions[i].name)
 				}
 
 				for (var j = 0; j < actu.competitions[2].teamList.length; j++) {
@@ -72,7 +74,7 @@ var copyCompets = [...ctx.state.Compets]
 				ctx.setState({ team1: copyTeam1 });
 				ctx.setState({ team2: copyTeam2 });
                 ctx.setState({ team3: copyTeam3 });
-                console.log(ctx.state.team1)
+                console.log(ctx.state.team)
 
     
     })

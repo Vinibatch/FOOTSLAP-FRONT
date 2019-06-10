@@ -23,9 +23,9 @@ export default class SlapCard extends Component {
         this.slapSound = new Audio.Sound();
         this.clapSound = new Audio.Sound();
 
-        this.slapSound.loadAsync(require('../../assets/sounds/slap_sound.mp3'), initialStatus = {}, downloadFirst = true)
+        await this.slapSound.loadAsync(require('../../assets/sounds/slap_sound.mp3'), initialStatus = {}, downloadFirst = true)
 
-        this.clapSound.loadAsync(require('../../assets/sounds/wow_sound.mp3'), initialStatus = {}, downloadFirst = true)
+        await this.clapSound.loadAsync(require('../../assets/sounds/wow_sound.mp3'), initialStatus = {}, downloadFirst = true)
     }
     
     // Slap function
@@ -71,13 +71,13 @@ export default class SlapCard extends Component {
     return ( 
         <View style={styles.root}>
         <View style={styles.opacity}/>
+        <Center horizontal>
         <View style={styles.slapShadow}>
         <Image
           style={styles.slapBg}
           source={require("../../assets/backgrounds/SlapCard_Bg.jpg")}
         />
-        
-        <Center horizontal>
+          <Center horizontal>
           <Image
             style={{
               width: 243,
@@ -90,7 +90,7 @@ export default class SlapCard extends Component {
             }}
             source={this.props.playerImg}
           />
-        </Center>
+          </Center>
         <TouchableOpacity 
             onPress={this.onSlap}
             style={styles.slap}>
@@ -122,6 +122,8 @@ export default class SlapCard extends Component {
             )}
         
         </View>
+        </Center>
+
         </View>
         
     )}
@@ -130,9 +132,6 @@ export default class SlapCard extends Component {
 const styles = StyleSheet.create({
   root: {
     zIndex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
 },
   slap: {
     height: 180,
@@ -147,17 +146,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "35%",
   },
-  // player: {
-  //   width: 243,
-  //   height: 243,
-  //   position: "absolute",
-  //   borderWidth: 6,
-  //   borderColor: playerStatus,
-  //   borderRadius: 120,
-  //   top: "7%"
-  // },
   slapShadow: {
-    top: 180,
+    top: 170,
     width: 339,
     height: 339,
     position: "absolute",
