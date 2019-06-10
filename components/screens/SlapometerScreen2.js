@@ -207,69 +207,67 @@ render(){
 
 
 
-
-    if( this.state.team1[ctx.state.number1]=== 0) {
+    if( ctx.state.number1 === 0) {
         var to1 = <Thumbnail 
         large
       style={{ borderWidth : 2,borderColor: '#FF0027',top:40,left:2 }}
-      source ={ require('../../assets/players/neymar2.png')}
+      source ={ require('../../assets/players/antero2.png')}
       />
       var to3 =  <Thumbnail   
       large
      style={{ borderWidth : 2,borderColor: '#FF0027',top:5}}
-     source ={ require('../../assets/players/rami.png')}
+     source ={ require('../../assets/players/neymar2.png')}
     />
     var to2 = <Thumbnail 
     large
     style={{ borderWidth : 2,borderColor: '#FF0027',top:60,right:2}}
-    source ={ require('../../assets/players/antero2.png')}
+    source ={ require('../../assets/players/rabiot2.png')}
   />
       }
     
 
 
 
-      else if(this.state.number[ctx.state.number1]===1){
+      else if(ctx.state.number1===1){
          to1 = <Thumbnail 
         large
       style={{ borderWidth : 2,borderColor: '#FF0027',top:40,left:2 }}
-      source ={ require('../../assets/players/neymar2.png')}
+      source ={ require('../../assets/players/germain.png')}
       />
        to3 =  <Thumbnail   
       large
      style={{ borderWidth : 2,borderColor: '#FF0027',top:5}}
-     source ={ require('../../assets/players/tuchel2.png')}
+     source ={ require('../../assets/players/rami.png')}
     />
      to2 = <Thumbnail 
     large
     style={{ borderWidth : 2,borderColor: '#FF0027',top:60,right:2}}
-    source ={ require('../../assets/players/antero2.png')}
+    source ={ require('../../assets/players/thauvin.png')}
   />
       }
-    
-      else if( this.state.number[ctx.state.number1]===2){
-       to1 = <Thumbnail 
-      large
-    style={{ borderWidth : 2,borderColor: '#FF0027',top:40,left:2 }}
-    source ={ require('../../assets/players/Valverde.png')}
-    />
-     to3 =  <Thumbnail   
+
+
+            //    CONDITION CARD 2 
+
+if (ctx.state.number1 === 2 && ctx.state.team3===0) {
+    to1 = <Thumbnail 
     large
-   style={{ borderWidth : 2,borderColor: '#FF0027',top:5}}
-   source ={ require('../../assets/players/Suarez.png')}
+  style={{ borderWidth : 2,borderColor: '#FF0027',top:40,left:2 }}
+  source ={ require('../../assets/players/Benzema.png')}
   />
-   to2 = <Thumbnail 
+   to3 =  <Thumbnail   
   large
-  style={{ borderWidth : 2,borderColor: '#FF0027',top:60,right:2}}
-  source ={ require('../../assets/players/Piqué.png')}
+ style={{ borderWidth : 2,borderColor: '#FF0027',top:5}}
+ source ={ require('../../assets/players/Ballondor.png')}
 />
-    }
+ to2 = <Thumbnail 
+large
+style={{ borderWidth : 2,borderColor: '#FF0027',top:60,right:2}}
+source ={ require('../../assets/players/Bale.png')}
+/>
 
-
-
-
-
-
+    
+}
 
 
 
