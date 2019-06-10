@@ -24,9 +24,9 @@ class LiveGameScreen extends React.Component {
                 {
                     homeTeam:require("../../assets/logos/logoPsg.jpg"),
                     visitorTeam:require("../../assets/logos/logoMarseille.png"),
-                    scoreHomeTeam:5,
+                    scoreHomeTeam:2,
                     scoreVisitorTeam:0,
-                    timer : '37:23',
+                    timer : '17 : 23',
                     attList : [
                         {
                         firstname: 'Kylian',
@@ -155,9 +155,9 @@ class LiveGameScreen extends React.Component {
                 {
                     homeTeam:require("../../assets/logos/logoBarca.png"),
                     visitorTeam:require("../../assets/logos/logoRealMadrid.png"),
-                    scoreHomeTeam:3,
+                    scoreHomeTeam:1,
                     scoreVisitorTeam:1,
-                    timer : '71:52',
+                    timer : '23 : 52',
                     attList : [
                         {
                         firstname: 'Lionel',
@@ -282,6 +282,175 @@ class LiveGameScreen extends React.Component {
                             slap:this.randomNumber(),
                             post: 'S',
                             img: require("../../assets/players/Barthomeu.png"),
+                            },
+                    ]
+                },
+                {
+                    homeTeam:require("../../assets/logos/FSlogoFull.png"),
+                    visitorTeam:require("../../assets/logos/capsule.png"),
+                    scoreHomeTeam: '- #13',
+                    // scoreVisitorTeam:0,
+                    timer : 'La Capsule',
+                    attList : [
+                        {
+                        clap:this.randomNumber(),
+                        slap:this.randomNumber(),
+                        post: 'A',
+                        img:require("../../assets/Capsule-pics/wagner.jpg"),
+                        },
+                        {
+                        clap:this.randomNumber(),
+                        slap:this.randomNumber(),
+                        post: 'A',
+                        img:require("../../assets/Capsule-pics/ganfoud.jpg"),
+                        },
+                        {
+                        clap:this.randomNumber(),
+                        slap:this.randomNumber(),
+                        post: 'A',
+                        img: require("../../assets/Capsule-pics/zhang.jpg"),
+                         },
+                         {
+                         clap:this.randomNumber(),
+                         slap:this.randomNumber(),
+                         post: 'A',
+                         img: require("../../assets/Capsule-pics/staron.jpg"),
+                          },
+                          {
+                          clap:this.randomNumber(),
+                          slap:this.randomNumber(),
+                          post: 'A',
+                          img: require("../../assets/Capsule-pics/heu.jpg"),
+                           },
+                        
+                    ],
+                    midList : [
+                        {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img:require("../../assets/Capsule-pics/dijoux.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img:require("../../assets/Capsule-pics/peletier.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'M',
+                            img: require("../../assets/Capsule-pics/clavel.jpg"),
+                             },
+                             {
+                             clap:this.randomNumber(),
+                             slap:this.randomNumber(),
+                             post: 'M',
+                             img: require("../../assets/Capsule-pics/kalabis.jpg"),
+                              },
+                              {
+                              clap:this.randomNumber(),
+                              slap:this.randomNumber(),
+                              post: 'M',
+                              img: require("../../assets/Capsule-pics/sauveton.jpg"),
+                               },
+                    ],
+                    defList : [
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img:require("../../assets/Capsule-pics/cauchois.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img:require("../../assets/Capsule-pics/blanc.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/bennis.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/renard.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/lazarus.jpg"),
+                            },
+                    ],
+                   gbList : [
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'G',
+                            img:require("../../assets/Capsule-pics/lefevre.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/lentz.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/lokingfung.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/touret.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'D',
+                            img: require("../../assets/Capsule-pics/marro.jpg"),
+                            },
+                            
+                    ],
+                 staffList : [
+                        {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/Capsule-pics/alexis.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/Capsule-pics/yoann.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img: require("../../assets/Capsule-pics/noel.jpg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/Capsule-pics/anaelle.jpeg"),
+                            },
+                            {
+                            clap:this.randomNumber(),
+                            slap:this.randomNumber(),
+                            post: 'S',
+                            img:require("../../assets/Capsule-pics/marlene.jpg"),
                             },
                     ]
                 }
@@ -543,6 +712,7 @@ class LiveGameScreen extends React.Component {
         <View
              style={styles.score}
         >
+            
                  <TouchableOpacity 
                    onPress={
                     this.setMinus
@@ -552,10 +722,13 @@ class LiveGameScreen extends React.Component {
                         source={require('../../assets/icons/left-chevron.png')}
                     />
                  </TouchableOpacity>
-                 
-                    <Thumbnail  source={this.state.matchLive[this.state.live].homeTeam} />
+          
+           
+                    <Thumbnail 
+                    style={{backgroundColor: '#0062FF'}}
+                     source={this.state.matchLive[this.state.live].homeTeam} />
 
-                        <View style={{alignItems:"center"}}>
+                        <View style={{alignItems:"center",width:"40%"}}>
 
                         {this.state.fontLoaded ? (   
                         <Text style={{fontSize:33, fontFamily:'Orbitron-Bold', color:'#545454'}}>{this.state.matchLive[this.state.live].scoreHomeTeam} - {this.state.matchLive[this.state.live].scoreVisitorTeam}</Text> 
@@ -567,9 +740,10 @@ class LiveGameScreen extends React.Component {
 
                         </View>
 
-                    <Thumbnail  source= {this.state.matchLive[this.state.live].visitorTeam} />
-                    
-
+                    <Thumbnail  
+                    source= {this.state.matchLive[this.state.live].visitorTeam} />
+           
+          
                  <TouchableOpacity
                       onPress={
                         this.setPlus
@@ -579,9 +753,10 @@ class LiveGameScreen extends React.Component {
                         source={require('../../assets/icons/right-chevron.png')}
                     />
                  </TouchableOpacity>
+           
         </View>
             <ImageBackground
-                source={require("../../assets/backgrounds/backgroundRond.png")}
+                source={require("../../assets/backgrounds/backgroundRondDark.jpg")}
                 style={styles.ibg}
                 >
                 <View
@@ -654,6 +829,7 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     goalLine: {
+        width:"95%",
         justifyContent:"space-around",
         alignItems:"center", 
         flex: 0.2,

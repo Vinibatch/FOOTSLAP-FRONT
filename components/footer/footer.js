@@ -49,9 +49,9 @@ onBoardClick = () => {
             />
 
             {this.state.fontLoaded ? (
-              <Text style={styles.font}>Match</Text>
+              <Text style={styles.font}>Live</Text>
             ) : (
-              <Text>Match</Text>
+              <Text>Live</Text>
             )}
 
           </TouchableOpacity>
@@ -59,7 +59,7 @@ onBoardClick = () => {
           <ListItem>
             <TouchableOpacity 
             style={styles.menuList}
-            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Team')}}
+            onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Teams')}}
             >
               <Image
                 style={styles.icon}
@@ -67,9 +67,9 @@ onBoardClick = () => {
               />
 
               {this.state.fontLoaded ? (
-                <Text style={styles.font}>Team</Text>
+                <Text style={styles.font}>Teams</Text>
               ) : (
-                <Text>Team</Text>
+                <Text>Teams</Text>
               )}
 
             </TouchableOpacity>
@@ -77,7 +77,7 @@ onBoardClick = () => {
           <ListItem>
           <TouchableOpacity 
           style={styles.menuList}
-          onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('Slapo')}}
+          onPress={ () => {this.setState({blackboardVisible: !this.state.blackboardVisible}); this.props.navigation.navigate('ActuSlap')}}
           >
           <Image
             style={styles.icon}
@@ -86,9 +86,9 @@ onBoardClick = () => {
           />
 
             {this.state.fontLoaded ? (
-              <Text style={styles.font}>Slapometer</Text>
+              <Text style={styles.font}>ActuSlap</Text>
             ) : (
-              <Text>Slapometer</Text>
+              <Text>ActuSlap</Text>
             )}
 
         </TouchableOpacity>
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   menuIcon: {
     height: 42,
     width: 42,
-    bottom: 7,
+    bottom: 6,
     left: '7%',
     position: "absolute"
   },

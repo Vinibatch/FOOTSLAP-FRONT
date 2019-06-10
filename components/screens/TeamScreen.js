@@ -195,7 +195,7 @@ class TeamScreen extends Component {
 			<View style={{ flex: 1, width: '100%' }}>
 				<ImageBackground
 					style={{ height: '100%', width: '100%' }}
-					source={require('../../assets/backgrounds/Field_Bg.png')}
+					source={require('../../assets/backgrounds/backgroundRondDark.jpg')}
 				>
 					{slapCard}
 
