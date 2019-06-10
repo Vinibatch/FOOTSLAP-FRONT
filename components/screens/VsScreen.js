@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Font } from 'expo';
+import { Font, Audio } from 'expo';
 import { ImageBackground, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, CardItem, CheckBox, Body, ListItem, Thumbnail } from 'native-base';
 import { Divider } from 'react-native-elements';
@@ -33,6 +33,11 @@ export default class VsScreen extends React.Component {
 		});
 
 		this.setState({ fontLoaded: true });
+
+		// Load sounds for slap and clap buttons
+        this.slapSound = new Audio.Sound();
+
+        await this.slapSound.loadAsync(require('../../assets/sounds/slap_sound.mp3'), initialStatus = {}, downloadFirst = true)
 	}
 
 	handleClick = () => {
@@ -47,6 +52,8 @@ export default class VsScreen extends React.Component {
 			console.log(this.state.countSlapPlayer1);
 			this.setState({ border: '#FF0027' });
 			this.setState({ TouchableOpacity: true });
+			// Calls slap sound
+			this.slapSound.playAsync()
 		}
 		this.setState({ count: false });
 	}
@@ -57,8 +64,11 @@ export default class VsScreen extends React.Component {
 			console.log(this.state.countSlapPlayer2);
 			this.setState({ boorder: '#FF0027' });
 			this.setState({ TouchableOpacity: true });
+			// Calls slap sound
+			this.slapSound.playAsync()
 		}
 		this.setState({ count: false });
+		
 	}
 
 	render() {

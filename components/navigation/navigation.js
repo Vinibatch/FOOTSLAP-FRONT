@@ -10,10 +10,10 @@ import LoginScreen from '../screens/LoginScreen'
 
 const StackNavigator = createStackNavigator({
 
-Slapo:SlapometerScreen2,
+ActuSlap:SlapometerScreen2,
 Login:LoginScreen,    
 Live:LiveGameScreen,
-Team:TeamScreen,
+Teams:TeamScreen,
 Account:AccountScreen,
 Events: VsScreen,
 
