@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@builderx/utils": "^0.1.6",
-		"expo": "^32.0.0",
+		"expo": "^46.0.16",
 		"native-base": "^2.12.1",
 		"react": "16.5.0",
 		"react-light-accordion": "^0.1.4",
